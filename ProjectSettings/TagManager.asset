@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Hand
+  - Board
+  - Card/Element
+  - Card/Effect
+  - Card/Power
+  - Deck
+  - StandBy
+  - Slot/ElementPlayer
+  - Slot/ElementEnemy
+  - Slot/EffectPlayer
+  - Slot/EffectEnemy
+  - Discard
+  - VictoryDeck/Player
+  - VictoryDeck/Enemy
+  - Particles
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - PostProcessing
+  - Main Card
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 373398697
+    locked: 0
+  - name: Main Card
+    uniqueID: 1866307209
+    locked: 0
