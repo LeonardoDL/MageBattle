@@ -55,7 +55,7 @@ public class CardInHand : MonoBehaviour
 
     public void Summon()
     {
-        //Debug.Log(Input.mousePosition);
+        BoardManager.isInTransition = true;
         Vector3 v = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zValue));
         //Debug.Log(v);
         AssignType();
@@ -68,7 +68,7 @@ public class CardInHand : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         //Debug.Log("Trigger Exit");
-        if (other.tag == "Hand")
+        if (other.tag == "Hand" && !BoardManager.isInTransition)
         {
             Power p = GetComponent<Power>();
             if (p != null)
@@ -93,8 +93,9 @@ public class CardInHand : MonoBehaviour
                 switch (effect.cardType)
                 {
                  case CardType.Intelligence:
+
+                    BoardManager.curState = GameState.PlayerEffectPhase;
                     Summon();
-                    effect.execute(true);
                     break;
 
                  default:

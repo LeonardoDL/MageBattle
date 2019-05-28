@@ -11,15 +11,13 @@ public enum CardType
     AirE,
     LightningE,
     ArcanaE,
-    //IntelligenceFX,
-    //EclipseFX,
-    //FishingRodFX,
-    //PortalFX,
+
     WaterP,
     EarthP,
     FireP,
     AirP,
     LightningP,
+
     WaterFireP,
     WaterAirP,
     WaterLightningP,
@@ -30,6 +28,7 @@ public enum CardType
     AirLightningP,
     AirEarthP,
     EarthLightningP,
+
     WaterFireAirP,
     LightningFireWaterP,
     WaterFireEarthP,
@@ -40,10 +39,12 @@ public enum CardType
     FireAirEarthP,
     LightningFireEarthP,
     LightningAirEarthP,
+
     MegaPowerP,
 
-    Intelligence
-
+    Intelligence,
+    Portal,
+    SuperGenius
 }
 
 public enum SlotsOnBoard

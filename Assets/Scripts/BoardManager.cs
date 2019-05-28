@@ -7,7 +7,7 @@ public class BoardManager : MonoBehaviour
 {
     private static BoardManager bm;
     public Text[] texts;
-    private Deck deck;
+    public Deck deck;
     private Discard discard;
 
     public Transform enemySlot;
@@ -15,22 +15,20 @@ public class BoardManager : MonoBehaviour
     public GameObject powerPrefab;
     public Sprite[] sprites;
 
-    [HideInInspector]
-    public CardType playerCard;
-    [HideInInspector]
-    public CardType enemyCard;
-    [HideInInspector]
-    public bool endGame;
+    [HideInInspector] public CardType playerCard;
+    [HideInInspector] public CardType enemyCard;
+    [HideInInspector] public bool endGame;
+    [HideInInspector] public static bool isInTransition;
 
     private EnemyManager enemy;
     private GameObject playerHand;
     private GameObject playerStandBy;
 
-    public GameState currentState = GameState.None;
+    //public GameState currentState = GameState.None;
     public static GameState curState = GameState.None;
     public static WinCondition curWinCondition = WinCondition.Draw;
 
-    public void Peek() { currentState = curState; }
+    //public void Peek() { currentState = curState; }
 
     void Start()
     {
@@ -43,7 +41,7 @@ public class BoardManager : MonoBehaviour
         playerStandBy = GameObject.FindWithTag("StandBy");
         deck = GameObject.FindWithTag("Deck").GetComponent<Deck>();
         StartCoroutine(WaitStart());
-        enemy.setEffects(deck.GetAllEffects());
+        //enemy.setEffects(deck.GetAllEffects());
     }
 
     private IEnumerator WaitStart()
@@ -125,6 +123,8 @@ public class BoardManager : MonoBehaviour
     public void CardPlayed(GameObject card)
     {
         CardType cardType = card.GetComponent<CardInBoard>().type;
+        isInTransition = false;
+
         switch (curState)
         {
             case GameState.PlayerPlayPhase:

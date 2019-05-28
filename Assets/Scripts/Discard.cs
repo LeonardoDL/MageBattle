@@ -6,29 +6,13 @@ public class Discard : MonoBehaviour
 {
     public DeckList<CardType> cards;
 
-    private GameObject cardPlaceholder;
-    private GameObject cardInHand;
-    private GameObject panelHand;
-
-    private Sprite[] pwSprites;
-    private GameObject powerPrefab;
+    public CardBuilder cardBuilder;
 
     // Start is called before the first frame update
     void Start()
     {
         cards = new DeckList<CardType>();
     }
-
-    void Awake()
-    {
-        Deck deck = GameObject.FindWithTag("Deck").GetComponent<Deck>();
-        cardPlaceholder = deck.cardPlaceholder;
-        cardInHand = deck.cardInHand;
-        panelHand = deck.panelHand;
-
-        pwSprites = deck.pwSprites;
-        powerPrefab = deck.powerPrefab;
-}
 
     public void DebugAllDeck()
     {
@@ -59,27 +43,11 @@ public class Discard : MonoBehaviour
         }
         catch (System.InvalidOperationException e)
         {
-            Debug.Log("No cards! [Discard]");
+            Debug.Log("No cards! [Deck]");
+            BoardManager.GetBoardManager().endGame = true;
         }
 
-        switch (c)
-        {
-            case CardType.WaterP:
-                NewCardInHand(0).water = true;
-                break;
-            case CardType.EarthP:
-                NewCardInHand(1).earth = true;
-                break;
-            case CardType.FireP:
-                NewCardInHand(2).fire = true;
-                break;
-            case CardType.AirP:
-                NewCardInHand(3).air = true;
-                break;
-            case CardType.LightningP:
-                NewCardInHand(4).lightning = true;
-                break;
-        }
+        cardBuilder.BuildCard(c);
     }
 
     public CardType DrawCardEnemy()
@@ -91,7 +59,9 @@ public class Discard : MonoBehaviour
         }
         catch (System.InvalidOperationException e)
         {
-            Debug.Log("No cards! [Discard]");
+            Debug.Log("No cards! [Deck]");
+            BoardManager.GetBoardManager().endGame = true;
+            //c = GameObject.FindWithTag("Discard").GetComponent<Discard>().DrawCardEnemy();
         }
 
         return c;
@@ -99,15 +69,8 @@ public class Discard : MonoBehaviour
 
     public void DrawHandPlayer(int quantity)
     {
+        BoardManager.GetBoardManager().texts[1].text = "Player draws " + quantity + " cards from Discard";
         for (int i = 0; i < quantity; i++)
             DrawCardPlayer();
-    }
-
-    public Power NewCardInHand(int x)
-    {
-        GameObject cih = Instantiate(cardInHand, Instantiate(cardPlaceholder, panelHand.transform).transform);
-        cih.GetComponent<CardInHand>().SetSpriteAndPrefab(pwSprites[x], powerPrefab);
-        //cih.tag = "Card/Power";
-        return cih.AddComponent<Power>();
     }
 }

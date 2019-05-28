@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
     public bool isActive;
 
     private Deck deck;
-    IDictionary<CardType, EnemyEffect> effects;
+    //IDictionary<CardType, EnemyEffect> effects;
 
     // Start is called before the first frame update
     void Awake()
@@ -22,9 +22,9 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void setEffects(IDictionary<CardType, EnemyEffect> effects){
-        this.effects = effects;
-    }
+    //public void setEffects(IDictionary<CardType, EnemyEffect> effects){
+    //    this.effects = effects;
+    //}
 
     public void DrawHandEnemy(int quantity)
     {
@@ -50,14 +50,14 @@ public class EnemyManager : MonoBehaviour
     }
 
     public void SummonEffect(CardType cardType){
-         switch (cardType)
-                {
-                 case CardType.Intelligence:
-                    effects[CardType.Intelligence].execute(false);
-                    break;
-                 default:
-                    break;
-                }
+         //switch (cardType)
+         //       {
+         //        case CardType.Intelligence:
+         //           effects[CardType.Intelligence].execute();
+         //           break;
+         //        default:
+         //           break;
+         //       }
     }
 
     public void SummonElement(GameObject[] cardPrefabs, Transform enemySlot)
