@@ -11693,6 +11693,7 @@ MonoBehaviour:
   - {fileID: 690332095}
   - {fileID: 488970887}
   deck: {fileID: 0}
+  discard: {fileID: 0}
   enemySlot: {fileID: 8816148563892506993}
   cardPrefabs:
   - {fileID: 349646860318526795, guid: bd6f3ccba8bb70c478ff6e616b9b6edf, type: 3}
@@ -11732,7 +11733,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2928a2b5b699cf5e7b897ecc570b99b4, type: 3}
   playerCard: 0
   enemyCard: 0
+  playerBoardCard: {fileID: 0}
+  enemyBoardCard: {fileID: 0}
   endGame: 0
+  currentState: 0
 --- !u!114 &540246897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41713,10 +41717,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -41724,7 +41728,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Draw From Discard
+  m_Text: Peek
 --- !u!222 &1767921598
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -42289,8 +42293,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1697685992}
-        m_MethodName: DrawCardPlayer
+      - m_Target: {fileID: 540246896}
+        m_MethodName: Peek
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

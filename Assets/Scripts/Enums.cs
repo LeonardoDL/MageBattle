@@ -67,6 +67,8 @@ public enum GameState
     BattlePhase,
     PlayerEffectPhase,
     EnemyEffectPhase,
+    //PortalPlayerPhase,
+    //PortalEnemyPhase,
     ClearPhase,
     EndGame
 }

@@ -90,20 +90,31 @@ public class CardInHand : MonoBehaviour
             if (effect != null)
             {
                 type = effect.cardType;
-                switch (effect.cardType)
-                {
-                 case CardType.Intelligence:
-
-                    BoardManager.curState = GameState.PlayerEffectPhase;
+                if (effect.isPlayable())
                     Summon();
-                    break;
-
-                 default:
+                else
                     moveCard = false;
-                    break;
-                }
+
+                //switch (effect.cardType)
+                //{
+                //    case CardType.Intelligence:
+                //        Summon();
+                //        break;
+
+                //    case CardType.Portal:
+                //        //BoardManager.curState = GameState.PlayerEffectPhase;
+                //        Summon();
+                //        break;
+
+                //    case CardType.SuperGenius:
+                //        Summon();
+                //        break;
+
+                //    default:
+                //        moveCard = false;
+                //        break;
+                //}
             }
-                
         }
     }
 
@@ -144,6 +155,9 @@ public class CardInHand : MonoBehaviour
     {
         g.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprite;
         g.GetComponent<CardInBoard>().type = type;
+        Effect e = GetComponent<Effect>();
+        if (e != null)
+            g.GetComponent<CardInBoard>().execute = e.execute;
     }
 
     public void AssignType()

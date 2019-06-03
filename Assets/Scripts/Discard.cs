@@ -40,14 +40,12 @@ public class Discard : MonoBehaviour
         try
         {
             c = cards.Draw();
+            cardBuilder.BuildCard(c);
         }
         catch (System.InvalidOperationException e)
         {
-            Debug.Log("No cards! [Deck]");
-            BoardManager.GetBoardManager().endGame = true;
+            Debug.Log("No cards! [Discard]");
         }
-
-        cardBuilder.BuildCard(c);
     }
 
     public CardType DrawCardEnemy()

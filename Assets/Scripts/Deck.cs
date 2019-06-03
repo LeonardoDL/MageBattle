@@ -34,7 +34,7 @@ public class Deck : MonoBehaviour
     {
         cards.Push(CardType.AirE, 6);
         cards.Push(CardType.EarthE, 6);
-        cards.Push(CardType.FireE, 50);
+        cards.Push(CardType.FireE, 6);
         cards.Push(CardType.LightningE, 6);
         cards.Push(CardType.WaterE, 6);
         cards.Push(CardType.ArcanaE, 6);
@@ -72,7 +72,9 @@ public class Deck : MonoBehaviour
 
         cards.Push(CardType.MegaPowerP, 5);
 
-        cards.Push(CardType.Intelligence, 50);
+        cards.Push(CardType.Intelligence, 20);
+        cards.Push(CardType.Portal, 20);
+        cards.Push(CardType.SuperGenius, 20);
 
         cards.Shuffle();
     }
@@ -96,14 +98,13 @@ public class Deck : MonoBehaviour
         try
         {
             c = cards.Draw();
+            cardBuilder.BuildCard(c);
         }
         catch (System.InvalidOperationException e)
         {
             Debug.Log("No cards! [Deck]");
             BoardManager.GetBoardManager().endGame = true;
         }
-
-        cardBuilder.BuildCard(c);
     }
 
     public CardType DrawCardEnemy()

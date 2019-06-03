@@ -6,6 +6,7 @@ public class CardInBoard : MonoBehaviour
 {
     private GameObject slot;
     public CardType type;
+    public Execute execute;
 
     private AnimationManager am;
     //public bool isPlayer = true;
