@@ -37,6 +37,7 @@ public class DeckList<T> : List<T>
         return t;
     }
 
+    //Fisher-Yates Shuffle
     public void Shuffle()
     {
         Random rng = new Random();

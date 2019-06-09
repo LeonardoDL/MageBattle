@@ -40,9 +40,9 @@ public class Discard : MonoBehaviour
         try
         {
             c = cards.Draw();
-            cardBuilder.BuildCard(c);
+            cardBuilder.BuildCard(c, true);
         }
-        catch (System.InvalidOperationException e)
+        catch
         {
             Debug.Log("No cards! [Discard]");
         }
@@ -54,8 +54,9 @@ public class Discard : MonoBehaviour
         try
         {
             c = cards.Draw();
+            cardBuilder.BuildCard(c, false);
         }
-        catch (System.InvalidOperationException e)
+        catch
         {
             Debug.Log("No cards! [Deck]");
             BoardManager.GetBoardManager().endGame = true;

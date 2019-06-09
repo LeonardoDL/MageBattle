@@ -10,11 +10,6 @@ public class BoardManager : MonoBehaviour
     [HideInInspector] public Deck deck;
     [HideInInspector] public Discard discard;
 
-    public Transform enemySlot;
-    public GameObject[] cardPrefabs;
-    public GameObject powerPrefab;
-    public Sprite[] sprites;
-
     [HideInInspector] public CardType playerCard;
     [HideInInspector] public CardType enemyCard;
     [HideInInspector] public GameObject playerBoardCard;
@@ -63,6 +58,11 @@ public class BoardManager : MonoBehaviour
         enemy.DrawHandEnemy(qnt);
     }
 
+    public void DrawHandEnemyFromDiscard(int qnt)
+    {
+        enemy.DrawHandEnemyFromDiscard(qnt);
+    }
+
     public void DrawCards()
     {
         int pHandSize = playerHand.transform.childCount;
@@ -91,9 +91,14 @@ public class BoardManager : MonoBehaviour
         {
             if (enemy.hand.Count >= 7 && enemy.standBy.Count <= 0)
             {
-                Debug.Log("No Elements To Battle! [Enemy]");
-                for (int i = 0; i < enemy.hand.Count; i++)
+                Debug.Log("No Elements To Battle! [Enemy] " + enemy.hand.Count);
+                int t = enemy.hand.Count;
+                for (int i = 0; i < t; i++)
+                {
                     enemy.hand.RemoveAt(0);
+                    deck.cardBuilder.RemoveCardFromHand();
+                    new WaitForSeconds(1f);
+                }
                 enemy.DrawHandEnemy(7);
             }
             else
@@ -110,11 +115,6 @@ public class BoardManager : MonoBehaviour
         }
         else
         {
-        
-            if(enemy.hasCard(CardType.Intelligence)){
-                enemy.SummonEffect(CardType.Intelligence);
-            }
-
             curState = GameState.PlayerPlayPhase;
         }
 
@@ -131,6 +131,13 @@ public class BoardManager : MonoBehaviour
         if (cardType == CardType.Intelligence || cardType == CardType.SuperGenius)
         {
             card.GetComponentInChildren<CardInBoard>().execute?.Invoke();
+
+            if (curState == GameState.PlayerPlayPhase)
+            {
+                curState = GameState.EnemyPlayPhase;
+                enemy.PlayCardDraw();
+            }
+
             return;
         }
         
@@ -139,7 +146,7 @@ public class BoardManager : MonoBehaviour
                 case GameState.PlayerPlayPhase:
                     playerCard = cardType;
                     playerBoardCard = card;
-                    enemy.SummonElement(cardPrefabs, enemySlot);
+                    enemy.PlayElement();
                     curState = GameState.EnemyPlayPhase;
                     break;
 
@@ -156,7 +163,7 @@ public class BoardManager : MonoBehaviour
                 case GameState.PlayerEffectPhase:
                     curWinCondition = WinCondition.Victory;
                     card.GetComponentInChildren<CardInBoard>().execute?.Invoke();
-                    enemy.SummonPower(sprites, powerPrefab, enemySlot);
+                    enemy.PlayPowerOrEffect();
                     curState = GameState.EnemyEffectPhase;
                     break;
 
@@ -180,7 +187,7 @@ public class BoardManager : MonoBehaviour
 
                 curWinCondition = WinCondition.Victory;
                 curState = GameState.EnemyEffectPhase;
-                enemy.SummonPower(sprites, powerPrefab, enemySlot);
+                enemy.PlayPowerOrEffect();
                 //Debug.Log("Player played " + playerCard + " and won against " + enemyCard);
                 break;
 

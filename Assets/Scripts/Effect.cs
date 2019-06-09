@@ -36,7 +36,11 @@ public class Effect : MonoBehaviour
     public bool Intelligence()
     {
         BoardManager bm = BoardManager.GetBoardManager();
-        bm.deck.DrawHandPlayer(2);
+        if (BoardManager.curState == GameState.PlayerPlayPhase || BoardManager.curState == GameState.PlayerEffectPhase)
+            bm.deck.DrawHandPlayer(2);
+
+        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase)
+            bm.DrawHandEnemy(2);
         return true;
     }
 
@@ -44,7 +48,7 @@ public class Effect : MonoBehaviour
     {
         BoardManager bm = BoardManager.GetBoardManager();
 
-        BoardManager.curState = GameState.EnemyPlayPhase;
+        //BoardManager.curState = GameState.EnemyPlayPhase;
         bm.playerBoardCard.GetComponent<CardInBoard>().Activate(SlotsOnBoard.ElementEnemy);
         bm.enemyBoardCard.GetComponent<CardInBoard>().Activate(SlotsOnBoard.ElementPlayer);
 
@@ -67,7 +71,13 @@ public class Effect : MonoBehaviour
     public bool SuperGenius()
     {
         BoardManager bm = BoardManager.GetBoardManager();
-        bm.discard.DrawHandPlayer(3);
+
+        if (BoardManager.curState == GameState.PlayerPlayPhase || BoardManager.curState == GameState.PlayerEffectPhase)
+            bm.discard.DrawHandPlayer(3);
+
+        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase)
+            bm.DrawHandEnemyFromDiscard(3);
+
         return true;
     }
 
@@ -75,21 +85,21 @@ public class Effect : MonoBehaviour
 
     public bool IntelligenceI()
     {
-        if (BoardManager.curWinCondition == WinCondition.Victory)
+        if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curState == GameState.EndGame)
             return false;
         return true;
     }
 
     public bool PortalI()
     {
-        if (BoardManager.curState != GameState.PlayerEffectPhase || BoardManager.curWinCondition == WinCondition.Victory)
+        if (BoardManager.curState != GameState.PlayerEffectPhase || BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curState == GameState.EndGame)
             return false;
         return true;
     }
 
     public bool SuperGeniusI()
     {
-        if (BoardManager.curWinCondition == WinCondition.Victory)
+        if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curState == GameState.EndGame)
             return false;
         return true;
     }

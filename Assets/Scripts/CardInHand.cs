@@ -68,8 +68,14 @@ public class CardInHand : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         //Debug.Log("Trigger Exit");
-        if (other.tag == "Hand" && !BoardManager.isInTransition)
+        if (other.tag == "Hand")
         {
+            if (BoardManager.isInTransition)
+            {
+                moveCard = false;
+                return;
+            }
+
             Power p = GetComponent<Power>();
             if (p != null)
             {
@@ -91,7 +97,13 @@ public class CardInHand : MonoBehaviour
             {
                 type = effect.cardType;
                 if (effect.isPlayable())
+                {
+                    if (BoardManager.curState == GameState.EnemyPlayPhase)
+                        BoardManager.curState = GameState.PlayerPlayPhase;
+                    if (BoardManager.curState == GameState.EnemyEffectPhase)
+                        BoardManager.curState = GameState.PlayerEffectPhase;
                     Summon();
+                }
                 else
                     moveCard = false;
 

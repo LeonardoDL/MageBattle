@@ -98,9 +98,9 @@ public class Deck : MonoBehaviour
         try
         {
             c = cards.Draw();
-            cardBuilder.BuildCard(c);
+            cardBuilder.BuildCard(c, true);
         }
-        catch (System.InvalidOperationException e)
+        catch
         {
             Debug.Log("No cards! [Deck]");
             BoardManager.GetBoardManager().endGame = true;
@@ -113,8 +113,9 @@ public class Deck : MonoBehaviour
         try
         {
             c = cards.Draw();
+            cardBuilder.BuildCard(c, false);
         }
-        catch (System.InvalidOperationException e)
+        catch
         {
             Debug.Log("No cards! [Deck]");
             BoardManager.GetBoardManager().endGame = true;
