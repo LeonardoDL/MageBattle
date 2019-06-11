@@ -9,7 +9,6 @@ public class CardInBoard : MonoBehaviour
     public Execute execute;
 
     private AnimationManager am;
-    //public bool isPlayer = true;
 
     public void Activate(SlotsOnBoard place)
     {
@@ -41,30 +40,16 @@ public class CardInBoard : MonoBehaviour
                 slot = GameObject.FindWithTag("VictoryDeck/Enemy");
                 Destroy(gameObject.GetComponent<DragObj>());
                 break;
+            case SlotsOnBoard.ElementPlayerPortal:
+                slot = GameObject.FindWithTag("Slot/PortalPlayer");
+                break;
+            case SlotsOnBoard.ElementEnemyPortal:
+                slot = GameObject.FindWithTag("Slot/PortalEnemy");
+                break;
         }
-
-        //if (!enabled)
-            //return;
-
-        //float f1 = Random.Range(-15f, 15f);
-        //float f2 = Random.Range(-15f, 15f);
-
-        //gameObject.transform.rotation = Quaternion.Euler(0f, (f1 + f2)/2, 0f);
-
         
         slot.GetComponent<PlaceCard>().PlaceOnSlot(gameObject);
-        //this.enabled = false;
     }
-
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    if (!enabled)
-    //        return;
-
-    //    //if (collision.gameObject.tag == "Board" )
-    //    slot.GetComponent<PlaceCard>().PlaceOnSlot(gameObject.name);
-    //    this.enabled = false;
-    //}
 
     void OnMouseDown()
     {

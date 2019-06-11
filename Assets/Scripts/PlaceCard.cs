@@ -6,6 +6,7 @@ public class PlaceCard : MonoBehaviour
 {
     public float speed = 11f;
     public Transform point;
+
     private GameObject go;
     private Quaternion targetRot;
     private Queue<GameObject> queue;
@@ -55,7 +56,8 @@ public class PlaceCard : MonoBehaviour
                     }
                 }
 
-                BoardManager.GetBoardManager().CardPlayed(go);
+                if (!tag.StartsWith("Slot/Portal"))
+                    BoardManager.GetBoardManager().CardPlayed(go);
             }
             else
                 Destroy(go);

@@ -49,8 +49,8 @@ public class Effect : MonoBehaviour
         BoardManager bm = BoardManager.GetBoardManager();
 
         //BoardManager.curState = GameState.EnemyPlayPhase;
-        bm.playerBoardCard.GetComponent<CardInBoard>().Activate(SlotsOnBoard.ElementEnemy);
-        bm.enemyBoardCard.GetComponent<CardInBoard>().Activate(SlotsOnBoard.ElementPlayer);
+        bm.playerBoardCard.GetComponent<CardInBoard>().Activate(SlotsOnBoard.ElementEnemyPortal);
+        bm.enemyBoardCard.GetComponent<CardInBoard>().Activate(SlotsOnBoard.ElementPlayerPortal);
 
         GameObject temp = bm.playerBoardCard;
         bm.playerBoardCard = bm.enemyBoardCard;
@@ -62,6 +62,7 @@ public class Effect : MonoBehaviour
 
         if (BoardManager.curWinCondition == WinCondition.Loss)
             BoardManager.curWinCondition = WinCondition.Victory;
+        else
         if (BoardManager.curWinCondition == WinCondition.Victory)
             BoardManager.curWinCondition = WinCondition.Loss;
 
@@ -85,21 +86,23 @@ public class Effect : MonoBehaviour
 
     public bool IntelligenceI()
     {
-        if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curState == GameState.EndGame)
+        if (BoardManager.curWinCondition == WinCondition.Victory)
             return false;
         return true;
     }
 
     public bool PortalI()
     {
-        if (BoardManager.curState != GameState.PlayerEffectPhase || BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curState == GameState.EndGame)
+        if (BoardManager.curState != GameState.PlayerEffectPhase ||
+            BoardManager.curWinCondition == WinCondition.Victory ||
+            BoardManager.curWinCondition == WinCondition.Draw)
             return false;
         return true;
     }
 
     public bool SuperGeniusI()
     {
-        if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curState == GameState.EndGame)
+        if (BoardManager.curWinCondition == WinCondition.Victory)
             return false;
         return true;
     }

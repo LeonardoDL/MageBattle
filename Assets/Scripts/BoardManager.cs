@@ -24,9 +24,11 @@ public class BoardManager : MonoBehaviour
 
     public GameState currentState = GameState.None;
     public static GameState curState = GameState.None;
+
+    public WinCondition currentWinCondition = WinCondition.Draw;
     public static WinCondition curWinCondition = WinCondition.Draw;
 
-    public void Peek() { currentState = curState; }
+    public void Peek() { currentState = curState; currentWinCondition = curWinCondition; }
 
     void Start()
     {
@@ -126,9 +128,11 @@ public class BoardManager : MonoBehaviour
     public void CardPlayed(GameObject card)
     {
         CardType cardType = card.GetComponent<CardInBoard>().type;
+        Debug.Log("Card played: " + cardType + ", during " + curState);
         isInTransition = false;
 
-        if (cardType == CardType.Intelligence || cardType == CardType.SuperGenius)
+        if ((cardType == CardType.Intelligence || cardType == CardType.SuperGenius) &&
+            (curState == GameState.PlayerPlayPhase || curState == GameState.EnemyPlayPhase))
         {
             card.GetComponentInChildren<CardInBoard>().execute?.Invoke();
 
@@ -142,38 +146,77 @@ public class BoardManager : MonoBehaviour
         }
         
         switch (curState)
-            {
-                case GameState.PlayerPlayPhase:
-                    playerCard = cardType;
-                    playerBoardCard = card;
-                    enemy.PlayElement();
-                    curState = GameState.EnemyPlayPhase;
-                    break;
+        {
+            case GameState.PlayerPlayPhase:
+                playerCard = cardType;
+                playerBoardCard = card;
+                enemy.PlayElement();
+                curState = GameState.EnemyPlayPhase;
+                break;
 
-                case GameState.EnemyPlayPhase:
-                    texts[0].text = "";
-                    texts[1].text = "";
-                    texts[2].text = "";
-                    enemyCard = cardType;
-                    enemyBoardCard = card;
-                    curState = GameState.BattlePhase;
-                    Battle();
-                    break;
+            case GameState.EnemyPlayPhase:
+                texts[0].text = "";
+                texts[1].text = "";
+                texts[2].text = "";
+                enemyCard = cardType;
+                enemyBoardCard = card;
+                curState = GameState.BattlePhase;
+                Battle();
+                break;
 
-                case GameState.PlayerEffectPhase:
+            case GameState.PlayerEffectPhase:
+
+                if (card.GetComponentInChildren<CardInBoard>().execute != null)
+                {
+                    card.GetComponentInChildren<CardInBoard>().execute();
+
+                    if (curWinCondition == WinCondition.Loss)
+                    {
+                        curState = GameState.PlayerEffectPhase;
+                    }
+                    else
+                    {
+                        if (curWinCondition == WinCondition.Victory)
+                        {
+                            curState = GameState.EnemyEffectPhase;
+                            enemy.PlayPowerOrEffect();
+                        }
+                    }
+                }
+                else
+                {
                     curWinCondition = WinCondition.Victory;
-                    card.GetComponentInChildren<CardInBoard>().execute?.Invoke();
-                    enemy.PlayPowerOrEffect();
                     curState = GameState.EnemyEffectPhase;
-                    break;
+                    enemy.PlayPowerOrEffect();
+                }
 
-                case GameState.EnemyEffectPhase:
+                break;
+
+            case GameState.EnemyEffectPhase:
+
+                if (card.GetComponentInChildren<CardInBoard>().execute != null)
+                {
+                    card.GetComponentInChildren<CardInBoard>().execute();
+
+                    if (curWinCondition == WinCondition.Victory)
+                    {
+                        curState = GameState.EnemyEffectPhase;
+                        enemy.PlayPowerOrEffect();
+                    }
+                    else
+                    {
+                        if (curWinCondition == WinCondition.Loss)
+                            curState = GameState.PlayerEffectPhase;
+                    }
+                }
+                else
+                {
                     curWinCondition = WinCondition.Loss;
-                    Debug.Log(card.name);
-                    card.GetComponentInChildren<CardInBoard>().execute?.Invoke();
                     curState = GameState.PlayerEffectPhase;
-                    break;
-            }
+                }
+
+                break;
+        }
     }
 
     public void Battle()

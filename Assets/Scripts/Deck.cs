@@ -34,7 +34,7 @@ public class Deck : MonoBehaviour
     {
         cards.Push(CardType.AirE, 6);
         cards.Push(CardType.EarthE, 6);
-        cards.Push(CardType.FireE, 6);
+        cards.Push(CardType.FireE, 60);
         cards.Push(CardType.LightningE, 6);
         cards.Push(CardType.WaterE, 6);
         cards.Push(CardType.ArcanaE, 6);
@@ -72,9 +72,9 @@ public class Deck : MonoBehaviour
 
         cards.Push(CardType.MegaPowerP, 5);
 
-        cards.Push(CardType.Intelligence, 20);
+        cards.Push(CardType.Intelligence, 5);
         cards.Push(CardType.Portal, 20);
-        cards.Push(CardType.SuperGenius, 20);
+        cards.Push(CardType.SuperGenius, 5);
 
         cards.Shuffle();
     }
@@ -100,9 +100,9 @@ public class Deck : MonoBehaviour
             c = cards.Draw();
             cardBuilder.BuildCard(c, true);
         }
-        catch
+        catch (System.InvalidOperationException e)
         {
-            Debug.Log("No cards! [Deck]");
+            Debug.Log("No cards! [Deck] " + e.ToString());
             BoardManager.GetBoardManager().endGame = true;
         }
     }
@@ -115,11 +115,10 @@ public class Deck : MonoBehaviour
             c = cards.Draw();
             cardBuilder.BuildCard(c, false);
         }
-        catch
+        catch (System.InvalidOperationException e)
         {
-            Debug.Log("No cards! [Deck]");
+            Debug.Log("No cards! [Deck] " + e.ToString());
             BoardManager.GetBoardManager().endGame = true;
-            //c = GameObject.FindWithTag("Discard").GetComponent<Discard>().DrawCardEnemy();
         }
 
         return c;

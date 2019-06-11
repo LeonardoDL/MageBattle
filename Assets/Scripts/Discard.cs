@@ -42,9 +42,9 @@ public class Discard : MonoBehaviour
             c = cards.Draw();
             cardBuilder.BuildCard(c, true);
         }
-        catch
+        catch (System.InvalidOperationException e)
         {
-            Debug.Log("No cards! [Discard]");
+            Debug.Log("No cards! [Discard] " + e.ToString());
         }
     }
 
@@ -56,11 +56,9 @@ public class Discard : MonoBehaviour
             c = cards.Draw();
             cardBuilder.BuildCard(c, false);
         }
-        catch
+        catch (System.InvalidOperationException e)
         {
-            Debug.Log("No cards! [Deck]");
-            BoardManager.GetBoardManager().endGame = true;
-            //c = GameObject.FindWithTag("Discard").GetComponent<Discard>().DrawCardEnemy();
+            Debug.Log("No cards! [Discard] " + e.ToString());
         }
 
         return c;

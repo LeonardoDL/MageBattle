@@ -51,6 +51,8 @@ public enum SlotsOnBoard
 {
     ElementPlayer,
     ElementEnemy,
+    ElementPlayerPortal,
+    ElementEnemyPortal,
     EffectPlayer,
     EffectEnemy,
     Discard,

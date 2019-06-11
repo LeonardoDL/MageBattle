@@ -1355,7 +1355,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 170, y: 34, z: 10}
+  m_Size: {x: 170, y: 30, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &68537133
 MonoBehaviour:
@@ -11976,6 +11976,7 @@ MonoBehaviour:
   enemyBoardCard: {fileID: 0}
   endGame: 0
   currentState: 0
+  currentWinCondition: 2
 --- !u!114 &540246897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11990,7 +11991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: 
   standBy: 
-  enemySlot: {fileID: 2009694097}
+  enemySlot: {fileID: 1717673269}
   offset: {x: -1, y: 0, z: 5}
   isActive: 1
 --- !u!114 &540246898
@@ -40557,6 +40558,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1717673269 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4966565991889434488, guid: ec438336f15c6e54a808bf945d2d7fdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 4966565992399071821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1719638492
 GameObject:
   m_ObjectHideFlags: 0
@@ -48273,12 +48280,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &2009694097 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4966565991889434488, guid: ec438336f15c6e54a808bf945d2d7fdb,
-    type: 3}
-  m_PrefabInstance: {fileID: 4966565992399071821}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2011714356
 GameObject:
   m_ObjectHideFlags: 0
@@ -49672,7 +49673,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 170, y: 34, z: 10}
+  m_Size: {x: 170, y: 30, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2056058755
 MonoBehaviour:
@@ -60342,16 +60343,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966565991896449085, guid: ec438336f15c6e54a808bf945d2d7fdb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966565992821299133, guid: ec438336f15c6e54a808bf945d2d7fdb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec438336f15c6e54a808bf945d2d7fdb, type: 3}

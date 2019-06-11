@@ -19,6 +19,8 @@ TagManager:
   - VictoryDeck/Player
   - VictoryDeck/Enemy
   - Particles
+  - Slot/PortalPlayer
+  - Slot/PortalEnemy
   layers:
   - Default
   - TransparentFX

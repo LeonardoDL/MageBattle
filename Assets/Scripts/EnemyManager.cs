@@ -121,59 +121,72 @@ public class EnemyManager : MonoBehaviour
 
     public void PlayPowerOrEffect()
     {
-        bool played = false;
+        Debug.Log("PlayPowerOrEffect");
 
         for (int i = 7; i < 33; i++) //Power
+        {
             if (hand.Contains((CardType)i))
             {
-                played = true;
                 switch (BoardManager.GetBoardManager().enemyCard)
                 {
                     case CardType.WaterE:
                         if (powers[(CardType)i].water)
+                        {
                             PlayPower((CardType)i);
+                            return;
+                        }
                         break;
 
                     case CardType.EarthE:
-                        if (powers[(CardType)i].water)
+                        if (powers[(CardType)i].earth)
+                        {
                             PlayPower((CardType)i);
+                            return;
+                        }
                         break;
 
                     case CardType.FireE:
-                        if (powers[(CardType)i].water)
+                        if (powers[(CardType)i].fire)
+                        {
                             PlayPower((CardType)i);
+                            return;
+                        }
                         break;
 
                     case CardType.AirE:
-                        if (powers[(CardType)i].water)
+                        if (powers[(CardType)i].air)
+                        {
                             PlayPower((CardType)i);
+                            return;
+                        }
                         break;
 
                     case CardType.LightningE:
-                        if (powers[(CardType)i].water)
+                        if (powers[(CardType)i].lightning)
+                        {
                             PlayPower((CardType)i);
+                            return;
+                        }
                         break;
 
                     case CardType.ArcanaE:
-                        if (powers[(CardType)i].water)
-                            PlayPower((CardType)i);
-                        break;
                         
-                    default:
-                        played = false;
-                        break;
+                        PlayPower((CardType)i);
+                        return;
                 }
+            }
+        }
 
-                break;
+        Debug.Log("No playable power");
+        for (int i = 33; i < CardType.GetNames(typeof(CardType)).Length; i++) //Effect
+            if (hand.Contains((CardType)i))
+            {
+                Debug.Log("Playable " + (CardType)i);
+                PlayEffect((CardType)i);
+                return;
             }
 
-        if (!played)
-            for (int i = 33; i < CardType.GetNames(typeof(CardType)).Length; i++) //Effect
-                if (hand.Contains((CardType)i))
-                {
-                    PlayEffect((CardType)i);
-                    break;
-                }
+        Debug.Log("No playable power or effect");
     }
 
     public void PlayPower(CardType cardType)
