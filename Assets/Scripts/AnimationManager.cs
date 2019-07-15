@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
+    public Animator[] elements;
+
     private Animator cam;
     private Animator hand;
     private GameObject handPanel;
@@ -37,4 +39,14 @@ public class AnimationManager : MonoBehaviour
         foreach (Animator a in handPanel.GetComponentsInChildren<Animator>())
             a.SetBool("Focus", false);
     }
+
+    //public void ShowElement(int i)
+    //{
+    //    elements[i].SetBool("Show", true);
+    //}
+
+    //public void HideElement(int i)
+    //{
+    //    elements[i].SetBool("Show", false);
+    //}
 }
