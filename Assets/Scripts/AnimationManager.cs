@@ -12,6 +12,7 @@ public class AnimationManager : MonoBehaviour
     private Animator cam;
     private Animator hand;
     private GameObject handPanel;
+    private GameObject handEnemyPanel;
 
     private CardType player = CardType.None;
     private CardType enemy = CardType.None;
@@ -19,7 +20,8 @@ public class AnimationManager : MonoBehaviour
     void Start()
     {
         cam = Camera.main.GetComponent<Animator>();
-        handPanel = GameObject.FindGameObjectWithTag("Hand");
+        handPanel = GameObject.FindGameObjectWithTag("Hand/PlayerHand");
+        handEnemyPanel = GameObject.FindGameObjectWithTag("Hand/EnemyHand");
         hand = handPanel.transform.parent.GetComponent<Animator>();
     }
 
@@ -64,6 +66,9 @@ public class AnimationManager : MonoBehaviour
 
             foreach (Animator a in handPanel.GetComponentsInChildren<Animator>())
                 a.SetBool("Focus", true);
+
+            foreach (Animator a in handEnemyPanel.GetComponentsInChildren<Animator>())
+                a.SetBool("Focus", true);
         }
     }
 
@@ -73,6 +78,9 @@ public class AnimationManager : MonoBehaviour
         hand.SetBool("Focus", false);
 
         foreach (Animator a in handPanel.GetComponentsInChildren<Animator>())
+            a.SetBool("Focus", false);
+
+        foreach (Animator a in handEnemyPanel.GetComponentsInChildren<Animator>())
             a.SetBool("Focus", false);
     }
 }

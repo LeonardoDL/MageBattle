@@ -50,6 +50,7 @@ public class CardInStandBy : MonoBehaviour
 
     public void Summon()
     {
+        BoardManager.isInTransition = true;
         //Debug.Log(Input.mousePosition);
         Vector3 v = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zValue));
         //Debug.Log(v);
@@ -63,6 +64,12 @@ public class CardInStandBy : MonoBehaviour
         //Debug.Log("Trigger Exit");
         if (other.tag == "StandBy")
         {
+            if (BoardManager.isInTransition || BoardManager.curState == GameState.EndGame)
+            {
+                moveCard = false;
+                return;
+            }
+
             if (BoardManager.curState == GameState.PlayerPlayPhase)
                 Summon();
             else

@@ -68,7 +68,7 @@ public class CardInHand : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         //Debug.Log("Trigger Exit");
-        if (other.tag == "Hand")
+        if (other.tag == "Hand/PlayerHand")
         {
             if (BoardManager.isInTransition || BoardManager.curState == GameState.EndGame)
             {

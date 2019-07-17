@@ -37,7 +37,7 @@ public class BoardManager : MonoBehaviour
         playerCard = CardType.None;
         enemyCard = CardType.None;
         enemy = GetComponent<EnemyManager>();
-        playerHand = GameObject.FindWithTag("Hand");
+        playerHand = GameObject.FindWithTag("Hand/PlayerHand");
         playerStandBy = GameObject.FindWithTag("StandBy");
         deck = GameObject.FindWithTag("Deck").GetComponent<Deck>();
         StartCoroutine(WaitStart());

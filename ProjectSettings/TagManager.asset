@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Hand
   - Board
   - Card/Element
   - Card/Effect
@@ -21,6 +20,9 @@ TagManager:
   - Particles
   - Slot/PortalPlayer
   - Slot/PortalEnemy
+  - TAZOFX
+  - Hand/PlayerHand
+  - Hand/EnemyHand
   layers:
   - Default
   - TransparentFX
