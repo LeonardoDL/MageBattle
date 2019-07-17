@@ -102,6 +102,7 @@ public class Effect : MonoBehaviour
 
     public bool SuperGeniusI()
     {
+        //verificar se tem 0 cartas no descarte
         if (BoardManager.curWinCondition == WinCondition.Victory)
             return false;
         return true;

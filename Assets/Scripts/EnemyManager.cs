@@ -115,6 +115,7 @@ public class EnemyManager : MonoBehaviour
 
         if (c != CardType.None)
         {
+            BoardManager.curState = GameState.EnemyPlayPhase;
             PlayEffect(c);
         }
     }

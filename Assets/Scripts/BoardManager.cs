@@ -130,6 +130,12 @@ public class BoardManager : MonoBehaviour
         CardType cardType = card.GetComponent<CardInBoard>().type;
         Debug.Log("Card played: " + cardType + ", during " + curState);
         isInTransition = false;
+        
+        //{
+        //  tentar pensar numa maneira do inimigo
+        //  poder jogar varios card draws logo no inicio da rodada
+        //  ao inves de um por vez
+        //}
 
         if ((cardType == CardType.Intelligence || cardType == CardType.SuperGenius) &&
             (curState == GameState.PlayerPlayPhase || curState == GameState.EnemyPlayPhase))
@@ -138,9 +144,11 @@ public class BoardManager : MonoBehaviour
 
             if (curState == GameState.PlayerPlayPhase)
             {
-                curState = GameState.EnemyPlayPhase;
                 enemy.PlayCardDraw();
             }
+            else
+            if (curState == GameState.EnemyPlayPhase)
+                curState = GameState.PlayerPlayPhase;
 
             return;
         }

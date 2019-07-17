@@ -12006,7 +12006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84f27a13f72ed0409e4d5a806750cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animate: 1
+  animate: 0
   animPlayer: []
   animEnemy: []
 --- !u!1 &540847691

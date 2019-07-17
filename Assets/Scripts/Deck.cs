@@ -34,7 +34,7 @@ public class Deck : MonoBehaviour
     {
         cards.Push(CardType.AirE, 6);
         cards.Push(CardType.EarthE, 6);
-        cards.Push(CardType.FireE, 60);
+        cards.Push(CardType.FireE, 6);
         cards.Push(CardType.LightningE, 6);
         cards.Push(CardType.WaterE, 6);
         cards.Push(CardType.ArcanaE, 6);
@@ -72,9 +72,9 @@ public class Deck : MonoBehaviour
 
         cards.Push(CardType.MegaPowerP, 5);
 
-        cards.Push(CardType.Intelligence, 5);
-        cards.Push(CardType.Portal, 20);
-        cards.Push(CardType.SuperGenius, 5);
+        cards.Push(CardType.Intelligence, 18);
+        cards.Push(CardType.Portal, 10);
+        cards.Push(CardType.SuperGenius, 10);
 
         cards.Shuffle();
     }
