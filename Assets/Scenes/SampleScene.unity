@@ -12006,7 +12006,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84f27a13f72ed0409e4d5a806750cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elements: []
+  animate: 1
+  animPlayer: []
+  animEnemy: []
 --- !u!1 &540847691
 GameObject:
   m_ObjectHideFlags: 0
@@ -60284,6 +60286,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966565993183910957, guid: ec438336f15c6e54a808bf945d2d7fdb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4966565993183910953, guid: ec438336f15c6e54a808bf945d2d7fdb,
         type: 3}

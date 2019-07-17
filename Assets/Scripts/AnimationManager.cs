@@ -4,17 +4,53 @@ using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
-    public Animator[] elements;
+    public bool animate = true;
+
+    [HideInInspector] public Animator[] animPlayer;
+    [HideInInspector] public Animator[] animEnemy;
 
     private Animator cam;
     private Animator hand;
     private GameObject handPanel;
+
+    private CardType player = CardType.None;
+    private CardType enemy = CardType.None;
 
     void Start()
     {
         cam = Camera.main.GetComponent<Animator>();
         handPanel = GameObject.FindGameObjectWithTag("Hand");
         hand = handPanel.transform.parent.GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (animPlayer == null || animEnemy == null || animate == false)
+            return;
+
+        CardType old_player = BoardManager.GetBoardManager().GetPlayerCard();
+        CardType old_enemy = BoardManager.GetBoardManager().GetEnemyCard();
+
+        if (old_player != player)
+        {
+            if (player != CardType.None)
+                animPlayer[(int)player - 1].SetBool("Show", false);
+
+            player = old_player;
+            if (player != CardType.None)
+                animPlayer[(int)player - 1].SetBool("Show", true);
+        }
+
+        if (old_enemy != enemy)
+        {
+            if (enemy != CardType.None)
+                animEnemy[(int)enemy - 1].SetBool("Show", false);
+
+            enemy = old_enemy;
+            if (enemy != CardType.None)
+                animEnemy[(int)enemy - 1].SetBool("Show", true);
+        }
+
     }
 
     public void FocusAnimation()
@@ -39,14 +75,4 @@ public class AnimationManager : MonoBehaviour
         foreach (Animator a in handPanel.GetComponentsInChildren<Animator>())
             a.SetBool("Focus", false);
     }
-
-    //public void ShowElement(int i)
-    //{
-    //    elements[i].SetBool("Show", true);
-    //}
-
-    //public void HideElement(int i)
-    //{
-    //    elements[i].SetBool("Show", false);
-    //}
 }
