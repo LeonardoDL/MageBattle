@@ -44,7 +44,8 @@ public enum CardType
 
     Intelligence,
     Portal,
-    SuperGenius
+    SuperGenius,
+    Disintegration
 }
 
 public enum SlotsOnBoard

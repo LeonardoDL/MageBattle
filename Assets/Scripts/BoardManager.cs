@@ -15,6 +15,8 @@ public class BoardManager : MonoBehaviour
     [HideInInspector] public GameObject playerBoardCard;
     [HideInInspector] public GameObject enemyBoardCard;
 
+     public GameObject playerButton;
+     public GameObject enemyButton;
     [HideInInspector] public bool endGame;
     [HideInInspector] public static bool isInTransition;
 
@@ -63,6 +65,26 @@ public class BoardManager : MonoBehaviour
     public void DrawHandEnemyFromDiscard(int qnt)
     {
         enemy.DrawHandEnemyFromDiscard(qnt);
+    }
+
+    public void DiscardPlayerHand()
+    {
+        foreach (Transform t in playerHand.GetComponentInChildren<Transform>()){
+            Power power = t.GetChild (0).gameObject.GetComponent<Power>();
+            Effect effect = t.GetChild (0).gameObject.GetComponent<Effect>();
+            if(power != null){
+                discard.DiscardCard(power.cardType);
+            }
+            if(effect != null){
+                discard.DiscardCard(effect.cardType);
+            }
+            Destroy(t.gameObject);
+        }
+    }
+
+    public void DiscardEnemyHand()
+    {
+        enemy.DiscardHand();
     }
 
     public void DrawCards()
@@ -461,6 +483,12 @@ public class BoardManager : MonoBehaviour
             texts[0].text = "End of Game\nDraw: " + pScore + " x " + eScore;
             texts[0].color = new Color(1f, 1f, 1f);
         }
+    }
+
+    public void setButtonEnemyPlayer(bool activate){
+        playerButton.SetActive (activate);
+        enemyButton.SetActive (activate);
+        GetComponent<AnimationManager>().Fade(activate);
     }
 
     void Update()

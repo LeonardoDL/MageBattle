@@ -72,6 +72,16 @@ public class AnimationManager : MonoBehaviour
         }
     }
 
+    public void Fade(bool activate){
+          hand.SetBool("Focus", activate);
+
+            foreach (Animator a in handPanel.GetComponentsInChildren<Animator>())
+                a.SetBool("Focus", activate);
+
+            foreach (Animator a in handEnemyPanel.GetComponentsInChildren<Animator>())
+                a.SetBool("Focus", activate);
+    }
+
     public void UnfocusAnimation()
     {
         cam.SetBool("Focus", false);

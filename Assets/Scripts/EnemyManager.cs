@@ -77,6 +77,14 @@ public class EnemyManager : MonoBehaviour
         foreach (CardType card in list_)
             hand.Remove(card);
     }
+    public void DiscardHand(){
+        BoardManager bm = BoardManager.GetBoardManager();
+        foreach(CardType card in hand){
+            deck.cardBuilder.RemoveCardFromHand();
+            bm.discard.DiscardCard(card);
+        }
+        hand = new List<CardType>();
+    }
 
     public void DrawHandEnemyFromDiscard(int quantity)
     {

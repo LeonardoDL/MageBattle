@@ -30,6 +30,10 @@ public class Effect : MonoBehaviour
                 execute = SuperGenius;
                 isPlayable = SuperGeniusI;
                 break;
+            case CardType.Disintegration:
+                execute = Disintegration;
+                isPlayable = DisintegrationI;
+            break;
         }
     }
 
@@ -82,7 +86,31 @@ public class Effect : MonoBehaviour
         return true;
     }
 
+    public bool Disintegration()
+    {
+        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){
+            DisintegrationSelection(true);
+            return true;
+        }
 
+        BoardManager bm = BoardManager.GetBoardManager();
+        bm.setButtonEnemyPlayer(true);
+        return true;
+    }
+
+    public void DisintegrationSelection(bool isPlayer)
+    {
+        BoardManager bm = BoardManager.GetBoardManager();
+
+        bm.setButtonEnemyPlayer(false);
+
+        if(isPlayer){
+            bm.DiscardPlayerHand();
+        } else {
+            bm.DiscardEnemyHand();
+        }
+   
+    }
 
     public bool IntelligenceI()
     {
@@ -105,6 +133,17 @@ public class Effect : MonoBehaviour
         //verificar se tem 0 cartas no descarte
         if (BoardManager.curWinCondition == WinCondition.Victory)
             return false;
+        return true;
+    }
+
+        public bool DisintegrationI()
+    {
+        BoardManager bm = BoardManager.GetBoardManager();
+
+        if (BoardManager.curState != GameState.PlayerEffectPhase){
+            return false;
+        }
+
         return true;
     }
 }
