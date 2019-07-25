@@ -85,6 +85,7 @@ public class CardBuilder : MonoBehaviour
                 Tuple<Sprite, GameObject> element = elementsDictionary[c];
                 GameObject cis = Instantiate(cardInStandBy, Instantiate(cardPlaceholder, panelStandBy.transform).transform);
                 cis.GetComponent<CardInStandBy>().SetSpriteAndPrefab(element.Item1, element.Item2);
+                cis.GetComponent<CardInStandBy>().SetType(c);
                 return;
             }
             catch { }

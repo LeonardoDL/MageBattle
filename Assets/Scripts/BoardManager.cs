@@ -87,6 +87,21 @@ public class BoardManager : MonoBehaviour
         enemy.DiscardHand();
     }
 
+
+   public void DiscardPlayerStandBy()
+    {
+        foreach (Transform t in playerStandBy.GetComponentInChildren<Transform>()){
+            CardInStandBy cardInStandBy = t.GetChild (0).gameObject.GetComponent<CardInStandBy>();
+            deck.AddCard(cardInStandBy.card);
+            Destroy(t.gameObject);
+        }
+    }
+
+    public void DiscardEnemyStandBy()
+    {
+        enemy.DiscardStandby();
+    }
+
     public void DrawCards()
     {
         int pHandSize = playerHand.transform.childCount;

@@ -11,6 +11,7 @@ public class CardInStandBy : MonoBehaviour
     public Sprite sprite;
     [HideInInspector]
     public Sprite cardBack;
+    public CardType card;
     private Image img;
 
     private GameObject cardPrefab;
@@ -40,6 +41,11 @@ public class CardInStandBy : MonoBehaviour
         //SpriteState ss = new SpriteState();
         //ss.pressedSprite = sprite;
         //GetComponent<Button>().spriteState = ss;
+    }
+
+    public void SetType(CardType card)
+    {
+       this.card = card;
     }
 
     public void Bind()

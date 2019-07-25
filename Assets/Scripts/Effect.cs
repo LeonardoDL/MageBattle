@@ -34,6 +34,10 @@ public class Effect : MonoBehaviour
                 execute = Disintegration;
                 isPlayable = DisintegrationI;
             break;
+            case CardType.BlackHole:
+                execute = BlackHole;
+                isPlayable = BlackHoleI;
+            break;
         }
     }
 
@@ -112,6 +116,16 @@ public class Effect : MonoBehaviour
    
     }
 
+    public bool BlackHole()
+    {
+        BoardManager bm = BoardManager.GetBoardManager();
+        bm.DiscardEnemyStandBy();
+        bm.DiscardPlayerStandBy();
+        bm.deck.Shuffle();
+
+        return true;
+    }
+
     public bool IntelligenceI()
     {
         if (BoardManager.curWinCondition == WinCondition.Victory)
@@ -136,7 +150,18 @@ public class Effect : MonoBehaviour
         return true;
     }
 
-        public bool DisintegrationI()
+    public bool DisintegrationI()
+    {
+        BoardManager bm = BoardManager.GetBoardManager();
+
+        if (BoardManager.curState != GameState.PlayerEffectPhase){
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool BlackHoleI()
     {
         BoardManager bm = BoardManager.GetBoardManager();
 

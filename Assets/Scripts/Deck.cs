@@ -75,7 +75,9 @@ public class Deck : MonoBehaviour
         cards.Push(CardType.Intelligence, 1);
         cards.Push(CardType.Portal, 1);
         cards.Push(CardType.SuperGenius, 1);
-        cards.Push(CardType.Disintegration, 19);
+        cards.Push(CardType.Disintegration, 1);
+        cards.Push(CardType.BlackHole, 20);
+
 
 
         cards.Shuffle();
@@ -124,5 +126,15 @@ public class Deck : MonoBehaviour
         }
 
         return c;
+    }
+
+    public void AddCard(CardType card)
+    {
+        cards.Push(card);
+    }
+
+     public void Shuffle()
+    {
+        cards.Shuffle();
     }
 }

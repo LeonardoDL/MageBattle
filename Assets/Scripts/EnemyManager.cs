@@ -86,6 +86,15 @@ public class EnemyManager : MonoBehaviour
         hand = new List<CardType>();
     }
 
+    public void DiscardStandby(){
+         BoardManager bm = BoardManager.GetBoardManager();
+        foreach(CardType card in standBy){
+            deck.cardBuilder.RemoveCardFromStandBy();
+            deck.AddCard(card);
+        }
+        standBy = new List<CardType>();
+    }
+
     public void DrawHandEnemyFromDiscard(int quantity)
     {
         BoardManager.GetBoardManager().texts[2].text = "Enemy draws " + quantity + " cards";
