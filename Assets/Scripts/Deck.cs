@@ -72,11 +72,12 @@ public class Deck : MonoBehaviour
 
         cards.Push(CardType.MegaPowerP, 5);
 
-        cards.Push(CardType.Intelligence, 1);
-        cards.Push(CardType.Portal, 1);
-        cards.Push(CardType.SuperGenius, 1);
-        cards.Push(CardType.Disintegration, 1);
-        cards.Push(CardType.BlackHole, 20);
+        cards.Push(CardType.Intelligence, 4);
+        cards.Push(CardType.Portal, 5);
+        cards.Push(CardType.SuperGenius, 3);
+        cards.Push(CardType.Disintegration, 4);
+        cards.Push(CardType.BlackHole, 3);
+        cards.Push(CardType.Eclipse, 4);
 
 
 

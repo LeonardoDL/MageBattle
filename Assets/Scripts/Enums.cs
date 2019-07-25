@@ -46,7 +46,8 @@ public enum CardType
     Portal,
     SuperGenius,
     Disintegration,
-    BlackHole
+    BlackHole,
+    Eclipse
 }
 
 public enum SlotsOnBoard

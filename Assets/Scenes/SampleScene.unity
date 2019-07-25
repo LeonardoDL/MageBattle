@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.17757782, g: 0.22232252, b: 0.30451787, a: 1}
+  m_IndirectSpecularColor: {r: 0.17757782, g: 0.22232252, b: 0.3045179, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10617,6 +10617,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9c5cbf6108b2f2b4c9b856050c98a828, type: 3}
   - {fileID: 21300000, guid: 2cce0f5c428a1cc41ad22ff30487c72c, type: 3}
   - {fileID: 21300000, guid: 7bf01bb6f7419d780999fde5fb283dd1, type: 3}
+  - {fileID: 21300000, guid: e1e5ac4ad6747c5e482124f11e1a0351, type: 3}
+  - {fileID: 21300000, guid: d8a5a9f18963c912da5587e278d1b7fe, type: 3}
 --- !u!1 &496430256
 GameObject:
   m_ObjectHideFlags: 0
@@ -11095,7 +11097,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 540246899}
-        m_MethodName: DisintegrationSelection
+        m_MethodName: Selection
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12257,7 +12259,6 @@ MonoBehaviour:
   enemyBoardCard: {fileID: 0}
   playerButton: {fileID: 506465464}
   enemyButton: {fileID: 1041420626}
-  passButton: {fileID: 823732533}
   endGame: 0
   currentState: 0
   currentWinCondition: 2
@@ -25264,7 +25265,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 540246899}
-        m_MethodName: DisintegrationSelection
+        m_MethodName: Selection
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

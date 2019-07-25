@@ -10,6 +10,9 @@ public class BoardManager : MonoBehaviour
     [HideInInspector] public Deck deck;
     [HideInInspector] public Discard discard;
 
+    public VictoryDeck victoryDeckPlayer;
+    public VictoryDeck victoryDeckEnemy;
+
     [HideInInspector] public CardType playerCard;
     [HideInInspector] public CardType enemyCard;
     [HideInInspector] public GameObject playerBoardCard;
@@ -42,6 +45,8 @@ public class BoardManager : MonoBehaviour
         playerHand = GameObject.FindWithTag("Hand/PlayerHand");
         playerStandBy = GameObject.FindWithTag("StandBy");
         deck = GameObject.FindWithTag("Deck").GetComponent<Deck>();
+        victoryDeckPlayer = GameObject.FindWithTag("VictoryDeck/Player").GetComponent<VictoryDeck>();
+        victoryDeckEnemy  = GameObject.FindWithTag("VictoryDeck/Enemy").GetComponent<VictoryDeck>();
         StartCoroutine(WaitStart());
         //enemy.setEffects(deck.GetAllEffects());
     }
@@ -87,19 +92,19 @@ public class BoardManager : MonoBehaviour
         enemy.DiscardHand();
     }
 
-
-   public void DiscardPlayerStandBy()
-    {
+    // Retorna as cartas de espera do player e as exclui do campo
+    public List<CardType> GetPlayerStandBy() {
+        List<CardType> standBy = new List<CardType>();
         foreach (Transform t in playerStandBy.GetComponentInChildren<Transform>()){
             CardInStandBy cardInStandBy = t.GetChild (0).gameObject.GetComponent<CardInStandBy>();
-            deck.AddCard(cardInStandBy.card);
+            standBy.Add(cardInStandBy.card);
             Destroy(t.gameObject);
         }
+        return standBy;
     }
 
-    public void DiscardEnemyStandBy()
-    {
-        enemy.DiscardStandby();
+     public List<CardType> GetEnemyStandBy() {
+        return enemy.GetStandby();
     }
 
     public void DrawCards()

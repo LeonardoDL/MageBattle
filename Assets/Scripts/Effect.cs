@@ -11,6 +11,8 @@ public class Effect : MonoBehaviour
     public IsPlayable isPlayable;
     public CardType cardType;
 
+    private static CardType selection = CardType.None;
+
     public void Init(CardType c)
     {
         cardType = c;
@@ -33,11 +35,15 @@ public class Effect : MonoBehaviour
             case CardType.Disintegration:
                 execute = Disintegration;
                 isPlayable = DisintegrationI;
-            break;
+                break;
             case CardType.BlackHole:
                 execute = BlackHole;
                 isPlayable = BlackHoleI;
-            break;
+                break;
+            case CardType.Eclipse:
+                execute = Eclipse;
+                isPlayable = EclipseI;
+                break;
         }
     }
 
@@ -97,6 +103,7 @@ public class Effect : MonoBehaviour
             return true;
         }
 
+        selection = CardType.Disintegration;
         BoardManager bm = BoardManager.GetBoardManager();
         bm.setButtonEnemyPlayer(true);
         return true;
@@ -119,11 +126,69 @@ public class Effect : MonoBehaviour
     public bool BlackHole()
     {
         BoardManager bm = BoardManager.GetBoardManager();
-        bm.DiscardEnemyStandBy();
-        bm.DiscardPlayerStandBy();
+        List<CardType> standBy;
+
+        
+        standBy = bm.GetEnemyStandBy();
+               
+        standBy.AddRange( bm.GetPlayerStandBy() );
+
+        foreach(CardType card in standBy)
+            bm.deck.AddCard(card);
+        
         bm.deck.Shuffle();
 
         return true;
+    }
+
+    public bool Eclipse()
+    {
+        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){
+            EclipseSelection(true);
+            return true;
+        }
+        selection = CardType.Eclipse;
+        BoardManager bm = BoardManager.GetBoardManager();
+        bm.setButtonEnemyPlayer(true);
+        return true;
+    }
+
+    public void EclipseSelection(bool isPlayer)
+    {
+        BoardManager bm = BoardManager.GetBoardManager();
+        List<CardType> standBy;
+
+        bm.setButtonEnemyPlayer(false);
+
+        if(isPlayer)
+            standBy = bm.GetPlayerStandBy();           
+        else 
+            standBy = bm.GetEnemyStandBy();
+
+        if (BoardManager.curState == GameState.PlayerPlayPhase || BoardManager.curState == GameState.PlayerEffectPhase){
+            foreach(CardType card in standBy)
+                bm.victoryDeckPlayer.AddCard(card);
+        } else if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){
+            foreach(CardType card in standBy)
+                bm.victoryDeckEnemy.AddCard(card);
+        }
+        
+
+    }
+
+    public void Selection(bool isPlayer)
+    {
+        switch (selection)
+        {       
+            case CardType.Disintegration:
+                DisintegrationSelection(isPlayer);
+                break;
+    
+            case CardType.Eclipse:
+                EclipseSelection(isPlayer);
+                break;
+        }
+        selection = CardType.None;
     }
 
     public bool IntelligenceI()
@@ -162,6 +227,17 @@ public class Effect : MonoBehaviour
     }
 
     public bool BlackHoleI()
+    {
+        BoardManager bm = BoardManager.GetBoardManager();
+
+        if (BoardManager.curState != GameState.PlayerEffectPhase){
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool EclipseI()
     {
         BoardManager bm = BoardManager.GetBoardManager();
 
