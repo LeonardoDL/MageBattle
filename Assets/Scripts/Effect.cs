@@ -94,8 +94,11 @@ public class Effect : MonoBehaviour
         if (BoardManager.curState == GameState.PlayerPlayPhase || BoardManager.curState == GameState.PlayerEffectPhase)
             bm.discard.DrawHandPlayer(3);
 
-        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase)
+        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){
+            if( bm.discard.Size() <= 0 )
+                return true;
             bm.DrawHandEnemyFromDiscard(3);
+        }
 
         return true;
     }
@@ -244,9 +247,13 @@ public class Effect : MonoBehaviour
 
     public bool SuperGeniusI()
     {
-        //verificar se tem 0 cartas no descarte
         if (BoardManager.curWinCondition == WinCondition.Victory)
             return false;
+        BoardManager bm = BoardManager.GetBoardManager();
+
+        if(bm.discard.Size() <= 0 )
+            return false;
+
         return true;
     }
 

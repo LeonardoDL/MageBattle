@@ -70,4 +70,8 @@ public class Discard : MonoBehaviour
         for (int i = 0; i < quantity; i++)
             DrawCardPlayer();
     }
+
+    public int Size(){
+        return cards.Count;
+    }
 }
