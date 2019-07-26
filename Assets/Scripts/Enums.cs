@@ -47,7 +47,8 @@ public enum CardType
     SuperGenius,
     Disintegration,
     BlackHole,
-    Eclipse
+    Eclipse,
+    FishingRod
 }
 
 public enum SlotsOnBoard

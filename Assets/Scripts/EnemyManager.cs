@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random=UnityEngine.Random;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -84,6 +85,23 @@ public class EnemyManager : MonoBehaviour
             bm.discard.DiscardCard(card);
         }
         hand = new List<CardType>();
+    }
+
+    public void AddCardToHand(CardType card){  
+        hand.Add(card);
+        CardBuilder cardBuilder = deck.GetCardBuilder();
+        cardBuilder.BuildCard(card, false);
+    }
+
+    public CardType GetCardRandom(){  
+        CardType randomCard;
+
+        int index = Random.Range(0, hand.Count);
+        randomCard = hand[index];
+        hand.RemoveAt(index);
+        deck.cardBuilder.RemoveCardFromHand();
+
+        return randomCard;
     }
 
     public List<CardType> GetStandby() {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random=UnityEngine.Random;
 
 public class BoardManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class BoardManager : MonoBehaviour
 
      public GameObject playerButton;
      public GameObject enemyButton;
+     public GameObject passButton;
+
     [HideInInspector] public bool endGame;
     [HideInInspector] public static bool isInTransition;
 
@@ -60,6 +63,9 @@ public class BoardManager : MonoBehaviour
     }
 
     public static BoardManager GetBoardManager() { return bm; }
+
+    public Effect GetEffect() { return GetComponent<Effect>(); }
+
     public CardType GetPlayerCard() { return playerCard; }
     public CardType GetEnemyCard() { return enemyCard; }
 
@@ -103,7 +109,46 @@ public class BoardManager : MonoBehaviour
         return standBy;
     }
 
-     public List<CardType> GetEnemyStandBy() {
+    // Retorna uma carta random da mão do player
+    public CardType GetPlayerCardRandom() {
+        CardType randomCard = CardType.None;
+        
+        int index = Random.Range(0, playerHand.transform.childCount);
+        Transform card = playerHand.transform.GetChild(index);
+
+        Power power = card.GetChild (0).gameObject.GetComponent<Power>();
+        Effect effect = card.GetChild (0).gameObject.GetComponent<Effect>();
+        if(power != null){
+            randomCard = power.cardType;
+        }
+        if(effect != null){
+            randomCard = effect.cardType;
+        }
+
+        Destroy(card.gameObject);
+        return randomCard;
+    }
+
+    public void AddEnemyHand(CardType card)
+    {
+        enemy.AddCardToHand(card);
+    }
+
+    public CardType GetEnemyCardRandom() {
+        return enemy.GetCardRandom();
+    }
+
+    public void AddPlayerHand(CardType card)
+    {
+        CardBuilder cardBuilder = deck.GetCardBuilder();
+        cardBuilder.BuildCard(card, true);
+    }
+
+    public int GetPlayerHandSize(){ return playerHand.transform.childCount;}
+    public int GetEnemyHandSize(){ return enemy.hand.Count;}
+
+
+    public List<CardType> GetEnemyStandBy() {
         return enemy.GetStandby();
     }
 
@@ -509,6 +554,10 @@ public class BoardManager : MonoBehaviour
         playerButton.SetActive (activate);
         enemyButton.SetActive (activate);
         GetComponent<AnimationManager>().Fade(activate);
+    }
+
+    public void HidePassButton(bool hide){
+        passButton.SetActive (!hide);
     }
 
     void Update()

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1514978677}
   - component: {fileID: 1514978673}
   - component: {fileID: 8560336243846023471}
+  - component: {fileID: 412196739978323607}
   m_Layer: 5
   m_Name: CardInHandEnemy
   m_TagString: Untagged
@@ -125,3 +126,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &412196739978323607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5270687913587815248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955ad383d78d49e3c87db0fc6ddd473c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

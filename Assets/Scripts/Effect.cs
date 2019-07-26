@@ -44,6 +44,10 @@ public class Effect : MonoBehaviour
                 execute = Eclipse;
                 isPlayable = EclipseI;
                 break;
+            case CardType.FishingRod:
+                execute = FishingRod;
+                isPlayable = FishingRodI;
+            break;
         }
     }
 
@@ -176,6 +180,35 @@ public class Effect : MonoBehaviour
 
     }
 
+    public bool FishingRod()
+    {
+        BoardManager bm = BoardManager.GetBoardManager();
+        CardType card;
+        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){
+            if(bm.GetPlayerHandSize() <= 0)
+                return true;
+            
+            card = bm.GetPlayerCardRandom();
+            bm.AddEnemyHand(card);
+            return true;
+        }
+        EnemyPointerHandler.activatePointer(true);
+        selection = CardType.FishingRod;
+        bm.HidePassButton(true);
+        
+        return true;
+    }
+
+    public void FishingRodSelection()
+    {
+        EnemyPointerHandler.activatePointer(false);
+        BoardManager bm = BoardManager.GetBoardManager();
+        bm.HidePassButton(false);
+        CardType card;
+        card = bm.GetEnemyCardRandom();
+        bm.AddPlayerHand(card);      
+    }
+
     public void Selection(bool isPlayer)
     {
         switch (selection)
@@ -183,9 +216,11 @@ public class Effect : MonoBehaviour
             case CardType.Disintegration:
                 DisintegrationSelection(isPlayer);
                 break;
-    
             case CardType.Eclipse:
                 EclipseSelection(isPlayer);
+                break;
+            case CardType.FishingRod:
+                FishingRodSelection();
                 break;
         }
         selection = CardType.None;
@@ -242,6 +277,20 @@ public class Effect : MonoBehaviour
         BoardManager bm = BoardManager.GetBoardManager();
 
         if (BoardManager.curState != GameState.PlayerEffectPhase){
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool FishingRodI()
+    {
+        BoardManager bm = BoardManager.GetBoardManager();
+
+        if (BoardManager.curState != GameState.PlayerEffectPhase){
+            return false;
+        }
+        if(bm.GetEnemyHandSize() <= 0){
             return false;
         }
 

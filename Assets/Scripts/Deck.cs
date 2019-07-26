@@ -72,12 +72,13 @@ public class Deck : MonoBehaviour
 
         cards.Push(CardType.MegaPowerP, 5);
 
-        cards.Push(CardType.Intelligence, 4);
-        cards.Push(CardType.Portal, 5);
-        cards.Push(CardType.SuperGenius, 3);
-        cards.Push(CardType.Disintegration, 4);
-        cards.Push(CardType.BlackHole, 3);
-        cards.Push(CardType.Eclipse, 4);
+        // cards.Push(CardType.Intelligence, 4);
+        // cards.Push(CardType.Portal, 5);
+        // cards.Push(CardType.SuperGenius, 3);
+        // cards.Push(CardType.Disintegration, 4);
+        // cards.Push(CardType.BlackHole, 3);
+        // cards.Push(CardType.Eclipse, 4);
+        cards.Push(CardType.FishingRod, 20);
 
 
 
@@ -137,5 +138,9 @@ public class Deck : MonoBehaviour
      public void Shuffle()
     {
         cards.Shuffle();
+    }
+
+    public CardBuilder GetCardBuilder(){
+        return cardBuilder;
     }
 }
