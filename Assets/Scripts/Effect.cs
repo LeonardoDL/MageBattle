@@ -95,8 +95,6 @@ public class Effect : MonoBehaviour
             bm.discard.DrawHandPlayer(3);
         if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase)     
             bm.DrawHandEnemyFromDiscard(3);
-        
-        BoardManager.GetBoardManager().texts[6].text = "" + bm.discard.Size();
 
         return true;
     }
@@ -143,8 +141,6 @@ public class Effect : MonoBehaviour
         
         bm.deck.Shuffle();
 
-        BoardManager.GetBoardManager().texts[5].text = "" + bm.deck.Size();
-
         return true;
     }
 
@@ -190,6 +186,7 @@ public class Effect : MonoBehaviour
         if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){      
             card = bm.GetPlayerCardRandom();
             bm.AddEnemyHand(card);
+
             return true;
         }
         EnemyPointerHandler.activatePointer(true);
@@ -431,7 +428,7 @@ public class Effect : MonoBehaviour
                 return false;
             }
 
-            if(bm.GetPlayerHandSize() <= 1)
+            if(bm.GetPlayerHandSize() <= 0)
                 return false;
 
             return true;

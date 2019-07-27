@@ -113,7 +113,6 @@ public class BoardManager : MonoBehaviour
 
     // Retorna as cartas de espera do player e as exclui do campo
     public List<CardType> GetPlayerStandBy() {
-        discardingHand = true;
         List<CardType> standBy = new List<CardType>();
         foreach (Transform t in playerStandBy.GetComponentInChildren<Transform>()){
             CardInStandBy cardInStandBy = t.GetChild (0).gameObject.GetComponent<CardInStandBy>();
@@ -125,6 +124,7 @@ public class BoardManager : MonoBehaviour
 
     // Retorna uma carta random da mão do player
     public CardType GetPlayerCardRandom() {
+        discardingHand = true;
         CardType randomCard = CardType.None;
         
         int index = Random.Range(0, playerHand.transform.childCount);
