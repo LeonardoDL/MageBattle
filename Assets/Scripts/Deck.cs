@@ -143,4 +143,8 @@ public class Deck : MonoBehaviour
     public CardBuilder GetCardBuilder(){
         return cardBuilder;
     }
+
+    public int Size(){
+        return cards.Count;
+    }
 }

@@ -93,19 +93,17 @@ public class Effect : MonoBehaviour
 
         if (BoardManager.curState == GameState.PlayerPlayPhase || BoardManager.curState == GameState.PlayerEffectPhase)
             bm.discard.DrawHandPlayer(3);
-
-        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){
-            if( bm.discard.Size() <= 0 )
-                return true;
+        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase)     
             bm.DrawHandEnemyFromDiscard(3);
-        }
+        
+        BoardManager.GetBoardManager().texts[6].text = "" + bm.discard.Size();
 
         return true;
     }
 
     public bool Disintegration()
     {
-        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){
+        if (BoardManager.curState == GameState.EnemyEffectPhase){
             DisintegrationSelection(true);
             return true;
         }
@@ -144,6 +142,8 @@ public class Effect : MonoBehaviour
             bm.deck.AddCard(card);
         
         bm.deck.Shuffle();
+
+        BoardManager.GetBoardManager().texts[5].text = "" + bm.deck.Size();
 
         return true;
     }
@@ -187,10 +187,7 @@ public class Effect : MonoBehaviour
     {
         BoardManager bm = BoardManager.GetBoardManager();
         CardType card;
-        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){
-            if(bm.GetPlayerHandSize() <= 0)
-                return true;
-            
+        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){      
             card = bm.GetPlayerCardRandom();
             bm.AddEnemyHand(card);
             return true;
@@ -231,76 +228,215 @@ public class Effect : MonoBehaviour
 
     public bool IntelligenceI()
     {
-        if (BoardManager.curWinCondition == WinCondition.Victory)
-            return false;
+        BoardManager bm = BoardManager.GetBoardManager();
+         // Verificação do Player
+        if (BoardManager.curState == GameState.PlayerPlayPhase){
+                return true;
+        } 
+        
+        if(BoardManager.curState == GameState.PlayerEffectPhase){
+            if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw)
+                return false;
+       
         return true;
+        }
+        // Verificação do Enemy  
+        
+        if (BoardManager.curState == GameState.EnemyPlayPhase){
+                return true;
+        }
+
+        if(BoardManager.curState == GameState.EnemyEffectPhase){
+            if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw)
+                return false; 
+        return true;
+        }
+
+        return false;
     }
 
     public bool PortalI()
     {
-        if (BoardManager.curState != GameState.PlayerEffectPhase ||
-            BoardManager.curWinCondition == WinCondition.Victory ||
-            BoardManager.curWinCondition == WinCondition.Draw)
-            return false;
-        return true;
+
+        // Verificação do Player
+        if (BoardManager.curState == GameState.PlayerEffectPhase){
+
+            if (BoardManager.curWinCondition == WinCondition.Victory ||
+                BoardManager.curWinCondition == WinCondition.Draw)
+                return false;
+
+            return true;
+        // Verificação do Enemy  
+        } else if (BoardManager.curState == GameState.EnemyEffectPhase){
+
+            if (BoardManager.curWinCondition == WinCondition.Loss ||
+                BoardManager.curWinCondition == WinCondition.Draw)
+                return false;
+
+            return true;
+        }
+
+        return false;
     }
 
     public bool SuperGeniusI()
     {
-        if (BoardManager.curWinCondition == WinCondition.Victory)
-            return false;
         BoardManager bm = BoardManager.GetBoardManager();
+         // Verificação do Player
+        if (BoardManager.curState == GameState.PlayerPlayPhase){
+                if(bm.discard.Size() < 3 )
+                    return false;
+                return true;
+        } 
+        
+        if(BoardManager.curState == GameState.PlayerEffectPhase){
+            if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw)
+                return false;
 
-        if(bm.discard.Size() <= 0 )
-            return false;
-
+            if(bm.discard.Size() < 3 )
+                return false;
+        
         return true;
+        }
+        // Verificação do Enemy  
+        
+        if (BoardManager.curState == GameState.EnemyPlayPhase){
+                if(bm.discard.Size() < 3 )
+                    return false;
+                return true;
+        }
+
+        if(BoardManager.curState == GameState.EnemyEffectPhase){
+            if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw)
+                return false;
+
+            if(bm.discard.Size() < 3 )
+                return false;
+        
+        return true;
+        }
+
+        return false;
     }
 
     public bool DisintegrationI()
     {
+        
         BoardManager bm = BoardManager.GetBoardManager();
 
-        if (BoardManager.curState != GameState.PlayerEffectPhase){
+        if (bm.discardingHand){
+            bm.discardingHand = false;
             return false;
         }
 
-        return true;
+         // Verificação do Player
+        if (BoardManager.curState == GameState.PlayerEffectPhase){
+
+            if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw){
+                return false;
+            }
+
+            return true;
+        // Verificação do Enemy  
+        } else if (BoardManager.curState == GameState.EnemyEffectPhase){
+          
+            if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw ){
+                return false;
+            }
+
+            if(bm.GetPlayerHandSize() <= 0)
+                return false;
+
+            return true;
+        }
+
+        return false;
+            
     }
 
     public bool BlackHoleI()
     {
         BoardManager bm = BoardManager.GetBoardManager();
+         // Verificação do Player
+        if (BoardManager.curState == GameState.PlayerEffectPhase){
 
-        if (BoardManager.curState != GameState.PlayerEffectPhase){
-            return false;
+            if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw){
+                return false;
+            }
+
+            return true;
+        // Verificação do Enemy  
+        } else if (BoardManager.curState == GameState.EnemyEffectPhase){
+          
+            if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw){
+                return false;
+            }
+
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     public bool EclipseI()
     {
         BoardManager bm = BoardManager.GetBoardManager();
+         // Verificação do Player
+        if (BoardManager.curState == GameState.PlayerEffectPhase){
 
-        if (BoardManager.curState != GameState.PlayerEffectPhase){
-            return false;
+            if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw){
+                return false;
+            }
+
+            return true;
+        // Verificação do Enemy  
+        } else if (BoardManager.curState == GameState.EnemyEffectPhase){
+          
+            if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw){
+                return false;
+            }
+
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     public bool FishingRodI()
     {
+
         BoardManager bm = BoardManager.GetBoardManager();
-
-        if (BoardManager.curState != GameState.PlayerEffectPhase){
-            return false;
-        }
-        if(bm.GetEnemyHandSize() <= 0){
+        
+        if (bm.discardingHand){
+            bm.discardingHand = false;
             return false;
         }
 
-        return true;
+         // Verificação do Player
+        if (BoardManager.curState == GameState.PlayerEffectPhase){
+
+            if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw){
+                return false;
+            }
+
+            if(bm.GetEnemyHandSize() <= 0){
+                return false;
+            }
+
+            return true;
+        // Verificação do Enemy  
+        } else if (BoardManager.curState == GameState.EnemyEffectPhase){
+          
+            if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw){
+                return false;
+            }
+
+            if(bm.GetPlayerHandSize() <= 1)
+                return false;
+
+            return true;
+        }
+
+        return false;
     }
 }

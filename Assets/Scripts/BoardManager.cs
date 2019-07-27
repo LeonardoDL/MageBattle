@@ -28,6 +28,10 @@ public class BoardManager : MonoBehaviour
 
     private EnemyManager enemy;
     private GameObject playerHand;
+    public int playerHandSize;
+
+    public int discardSize;
+
     private GameObject playerStandBy;
 
     public GameState currentState = GameState.None;
@@ -36,7 +40,15 @@ public class BoardManager : MonoBehaviour
     public WinCondition currentWinCondition = WinCondition.Draw;
     public static WinCondition curWinCondition = WinCondition.Draw;
 
-    public void Peek() { currentState = curState; currentWinCondition = curWinCondition; }
+    public bool discardingHand = false;
+
+    public void Peek() {
+        currentState = curState;
+        currentWinCondition = curWinCondition;
+        playerHandSize = GetPlayerHandSize();
+        if (discard != null)
+            discardSize = discard.Size();
+     }
 
     void Start()
     {
@@ -80,6 +92,7 @@ public class BoardManager : MonoBehaviour
 
     public void DiscardPlayerHand()
     {
+        discardingHand = true;
         foreach (Transform t in playerHand.GetComponentInChildren<Transform>()){
             Power power = t.GetChild (0).gameObject.GetComponent<Power>();
             Effect effect = t.GetChild (0).gameObject.GetComponent<Effect>();
@@ -100,6 +113,7 @@ public class BoardManager : MonoBehaviour
 
     // Retorna as cartas de espera do player e as exclui do campo
     public List<CardType> GetPlayerStandBy() {
+        discardingHand = true;
         List<CardType> standBy = new List<CardType>();
         foreach (Transform t in playerStandBy.GetComponentInChildren<Transform>()){
             CardInStandBy cardInStandBy = t.GetChild (0).gameObject.GetComponent<CardInStandBy>();
@@ -207,9 +221,8 @@ public class BoardManager : MonoBehaviour
             curState = GameState.PlayerPlayPhase;
         }
 
-        texts[5].text = "" + deck.cards.Count;
-        int asas = discard.cards.Count;
-        texts[6].text = "" + asas;
+        texts[5].text = "" + deck.Size();
+        texts[6].text = "" + discard.Size();
     }
 
     public void CardPlayed(GameObject card)
@@ -229,13 +242,13 @@ public class BoardManager : MonoBehaviour
         {
             card.GetComponentInChildren<CardInBoard>().execute?.Invoke();
 
-            if (curState == GameState.PlayerPlayPhase)
-            {
-                enemy.PlayCardDraw();
-            }
-            else
-            if (curState == GameState.EnemyPlayPhase)
-                curState = GameState.PlayerPlayPhase;
+            // if (curState == GameState.PlayerPlayPhase)
+            // {
+            //     enemy.PlayCardDraw();
+            // }
+            // else
+            // if (curState == GameState.EnemyPlayPhase)
+            //     curState = GameState.PlayerPlayPhase;
 
             return;
         }
@@ -564,4 +577,5 @@ public class BoardManager : MonoBehaviour
     {
         Peek();
     }
+
 }

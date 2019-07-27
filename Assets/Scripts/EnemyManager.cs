@@ -153,7 +153,10 @@ public class EnemyManager : MonoBehaviour
         if (c != CardType.None)
         {
             BoardManager.curState = GameState.EnemyPlayPhase;
-            PlayEffect(c);
+            if(effects[c].isPlayable())
+                PlayEffect(c);
+            else
+                Debug.Log("I cannot use " + c);
         }
     }
 
@@ -220,7 +223,12 @@ public class EnemyManager : MonoBehaviour
             if (hand.Contains((CardType)i))
             {
                 Debug.Log("Playable " + (CardType)i);
-                PlayEffect((CardType)i);
+
+                if(effects[(CardType)i].isPlayable())
+                    PlayEffect((CardType)i);
+                else
+                    Debug.Log("I cannot use " + (CardType)i);
+
                 return;
             }
 

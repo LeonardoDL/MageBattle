@@ -7,6 +7,7 @@ public class DeckList<T> : List<T>
     public void Push(T obj)
     {
         this.Add(obj);
+        updateUI();
     }
 
     public T Draw()
@@ -16,6 +17,9 @@ public class DeckList<T> : List<T>
 
         T t = this[Count - 1];
         this.RemoveAt(Count - 1);
+
+       updateUI();
+
         return t;
     }
 
@@ -23,6 +27,8 @@ public class DeckList<T> : List<T>
     {
         for (int i = 0; i < howMany; i++)
             this.Push(t);
+
+        updateUI();
     }
 
     public T DrawRandom()
@@ -34,6 +40,7 @@ public class DeckList<T> : List<T>
         int x = rng.Next(0, Count);
         T t = this[x];
         this.RemoveAt(x);
+        updateUI();
         return t;
     }
 
@@ -49,6 +56,15 @@ public class DeckList<T> : List<T>
             T value = this[k];
             this[k] = this[n];
             this[n] = value;
+        }
+    }
+
+    private void updateUI(){
+        BoardManager bm = BoardManager.GetBoardManager();
+        if (bm == null) return;
+        if(bm.deck != null && bm.discard != null && bm.texts != null){
+            bm.texts[5].text = "" + bm.deck.Size();
+            bm.texts[6].text = "" + bm.discard.Size();
         }
     }
 }
