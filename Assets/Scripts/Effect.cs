@@ -54,11 +54,21 @@ public class Effect : MonoBehaviour
     public bool Intelligence()
     {
         BoardManager bm = BoardManager.GetBoardManager();
+        bm.texts[1].text = ""; //Gambiarra
+        bm.texts[2].text = ""; //Gambiarra
+
         if (BoardManager.curState == GameState.PlayerPlayPhase || BoardManager.curState == GameState.PlayerEffectPhase)
+        {
+            bm.texts[0].text = "Player used Intelligence";
             bm.deck.DrawHandPlayer(2);
+        }
 
         if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase)
+        {
+            bm.texts[0].text = "Enemy used Intelligence";
             bm.DrawHandEnemy(2);
+        }
+
         return true;
     }
 
@@ -79,10 +89,16 @@ public class Effect : MonoBehaviour
         bm.enemyCard = c;
 
         if (BoardManager.curWinCondition == WinCondition.Loss)
+        {
+            bm.texts[0].text = "Player used Portal";
             BoardManager.curWinCondition = WinCondition.Victory;
+        }
         else
         if (BoardManager.curWinCondition == WinCondition.Victory)
+        {
+            bm.texts[0].text = "Enemy used Portal";
             BoardManager.curWinCondition = WinCondition.Loss;
+        }
 
         return true;
     }
@@ -92,9 +108,15 @@ public class Effect : MonoBehaviour
         BoardManager bm = BoardManager.GetBoardManager();
 
         if (BoardManager.curState == GameState.PlayerPlayPhase || BoardManager.curState == GameState.PlayerEffectPhase)
+        {
+            bm.texts[0].text = "Player used Super Genius";
             bm.discard.DrawHandPlayer(3);
-        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase)     
+        }
+        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase)
+        {
+            bm.texts[0].text = "Enemy used Super Genius";
             bm.DrawHandEnemyFromDiscard(3);
+        }
 
         return true;
     }
@@ -109,6 +131,11 @@ public class Effect : MonoBehaviour
         selection = CardType.Disintegration;
         BoardManager bm = BoardManager.GetBoardManager();
         bm.setButtonEnemyPlayer(true);
+        if (BoardManager.curState == GameState.PlayerEffectPhase)
+            bm.texts[0].text = "Player used Disintegration";
+        if (BoardManager.curState == GameState.EnemyEffectPhase)
+            bm.texts[0].text = "Enemy used Disintegration";
+
         return true;
     }
 
@@ -118,7 +145,7 @@ public class Effect : MonoBehaviour
 
         bm.setButtonEnemyPlayer(false);
 
-        if(isPlayer){
+        if (isPlayer){
             bm.DiscardPlayerHand();
         } else {
             bm.DiscardEnemyHand();
@@ -129,8 +156,13 @@ public class Effect : MonoBehaviour
     public bool BlackHole()
     {
         BoardManager bm = BoardManager.GetBoardManager();
-        List<CardType> standBy;
 
+        if (BoardManager.curState == GameState.PlayerEffectPhase)
+            bm.texts[0].text = "Player used Black Hole";
+        if (BoardManager.curState == GameState.EnemyEffectPhase)
+            bm.texts[0].text = "Enemy used Black Hole";
+
+        List<CardType> standBy;
         
         standBy = bm.GetEnemyStandBy();
                
@@ -153,6 +185,10 @@ public class Effect : MonoBehaviour
         selection = CardType.Eclipse;
         BoardManager bm = BoardManager.GetBoardManager();
         bm.setButtonEnemyPlayer(true);
+        if (BoardManager.curState == GameState.PlayerEffectPhase)
+            bm.texts[0].text = "Player used Eclipse";
+        if (BoardManager.curState == GameState.EnemyEffectPhase)
+            bm.texts[0].text = "Enemy used Eclipse";
         return true;
     }
 
@@ -163,7 +199,7 @@ public class Effect : MonoBehaviour
 
         bm.setButtonEnemyPlayer(false);
 
-        if(isPlayer)
+        if (isPlayer)
             standBy = bm.GetPlayerStandBy();           
         else 
             standBy = bm.GetEnemyStandBy();
@@ -183,7 +219,8 @@ public class Effect : MonoBehaviour
     {
         BoardManager bm = BoardManager.GetBoardManager();
         CardType card;
-        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){      
+        if (BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EnemyEffectPhase){
+            bm.texts[0].text = "Enemy used Fishing Rod";
             card = bm.GetPlayerCardRandom();
             bm.AddEnemyHand(card);
 
@@ -203,7 +240,8 @@ public class Effect : MonoBehaviour
         bm.HidePassButton(false);
         CardType card;
         card = bm.GetEnemyCardRandom();
-        bm.AddPlayerHand(card);      
+        bm.AddPlayerHand(card);
+        bm.texts[0].text = "Player used Fishing Rod";
     }
 
     public void Selection(bool isPlayer)
@@ -256,16 +294,16 @@ public class Effect : MonoBehaviour
     {
 
         // Verificação do Player
-        if (BoardManager.curState == GameState.PlayerEffectPhase){
-
+        if (BoardManager.curState == GameState.PlayerEffectPhase)
+        {
             if (BoardManager.curWinCondition == WinCondition.Victory ||
                 BoardManager.curWinCondition == WinCondition.Draw)
                 return false;
 
             return true;
         // Verificação do Enemy  
-        } else if (BoardManager.curState == GameState.EnemyEffectPhase){
-
+        } else if (BoardManager.curState == GameState.EnemyEffectPhase)
+        {
             if (BoardManager.curWinCondition == WinCondition.Loss ||
                 BoardManager.curWinCondition == WinCondition.Draw)
                 return false;

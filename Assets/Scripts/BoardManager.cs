@@ -179,6 +179,7 @@ public class BoardManager : MonoBehaviour
             if (playerHand.transform.childCount >= 7 && playerStandBy.transform.childCount <= 0)
             {
                 Debug.Log("No Elements To Battle! [Player]");
+                bm.texts[0].text = "Player has no Elements To Battle!";
                 foreach (Transform t in playerHand.GetComponentInChildren<Transform>())
                     Destroy(t.gameObject);
                 deck.DrawHandPlayer(7);
@@ -194,7 +195,12 @@ public class BoardManager : MonoBehaviour
         {
             if (enemy.hand.Count >= 7 && enemy.standBy.Count <= 0)
             {
-                Debug.Log("No Elements To Battle! [Enemy] " + enemy.hand.Count);
+                Debug.Log("No Elements To Battle! [Enemy] ");
+                if (bm.texts[0].text == "Player has no Elements To Battle!")
+                    bm.texts[0].text = "No one has any Elements To Battle!";
+                else
+                    bm.texts[0].text = "Enemy has no Elements To Battle!";
+
                 int t = enemy.hand.Count;
                 for (int i = 0; i < t; i++)
                 {
