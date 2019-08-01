@@ -11,12 +11,14 @@ public class LightUpWhenWinning : MonoBehaviour
     public Color[] lightningColor;
     public Color[] arcanaColor;
 
+    private AnimationManager animManager;
     private int which;
     private Color initial;
     private MeshRenderer mr;
 
     void Start()
     {
+        animManager = GameObject.Find("Manager").GetComponent<AnimationManager>();
         mr = GetComponent<MeshRenderer>();
         initial = mr.material.color;
 
@@ -43,11 +45,22 @@ public class LightUpWhenWinning : MonoBehaviour
     private Color GetColor()
     {
         if (BoardManager.curWinCondition == WinCondition.Victory)
+        {
+            animManager.MakeWeaker(BoardManager.GetBoardManager().enemyCard, false);
+            animManager.MakeStronger(BoardManager.GetBoardManager().playerCard, true);
             return SelectColor(BoardManager.GetBoardManager().playerCard, which);
+        }
 
         if (BoardManager.curWinCondition == WinCondition.Loss)
-            return SelectColor(BoardManager.GetBoardManager().enemyCard, which + (SameElements()?3:0));
+        {
+            animManager.MakeWeaker(BoardManager.GetBoardManager().playerCard, true);
+            animManager.MakeStronger(BoardManager.GetBoardManager().enemyCard, false);
+            return SelectColor(BoardManager.GetBoardManager().enemyCard, which + (SameElements() ? 3 : 0));
+            //Operacao ternária que retorna 3 se os elementos sao iguais e 0 se nao  ↑↑↑↑
+        }
 
+        animManager.MakeWeaker(BoardManager.GetBoardManager().playerCard, true);
+        animManager.MakeWeaker(BoardManager.GetBoardManager().enemyCard, false);
         return initial;
     }
 

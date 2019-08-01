@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 8
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1028,7 +1028,7 @@ ParticleSystem:
           m_RotationOrder: 4
       cycleCount: 8
       repeatInterval: 1
-      probability: 0.05
+      probability: 0
   SizeModule:
     enabled: 0
     curve:
@@ -4769,7 +4769,7 @@ ParticleSystem:
 --- !u!199 &8837210556824726494
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
