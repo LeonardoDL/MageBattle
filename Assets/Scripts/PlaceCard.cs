@@ -57,7 +57,7 @@ public class PlaceCard : MonoBehaviour
                 }
 
                 if (!tag.StartsWith("Slot/Portal"))
-                    BoardManager.GetBoardManager().CardPlayed(go);
+                    StartCoroutine(BoardManager.GetBoardManager().CardPlayed(go));
             }
             else
                 Destroy(go);

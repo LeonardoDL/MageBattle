@@ -32,12 +32,12 @@ public class Deck : MonoBehaviour
 
     public void PopulatePreDetermined()
     {
-        cards.Push(CardType.AirE, 2);
-        cards.Push(CardType.EarthE, 2);
-        cards.Push(CardType.FireE, 2);
-        cards.Push(CardType.LightningE, 2);
-        cards.Push(CardType.WaterE, 2);
-        cards.Push(CardType.ArcanaE, 8);
+        cards.Push(CardType.AirE, 4);
+        cards.Push(CardType.EarthE, 4);
+        cards.Push(CardType.FireE, 4);
+        cards.Push(CardType.LightningE, 4);
+        cards.Push(CardType.WaterE, 4);
+        cards.Push(CardType.ArcanaE, 4);
 
         // Cartas de poderes unicos
         cards.Push(CardType.AirP, 1);
@@ -70,15 +70,15 @@ public class Deck : MonoBehaviour
         cards.Push(CardType.LightningFireEarthP, 1);
         cards.Push(CardType.LightningAirEarthP, 1);
 
-        cards.Push(CardType.MegaPowerP, 3);
+        cards.Push(CardType.MegaPowerP, 5);
 
-        cards.Push(CardType.Intelligence, 2);
-        cards.Push(CardType.Portal, 2);
-        cards.Push(CardType.SuperGenius, 2);
-        cards.Push(CardType.Disintegration, 2);
-        cards.Push(CardType.BlackHole, 2);
-        cards.Push(CardType.Eclipse, 2);
-        cards.Push(CardType.FishingRod, 2);
+        cards.Push(CardType.Intelligence, 3);
+        cards.Push(CardType.Portal, 3);
+        cards.Push(CardType.SuperGenius, 3);
+        cards.Push(CardType.Disintegration, 3);
+        cards.Push(CardType.BlackHole, 3);
+        cards.Push(CardType.Eclipse, 3);
+        cards.Push(CardType.FishingRod, 3);
 
 
 

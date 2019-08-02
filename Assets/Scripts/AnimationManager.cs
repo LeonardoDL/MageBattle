@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationManager : MonoBehaviour
 {
     public bool animate = true;
+    public float changeSpeed = .15f;
 
     [HideInInspector] public Animator[] animPlayer; //Inicializado no Initialize Board
     [HideInInspector] public Animator[] animEnemy; //Inicializado no Initialize Board
@@ -79,6 +80,17 @@ public class AnimationManager : MonoBehaviour
             a.SetBool("Focus", activate);
     }
 
+    public void FadePartial(bool actNumbers, bool actCardsP, bool actCardsE)
+    {
+        hand.SetBool("Focus", actNumbers);
+
+        foreach (Animator a in handPanel.GetComponentsInChildren<Animator>())
+            a.SetBool("Focus", actCardsP);
+
+        foreach (Animator a in handEnemyPanel.GetComponentsInChildren<Animator>())
+            a.SetBool("Focus", actCardsE);
+    }
+
     public void UnfocusAnimation()
     {
         cam.SetBool("Focus", false);
@@ -101,17 +113,28 @@ public class AnimationManager : MonoBehaviour
         {
             if (a.name == name)
             {
+                switch (a.name)
+                {
+                    case "Arcana":
+                        a.SetLayerWeight(1, Mathf.Lerp(a.GetLayerWeight(1), 0.7f, changeSpeed * Time.deltaTime));
+                        a.SetLayerWeight(2, Mathf.Lerp(a.GetLayerWeight(2), 0f, changeSpeed * Time.deltaTime));
+                        a.SetLayerWeight(3, Mathf.Lerp(a.GetLayerWeight(3), 0f, changeSpeed * Time.deltaTime));
+                        break;
 
-                if (a.name == "Arcana")
-                {
-                    a.SetLayerWeight(1, Mathf.Lerp(a.GetLayerWeight(1), 0.7f, .1f));
-                    a.SetLayerWeight(2, Mathf.Lerp(a.GetLayerWeight(2), 0f, .1f));
-                    a.SetLayerWeight(3, Mathf.Lerp(a.GetLayerWeight(3), 0f, .1f));
-                }
-                else
-                {
-                    a.SetLayerWeight(1, Mathf.Lerp(a.GetLayerWeight(1), 0.5f, .1f));
-                    a.SetLayerWeight(2, Mathf.Lerp(a.GetLayerWeight(2), 0.5f, .1f));
+                    case "Earth":
+                        a.SetLayerWeight(1, Mathf.Lerp(a.GetLayerWeight(1), 0.5f, changeSpeed * Time.deltaTime));
+                        a.SetLayerWeight(2, Mathf.Lerp(a.GetLayerWeight(2), 0.3f, changeSpeed * Time.deltaTime));
+                        break;
+
+                    case "Air":
+                        a.SetLayerWeight(1, Mathf.Lerp(a.GetLayerWeight(1), 0.0f, changeSpeed * Time.deltaTime));
+                        a.SetLayerWeight(2, Mathf.Lerp(a.GetLayerWeight(2), 0.2f, changeSpeed * Time.deltaTime));
+                        break;
+
+                    default:
+                        a.SetLayerWeight(1, Mathf.Lerp(a.GetLayerWeight(1), 0.5f, changeSpeed * Time.deltaTime));
+                        a.SetLayerWeight(2, Mathf.Lerp(a.GetLayerWeight(2), 0.5f, changeSpeed * Time.deltaTime));
+                        break;
                 }
             }
             
@@ -133,15 +156,11 @@ public class AnimationManager : MonoBehaviour
         {
             if (a.name == "Arcana")
             {
-                a.SetLayerWeight(1, Mathf.Lerp(a.GetLayerWeight(1), 1f, .1f));
-                a.SetLayerWeight(2, Mathf.Lerp(a.GetLayerWeight(2), 1f, .1f));
-                a.SetLayerWeight(3, Mathf.Lerp(a.GetLayerWeight(3), 1f, .1f));
+                a.SetLayerWeight(3, Mathf.Lerp(a.GetLayerWeight(3), 1f, changeSpeed * Time.deltaTime));
             }
-            else
-            {
-                a.SetLayerWeight(1, Mathf.Lerp(a.GetLayerWeight(1), 1f, .1f));
-                a.SetLayerWeight(2, Mathf.Lerp(a.GetLayerWeight(2), 1f, .1f));
-            }
+
+            a.SetLayerWeight(1, Mathf.Lerp(a.GetLayerWeight(1), 1f, changeSpeed * Time.deltaTime));
+            a.SetLayerWeight(2, Mathf.Lerp(a.GetLayerWeight(2), 1f, changeSpeed * Time.deltaTime));
         }
     }
 }

@@ -115,6 +115,11 @@ public class EnemyManager : MonoBehaviour
         return standByOld;
     }
 
+    public int GetStandbyCount()
+    {
+        return standBy.Count;
+    }
+
     public void DrawHandEnemyFromDiscard(int quantity)
     {
         BoardManager.GetBoardManager().texts[2].text = "Enemy draws " + quantity + " cards";

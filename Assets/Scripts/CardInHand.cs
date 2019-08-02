@@ -70,7 +70,7 @@ public class CardInHand : MonoBehaviour
         //Debug.Log("Trigger Exit");
         if (other.tag == "Hand/PlayerHand")
         {
-            if (BoardManager.isInTransition || BoardManager.curState == GameState.EndGame)
+            if (BoardManager.isInTransition || BoardManager.curState == GameState.EnemyEffectPhase || BoardManager.curState == GameState.EndGame)
             {
                 moveCard = false;
                 return;

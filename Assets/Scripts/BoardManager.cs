@@ -40,7 +40,7 @@ public class BoardManager : MonoBehaviour
     public WinCondition currentWinCondition = WinCondition.Draw;
     public static WinCondition curWinCondition = WinCondition.Draw;
 
-    public bool discardingHand = false;
+    //public bool discardingHand = false;
 
     public void Peek() {
         currentState = curState;
@@ -92,7 +92,7 @@ public class BoardManager : MonoBehaviour
 
     public void DiscardPlayerHand()
     {
-        discardingHand = true;
+        //discardingHand = true;
         foreach (Transform t in playerHand.GetComponentInChildren<Transform>()){
             Power power = t.GetChild (0).gameObject.GetComponent<Power>();
             Effect effect = t.GetChild (0).gameObject.GetComponent<Effect>();
@@ -122,9 +122,21 @@ public class BoardManager : MonoBehaviour
         return standBy;
     }
 
+    public int GetPlayerStandByCount()
+    {
+        List<CardType> standBy = new List<CardType>();
+        foreach (Transform t in playerStandBy.GetComponentInChildren<Transform>())
+        {
+            CardInStandBy cardInStandBy = t.GetChild(0).gameObject.GetComponent<CardInStandBy>();
+            standBy.Add(cardInStandBy.card);
+            //Destroy(t.gameObject);
+        }
+        return standBy.Count;
+    }
+
     // Retorna uma carta random da mão do player
     public CardType GetPlayerCardRandom() {
-        discardingHand = true;
+        //discardingHand = true;
         CardType randomCard = CardType.None;
         
         int index = Random.Range(0, playerHand.transform.childCount);
@@ -166,6 +178,11 @@ public class BoardManager : MonoBehaviour
         return enemy.GetStandby();
     }
 
+    public int GetEnemyStandByCount()
+    {
+        return enemy.GetStandbyCount();
+    }
+
     public void DrawCards()
     {
         int pHandSize = playerHand.transform.childCount;
@@ -180,8 +197,9 @@ public class BoardManager : MonoBehaviour
             {
                 Debug.Log("No Elements To Battle! [Player]");
                 bm.texts[0].text = "Player has no Elements To Battle!";
-                foreach (Transform t in playerHand.GetComponentInChildren<Transform>())
-                    Destroy(t.gameObject);
+                DiscardPlayerHand();
+                //foreach (Transform t in playerHand.GetComponentInChildren<Transform>())
+                //    Destroy(t.gameObject);
                 deck.DrawHandPlayer(7);
             }
             else
@@ -201,13 +219,14 @@ public class BoardManager : MonoBehaviour
                 else
                     bm.texts[0].text = "Enemy has no Elements To Battle!";
 
-                int t = enemy.hand.Count;
-                for (int i = 0; i < t; i++)
-                {
-                    enemy.hand.RemoveAt(0);
-                    deck.cardBuilder.RemoveCardFromHand();
-                    new WaitForSeconds(1f);
-                }
+                //int t = enemy.hand.Count;
+                //for (int i = 0; i < t; i++)
+                //{
+                //    enemy.hand.RemoveAt(0);
+                //    deck.cardBuilder.RemoveCardFromHand();
+                //    new WaitForSeconds(1f);
+                //}
+                DiscardEnemyHand();
                 enemy.DrawHandEnemy(7);
             }
             else
@@ -229,14 +248,17 @@ public class BoardManager : MonoBehaviour
 
         texts[5].text = "" + deck.Size();
         texts[6].text = "" + discard.Size();
+
+        passButton.SetActive(false);
     }
 
-    public void CardPlayed(GameObject card)
+    public IEnumerator CardPlayed(GameObject card)
     {
         CardType cardType = card.GetComponent<CardInBoard>().type;
         Debug.Log("Card played: " + cardType + ", during " + curState);
+
         isInTransition = false;
-        
+
         //{
         //  tentar pensar numa maneira do inimigo
         //  poder jogar varios card draws logo no inicio da rodada
@@ -256,12 +278,16 @@ public class BoardManager : MonoBehaviour
             // if (curState == GameState.EnemyPlayPhase)
             //     curState = GameState.PlayerPlayPhase;
 
-            return;
+            yield break;
         }
         
         switch (curState)
         {
             case GameState.PlayerPlayPhase:
+
+                if (!passButton.activeSelf)
+                    passButton.SetActive(true);
+
                 playerCard = cardType;
                 playerBoardCard = card;
                 enemy.PlayElement();
@@ -315,6 +341,7 @@ public class BoardManager : MonoBehaviour
                     if (curWinCondition == WinCondition.Victory)
                     {
                         curState = GameState.EnemyEffectPhase;
+                        yield return new WaitForSeconds(1f); //Espera 1 seg antes de jogar em seguida
                         enemy.PlayPowerOrEffect();
                     }
                     else
@@ -546,7 +573,7 @@ public class BoardManager : MonoBehaviour
         int pScore = vp.GetScore();
         int eScore = ve.GetScore();
 
-        texts[0].fontSize = 40;
+        //texts[0].fontSize = 40;
         texts[1].text = "";
         texts[2].text = "";
 
@@ -575,8 +602,16 @@ public class BoardManager : MonoBehaviour
         GetComponent<AnimationManager>().Fade(activate);
     }
 
+    public void setButtonEnemyPlayerPartial(bool playerB, bool enemyB, bool animF)
+    {
+        playerButton.SetActive(playerB);
+        enemyButton.SetActive(enemyB);
+        GetComponent<AnimationManager>().Fade(animF);
+    }
+
     public void HidePassButton(bool hide){
-        passButton.SetActive (!hide);
+        //passButton.SetActive (!hide);
+        GetComponent<AnimationManager>().FadePartial(hide, hide, false);
     }
 
     void Update()
