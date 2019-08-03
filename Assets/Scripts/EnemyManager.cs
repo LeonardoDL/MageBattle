@@ -17,6 +17,9 @@ public class EnemyManager : MonoBehaviour
     Dictionary<CardType, Power> powers;
     Dictionary<CardType, Effect> effects;
 
+    // Armazena o estado para saber se acabou de jogar uma carta de inteligencia/genio como resposta ao player
+    private bool justPlayed = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -146,20 +149,34 @@ public class EnemyManager : MonoBehaviour
         deck.cardBuilder.RemoveCardFromStandBy();
     }
 
+    public bool getJustPlayed() {
+        bool temp = justPlayed;
+        justPlayed = false;
+        return temp;
+    }
+
     public void PlayCardDraw()
     {
+
         CardType c = CardType.None;
 
-        if (hand.Contains(CardType.Intelligence))
-            c = CardType.Intelligence;
+    //    int cardInt = hand.FindAll(name => name.Equals(CardType.SuperGenius)).Count;
+    //    int cardGenius = hand.FindAll(name => name.Equals(CardType.Intelligence)).Count;
+    //    int cardCount = cardInt + cardGenius;
+
         if (hand.Contains(CardType.SuperGenius))
             c = CardType.SuperGenius;
 
+         if (hand.Contains(CardType.Intelligence))
+            c = CardType.Intelligence;
+        
         if (c != CardType.None)
         {
             BoardManager.curState = GameState.EnemyPlayPhase;
-            if(effects[c].isPlayable())
+            if(effects[c].isPlayable()){
+                justPlayed = true;
                 PlayEffect(c);
+            }
             else
                 Debug.Log("I cannot use " + c);
         }

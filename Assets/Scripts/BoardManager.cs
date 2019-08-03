@@ -259,25 +259,21 @@ public class BoardManager : MonoBehaviour
 
         isInTransition = false;
 
-        //{
-        //  tentar pensar numa maneira do inimigo
-        //  poder jogar varios card draws logo no inicio da rodada
-        //  ao inves de um por vez
-        //}
-
         if ((cardType == CardType.Intelligence || cardType == CardType.SuperGenius) &&
             (curState == GameState.PlayerPlayPhase || curState == GameState.EnemyPlayPhase))
         {
             card.GetComponentInChildren<CardInBoard>().execute?.Invoke();
 
-            // if (curState == GameState.PlayerPlayPhase)
-            // {
-            //     enemy.PlayCardDraw();
-            // }
-            // else
-            // if (curState == GameState.EnemyPlayPhase)
-            //     curState = GameState.PlayerPlayPhase;
-
+            if (curState == GameState.PlayerPlayPhase)
+            {
+                enemy.PlayCardDraw();
+            }
+            else {
+                if (enemy.getJustPlayed()){
+                    curState = GameState.PlayerPlayPhase;
+                 }
+            }
+            
             yield break;
         }
         
