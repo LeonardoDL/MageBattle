@@ -13,9 +13,6 @@ public class EnemyManager : MonoBehaviour
     public Vector3 offset;
     //public bool isActive;
 
-    public GameObject panelHand;
-    public GameObject panelStandBy;
-
     private Deck deck;
     Dictionary<CardType, Power> powers;
     Dictionary<CardType, Effect> effects;
@@ -77,13 +74,23 @@ public class EnemyManager : MonoBehaviour
         foreach (CardType card in list_)
             hand.Remove(card);
     }
-    public void DiscardHand(){
+    
+	public void DiscardHand(){
         BoardManager bm = BoardManager.GetBoardManager();
         foreach(CardType card in hand){
-            deck.cardBuilder.RemoveCardFromHand();
+            deck.cardBuilder.RemoveCardFromHand(card);
             bm.discard.DiscardCard(card);
         }
         hand = new List<CardType>();
+    }
+	
+	public void ClearStandBy()
+	{
+        BoardManager bm = BoardManager.GetBoardManager();
+        foreach(CardType card in standBy)
+            deck.cardBuilder.RemoveCardFromStandBy(card);
+			
+        standBy = new List<CardType>();
     }
 
     public void AddCardToHand(CardType card){  
@@ -92,15 +99,43 @@ public class EnemyManager : MonoBehaviour
         cardBuilder.BuildCard(card, false);
     }
 
-    public CardType GetCardRandom(){  
-        CardType randomCard;
+    public void AddCardForEnemy(CardType card)
+    {
+        if (card == CardType.None)
+            return;
 
-        int index = Random.Range(0, hand.Count);
-        randomCard = hand[index];
-        hand.RemoveAt(index);
-        deck.cardBuilder.RemoveCardFromHand();
+        if ((int)card > 0 && (int)card <= 6)
+            standBy.Add(card);
+        else
+            hand.Add(card);
 
-        return randomCard;
+        CardBuilder cardBuilder = deck.GetCardBuilder();
+        cardBuilder.BuildCard(card, false);
+    }
+
+    // public CardType GetCardRandom()
+	// {  
+        // CardType randomCard;
+
+        // int index = Random.Range(0, hand.Count);
+        // randomCard = hand[index];
+		// hand.RemoveAt(index);
+        // deck.cardBuilder.RemoveCardFromHand(randomCard);
+
+        // return randomCard;
+    // }
+	
+	public CardType GetCardFromHand(CardType c)
+	{  
+        foreach (CardType f in hand)
+            if (f == c)
+            {
+                hand.Remove(f);
+                deck.cardBuilder.RemoveCardFromHand(f);
+                return f;
+            }
+
+        return CardType.None;
     }
 
     public CardType RemoveCard(CardType c)
@@ -109,7 +144,7 @@ public class EnemyManager : MonoBehaviour
             if (f == c)
             {
                 hand.Remove(f);
-                Destroy(panelHand.transform.GetChild(0).gameObject);
+                deck.cardBuilder.RemoveCardFromHand(f);
                 return f;
             }
 
@@ -117,7 +152,7 @@ public class EnemyManager : MonoBehaviour
             if (e == c)
             {
                 standBy.Remove(e);
-                Destroy(panelStandBy.transform.GetChild(0).gameObject);
+                deck.cardBuilder.RemoveCardFromStandBy(e);
                 return CardType.None;
             }
 
@@ -128,7 +163,7 @@ public class EnemyManager : MonoBehaviour
         List<CardType> standByOld = standBy;
         BoardManager bm = BoardManager.GetBoardManager();
         foreach(CardType card in standBy){
-            deck.cardBuilder.RemoveCardFromStandBy();
+            deck.cardBuilder.RemoveCardFromStandBy(card);
         }
         standBy = new List<CardType>();
 
@@ -163,7 +198,7 @@ public class EnemyManager : MonoBehaviour
         g.GetComponent<CardInBoard>().type = cardType;
         g.GetComponent<CardInBoard>().Activate(SlotsOnBoard.ElementEnemy);
 
-        deck.cardBuilder.RemoveCardFromStandBy();
+        deck.cardBuilder.RemoveCardFromStandBy(cardType);
     }
 
     public bool getJustPlayed() {
@@ -284,7 +319,7 @@ public class EnemyManager : MonoBehaviour
         g.GetComponent<CardInBoard>().type = cardType;
         g.GetComponent<CardInBoard>().Activate(SlotsOnBoard.EffectEnemy);
 
-        deck.cardBuilder.RemoveCardFromHand();
+        deck.cardBuilder.RemoveCardFromHand(cardType);
     }
 
     public void PlayEffect(CardType cardType)
@@ -298,6 +333,6 @@ public class EnemyManager : MonoBehaviour
         g.GetComponent<CardInBoard>().type = cardType;
         g.GetComponent<CardInBoard>().Activate(SlotsOnBoard.EffectEnemy);
 
-        deck.cardBuilder.RemoveCardFromHand();
+        deck.cardBuilder.RemoveCardFromHand(cardType);
     }
 }

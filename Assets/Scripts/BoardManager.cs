@@ -121,6 +121,12 @@ public class BoardManager : MonoBehaviour
         }
         return standBy;
     }
+	
+	public void ClearPlayerStandBy()
+	{
+		foreach (CardInStandBy t in playerStandBy.GetComponentsInChildren<CardInStandBy>())
+			Destroy(t.transform.parent.gameObject);
+	}
 
     public int GetPlayerStandByCount()
     {
@@ -157,7 +163,6 @@ public class BoardManager : MonoBehaviour
 
     public void RemoveCardFromPlayer(CardType c)
     {
-        Debug.Log("Got Here");
         bool flag = true;
         foreach (Power p in playerHand.GetComponentsInChildren<Power>())
         {
@@ -166,7 +171,6 @@ public class BoardManager : MonoBehaviour
                 flag = false;
                 Destroy(p.transform.parent.gameObject);
                 discard.DiscardCard(c);
-                Debug.Log("Found Power " + p.ToString());
                 break;
             }
         }
@@ -179,7 +183,6 @@ public class BoardManager : MonoBehaviour
                 flag = false;
                 Destroy(e.transform.parent.gameObject);
                 discard.DiscardCard(c);
-                Debug.Log("Found Effect " + e.ToString());
                 break;
             }
         }
@@ -191,7 +194,6 @@ public class BoardManager : MonoBehaviour
             {
                 flag = false;
                 Destroy(s.transform.parent.gameObject);
-                Debug.Log("Found Element " + s.ToString());
                 break;
             }
         }
@@ -211,8 +213,8 @@ public class BoardManager : MonoBehaviour
         enemy.AddCardToHand(card);
     }
 
-    public CardType GetEnemyCardRandom() {
-        return enemy.GetCardRandom();
+    public CardType GetEnemyCardRandom(CardType c) {
+        return enemy.GetCardFromHand(c);
     }
 
     public void AddPlayerHand(CardType card)

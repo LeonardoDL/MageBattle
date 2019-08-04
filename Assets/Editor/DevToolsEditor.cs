@@ -7,7 +7,7 @@ using UnityEditor;
 public class DevToolsEditor : Editor
 {
     private CardType card = CardType.WaterE;
-    private bool forPlayer = true;
+    //private bool forPlayer = true;
     private string player;
 
     public override void OnInspectorGUI()
@@ -18,45 +18,92 @@ public class DevToolsEditor : Editor
 
         GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Card", GUILayout.MaxWidth(100f), GUILayout.MinWidth(5f));
-        card = (CardType)EditorGUILayout.EnumPopup(card, GUILayout.MaxWidth(120f), GUILayout.MinWidth(60f));
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Player /Enemy", GUILayout.MaxWidth(100f), GUILayout.MinWidth(70f));
-        forPlayer = EditorGUILayout.Toggle(forPlayer, GUILayout.Width(15f));
+        card = (CardType)EditorGUILayout.EnumPopup(card, GUILayout.MinWidth(60f));
+        //EditorGUILayout.Space();
+        //EditorGUILayout.LabelField("Player /Enemy", GUILayout.MaxWidth(100f), GUILayout.MinWidth(70f));
+        //forPlayer = EditorGUILayout.Toggle(forPlayer, GUILayout.Width(15f));
         GUILayout.EndHorizontal();
 
         EditorGUILayout.Space();
-
 
         GUILayout.BeginHorizontal();
-
-        player = (forPlayer ? "Player" : "Enemy");
-        GUI.backgroundColor = (forPlayer ? Color.green : new Color(255f / 255f, 100f / 255f, 100f / 255f));
-        if (GUILayout.Button("Create card for " + player, GUILayout.Height(25f)))
+        GUI.backgroundColor = Color.green;
+        if (GUILayout.Button("Create card for Player", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
         {
             if (Application.isPlaying)
-                dtc.AddCardToHand(forPlayer, card);
+                dtc.AddCardToHand(true, card);
         }
-        GUI.backgroundColor = new Color(1f, 1f, 1f);
 
-        GUI.backgroundColor = (forPlayer ? Color.green : new Color(236f / 255f, 71f / 255f, 71f / 255f));
-        if (GUILayout.Button("Remove card for " + player, GUILayout.Height(25f)))
+        GUI.backgroundColor = new Color(255f / 255f, 100f / 255f, 100f / 255f);
+        if (GUILayout.Button("Create card for Enemy", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
         {
             if (Application.isPlaying)
-                dtc.RemoveCard(forPlayer, card);
+                dtc.AddCardToHand(false, card);
         }
-        GUI.backgroundColor = new Color(1f, 1f, 1f);
-
         GUILayout.EndHorizontal();
 
+        GUILayout.BeginHorizontal();
+        GUI.backgroundColor = Color.green;
+        if (GUILayout.Button("Remove card for Player", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+        {
+            if (Application.isPlaying)
+                dtc.RemoveCard(true, card);
+        }
+
+        GUI.backgroundColor = new Color(255f / 255f, 100f / 255f, 100f / 255f);
+        if (GUILayout.Button("Remove card for Enemy", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+        {
+            if (Application.isPlaying)
+                dtc.RemoveCard(false, card);
+        }
+        GUILayout.EndHorizontal();
 
         EditorGUILayout.Space();
 
-        GUI.backgroundColor = (forPlayer ? Color.green : new Color(236f / 255f, 71f / 255f, 71f / 255f));
-        if (GUILayout.Button("Discard " + player + "'s hand", GUILayout.Height(25f)))
+        GUILayout.BeginHorizontal();
+        GUI.backgroundColor = Color.green;
+        if (GUILayout.Button("Discard Player's hand", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
         {
             if (Application.isPlaying)
-                dtc.DiscardHand(forPlayer);
+                dtc.DiscardHand(true);
         }
+
+        GUI.backgroundColor = new Color(255f / 255f, 100f / 255f, 100f / 255f);
+        if (GUILayout.Button("Discard Enemy's hand", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+        {
+            if (Application.isPlaying)
+                dtc.DiscardHand(false);
+        }
+        GUILayout.EndHorizontal();
+		
+		
+		GUILayout.BeginHorizontal();
+        GUI.backgroundColor = Color.green;
+        if (GUILayout.Button("Clear Player's Standby", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+        {
+            if (Application.isPlaying)
+                dtc.ClearStandBy(true);
+        }
+
+        GUI.backgroundColor = new Color(255f / 255f, 100f / 255f, 100f / 255f);
+        if (GUILayout.Button("Clear Enemy's Standby", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+        {
+            if (Application.isPlaying)
+                dtc.ClearStandBy(false);
+        }
+        GUILayout.EndHorizontal();
+		
+		EditorGUILayout.Space();
+
+        GUI.backgroundColor = new Color(255f / 255f, 100f / 255f, 100f / 255f);
+        if (GUILayout.Button("Reveal Enemy's Cards", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+        {
+            if (Application.isPlaying)
+			{
+				dtc.RevealEnemy();
+			}
+        }
+
         GUI.backgroundColor = new Color(1f, 1f, 1f);
     }
 }

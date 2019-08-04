@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DevTools : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class DevTools : MonoBehaviour
         if (forPlayer)
             board_m.deck.CreateCardForPlayer(c);
         else
-            board_m.deck.CreateCardForEnemy(c);
+            enemy_m.AddCardForEnemy(c);
     }
 
     public void RemoveCard(bool forPlayer, CardType c)
@@ -50,18 +51,21 @@ public class DevTools : MonoBehaviour
     public void ClearStandBy(bool forPlayer)
     {
         if (forPlayer)
-            Debug.Log("Clear Player's StandBy to do");
+            board_m.ClearPlayerStandBy();
         else
-            Debug.Log("Clear Enemy's StandBy to do");
+            enemy_m.ClearStandBy();
     }
+	
+	public void RevealEnemy()
+	{
+		board_m.deck.cardBuilder.SwapSpritesEnemyHand();
+		board_m.deck.cardBuilder.SwapSpritesEnemyStandBy();
+		board_m.deck.cardBuilder.reveal = !board_m.deck.cardBuilder.reveal;
+	}
 
     //To Do:
-    //- Clear Hands
-    //- Clear Stand-Bies
     //- Force Enemy to play a card
     //- Force Enemy to play multiple cards
-    //- Reveal Opponent's Hand
-    //- Reveal Opponent's Stand-By
 
     public bool CheckPointers()
     {

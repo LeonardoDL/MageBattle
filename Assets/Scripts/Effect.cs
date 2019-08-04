@@ -236,13 +236,13 @@ public class Effect : MonoBehaviour
         return true;
     }
 
-    public void FishingRodSelection()
+    public void FishingRodSelection(CardType c)
     {
         EnemyPointerHandler.activatePointer(false);
         BoardManager bm = BoardManager.GetBoardManager();
         bm.HidePassButton(false);
         CardType card;
-        card = bm.GetEnemyCardRandom();
+        card = bm.GetEnemyCardRandom(c);
         bm.AddPlayerHand(card);
         bm.texts[0].text = "Player used Fishing Rod";
     }
@@ -258,7 +258,7 @@ public class Effect : MonoBehaviour
                 EclipseSelection(isPlayer);
                 break;
             case CardType.FishingRod:
-                FishingRodSelection();
+                //FishingRodSelection();
                 break;
         }
         selection = CardType.None;

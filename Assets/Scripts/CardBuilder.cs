@@ -42,6 +42,9 @@ public class CardBuilder : MonoBehaviour
     private Dictionary<CardType, Tuple<Sprite, GameObject>> elementsDictionaryEnemy;
     private Dictionary<CardType, Tuple<Sprite, GameObject>> powersDictionaryEnemy;
     private Dictionary<CardType, Tuple<Sprite, GameObject>> effectsDictionaryEnemy;
+	
+	
+	[HideInInspector] public bool reveal = false;
 
 
     // Start is called before the first frame update
@@ -116,7 +119,18 @@ public class CardBuilder : MonoBehaviour
             {
                 Tuple<Sprite, GameObject> element = elementsDictionaryEnemy[c];
                 GameObject cis = Instantiate(cardInStandByEnemy, Instantiate(cardPlaceholderEnemy, panelStandByEnemy.transform).transform);
-                cis.GetComponent<Image>().sprite = cardBack;
+                
+				if (reveal)
+				{
+					cis.GetComponent<Image>().sprite = element.Item1;
+					cis.GetComponent<SpriteHandler>().cardFront = cardBack;
+					cis.GetComponent<SpriteHandler>().card = c;
+					return;
+				}
+				
+				cis.GetComponent<Image>().sprite = cardBack;
+				cis.GetComponent<SpriteHandler>().cardFront = element.Item1;
+				cis.GetComponent<SpriteHandler>().card = c;
                 return;
             }
             catch { }
@@ -125,7 +139,18 @@ public class CardBuilder : MonoBehaviour
             {
                 Tuple<Sprite, GameObject> power = powersDictionaryEnemy[c];
                 GameObject cih = Instantiate(cardInHandEnemy, Instantiate(cardPlaceholderEnemy, panelHandEnemy.transform).transform);
-                cih.GetComponent<Image>().sprite = cardBack;
+                
+				if (reveal)
+				{
+					cih.GetComponent<Image>().sprite = power.Item1;
+					cih.GetComponent<SpriteHandler>().cardFront = cardBack;
+					cih.GetComponent<SpriteHandler>().card = c;
+					return;
+				}
+				
+				cih.GetComponent<Image>().sprite = cardBack;
+				cih.GetComponent<SpriteHandler>().cardFront = power.Item1;
+				cih.GetComponent<SpriteHandler>().card = c;
                 return;
             }
             catch { }
@@ -134,7 +159,18 @@ public class CardBuilder : MonoBehaviour
             {
                 Tuple<Sprite, GameObject> effect = effectsDictionaryEnemy[c];
                 GameObject cih = Instantiate(cardInHandEnemy, Instantiate(cardPlaceholderEnemy, panelHandEnemy.transform).transform);
-                cih.GetComponent<Image>().sprite = cardBack;
+                
+				if (reveal)
+				{
+					cih.GetComponent<Image>().sprite = effect.Item1;
+					cih.GetComponent<SpriteHandler>().cardFront = cardBack;
+					cih.GetComponent<SpriteHandler>().card = c;
+					return;
+				}
+				
+				cih.GetComponent<Image>().sprite = cardBack;
+				cih.GetComponent<SpriteHandler>().cardFront = effect.Item1;
+				cih.GetComponent<SpriteHandler>().card = c;
                 return;
             }
             catch { Debug.Log("Ai fudeu " + c + " " + isPlayer); }
@@ -164,19 +200,45 @@ public class CardBuilder : MonoBehaviour
         return null;
     }
 
-    public void RemoveCardFromHand()
+    public void RemoveCardFromHand(CardType c)
     {
-        if (panelHandEnemy.transform.childCount > 0)
-        {
-            DestroyImmediate(panelHandEnemy.transform.GetChild(0).gameObject);
-        }
+		foreach (SpriteHandler s in panelHandEnemy.GetComponentsInChildren<SpriteHandler>())
+			if (s.card == c)
+			{
+				DestroyImmediate(s.transform.parent.gameObject);
+				return;
+			}
+			
+        // if (panelHandEnemy.transform.childCount > 0)
+        // {
+            // DestroyImmediate(panelHandEnemy.transform.GetChild(0).gameObject);
+        // }
     }
 
-    public void RemoveCardFromStandBy()
+    public void RemoveCardFromStandBy(CardType c)
     {
-        if (panelStandByEnemy.transform.childCount > 0)
-        {
-            DestroyImmediate(panelStandByEnemy.transform.GetChild(0).gameObject);
-        }
+		foreach (SpriteHandler s in panelStandByEnemy.GetComponentsInChildren<SpriteHandler>())
+			if (s.card == c)
+			{
+				DestroyImmediate(s.transform.parent.gameObject);
+				return;
+			}
+			
+        // if (panelStandByEnemy.transform.childCount > 0)
+        // {
+            // DestroyImmediate(panelStandByEnemy.transform.GetChild(0).gameObject);
+        // }
     }
+	
+	public void SwapSpritesEnemyHand()
+	{
+		foreach (SpriteHandler s in panelHandEnemy.GetComponentsInChildren<SpriteHandler>())
+			s.Swap();
+	}
+	
+	public void SwapSpritesEnemyStandBy()
+	{
+		foreach (SpriteHandler s in panelStandByEnemy.GetComponentsInChildren<SpriteHandler>())
+			s.Swap();
+	}
 }
