@@ -155,6 +155,57 @@ public class BoardManager : MonoBehaviour
         return randomCard;
     }
 
+    public void RemoveCardFromPlayer(CardType c)
+    {
+        Debug.Log("Got Here");
+        bool flag = true;
+        foreach (Power p in playerHand.GetComponentsInChildren<Power>())
+        {
+            if (p.cardType == c)
+            {
+                flag = false;
+                Destroy(p.transform.parent.gameObject);
+                discard.DiscardCard(c);
+                Debug.Log("Found Power " + p.ToString());
+                break;
+            }
+        }
+
+        if (flag)
+        foreach (Effect e in playerHand.GetComponentsInChildren<Effect>())
+        {
+            if (e.cardType == c)
+            {
+                flag = false;
+                Destroy(e.transform.parent.gameObject);
+                discard.DiscardCard(c);
+                Debug.Log("Found Effect " + e.ToString());
+                break;
+            }
+        }
+
+        if (flag)
+        foreach (CardInStandBy s in playerStandBy.GetComponentsInChildren<CardInStandBy>())
+        {
+            if (s.card == c)
+            {
+                flag = false;
+                Destroy(s.transform.parent.gameObject);
+                Debug.Log("Found Element " + s.ToString());
+                break;
+            }
+        }
+    }
+
+    public void RemoveCardFromEnemy(CardType c)
+    {
+        CardType x = enemy.RemoveCard(c);
+        if (x != CardType.None)
+        {
+            discard.DiscardCard(x);
+        }
+    }
+
     public void AddEnemyHand(CardType card)
     {
         enemy.AddCardToHand(card);

@@ -72,9 +72,9 @@ public class Deck : MonoBehaviour
 
         cards.Push(CardType.MegaPowerP, 5);
 
-        cards.Push(CardType.Intelligence, 3);
+        cards.Push(CardType.Intelligence, 8);
         cards.Push(CardType.Portal, 3);
-        cards.Push(CardType.SuperGenius, 3);
+        cards.Push(CardType.SuperGenius, 8);
         cards.Push(CardType.Disintegration, 3);
         cards.Push(CardType.BlackHole, 3);
         cards.Push(CardType.Eclipse, 3);
@@ -128,6 +128,16 @@ public class Deck : MonoBehaviour
         }
 
         return c;
+    }
+
+    public void CreateCardForPlayer(CardType c)
+    {
+        cardBuilder.BuildCard(c, true);
+    }
+
+    public void CreateCardForEnemy(CardType c)
+    {
+        cardBuilder.BuildCard(c, false);
     }
 
     public void AddCard(CardType card)

@@ -11,7 +11,10 @@ public class EnemyManager : MonoBehaviour
 
     public Transform enemySlot;
     public Vector3 offset;
-    public bool isActive;
+    //public bool isActive;
+
+    public GameObject panelHand;
+    public GameObject panelStandBy;
 
     private Deck deck;
     Dictionary<CardType, Power> powers;
@@ -23,12 +26,9 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if (isActive)
-        {
-            hand = new List<CardType>();
-            standBy = new List<CardType>();
-            deck = GameObject.FindWithTag("Deck").GetComponent<Deck>();
-        }
+        hand = new List<CardType>();
+        standBy = new List<CardType>();
+        deck = GameObject.FindWithTag("Deck").GetComponent<Deck>();
 
         powers = new Dictionary<CardType, Power>();
         effects = new Dictionary<CardType, Effect>();
@@ -47,10 +47,6 @@ public class EnemyManager : MonoBehaviour
             effects.Add((CardType)i, e);
         }
     }
-
-    //public void setEffects(IDictionary<CardType, EnemyEffect> effects){
-    //    this.effects = effects;
-    //}
 
     public void DrawHandEnemy(int quantity)
     {
@@ -105,6 +101,27 @@ public class EnemyManager : MonoBehaviour
         deck.cardBuilder.RemoveCardFromHand();
 
         return randomCard;
+    }
+
+    public CardType RemoveCard(CardType c)
+    {
+        foreach (CardType f in hand)
+            if (f == c)
+            {
+                hand.Remove(f);
+                Destroy(panelHand.transform.GetChild(0).gameObject);
+                return f;
+            }
+
+        foreach (CardType e in standBy)
+            if (e == c)
+            {
+                standBy.Remove(e);
+                Destroy(panelStandBy.transform.GetChild(0).gameObject);
+                return CardType.None;
+            }
+
+        return CardType.None;
     }
 
     public List<CardType> GetStandby() {
@@ -177,8 +194,8 @@ public class EnemyManager : MonoBehaviour
                 justPlayed = true;
                 PlayEffect(c);
             }
-            else
-                Debug.Log("I cannot use " + c);
+            //else
+            //    Debug.Log("I cannot use " + c);
         }
     }
 
@@ -248,8 +265,8 @@ public class EnemyManager : MonoBehaviour
 
                 if(effects[(CardType)i].isPlayable())
                     PlayEffect((CardType)i);
-                else
-                    Debug.Log("I cannot use " + (CardType)i);
+                //else
+                //    Debug.Log("I cannot use " + (CardType)i);
 
                 return;
             }
