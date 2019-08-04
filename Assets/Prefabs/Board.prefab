@@ -98,6 +98,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -235,6 +236,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -579,6 +581,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -705,6 +708,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -832,6 +836,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -994,6 +999,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1119,6 +1125,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -2260,7 +2267,7 @@ PrefabInstance:
     - target: {fileID: 3406112386499356608, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}
       propertyPath: simulationSpeed
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3406112386499356608, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}
@@ -2270,7 +2277,7 @@ PrefabInstance:
     - target: {fileID: 6065469390167543241, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}
       propertyPath: m_Parameters.m_GravityCurve.scalar
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6316182854744098537, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}
@@ -3349,7 +3356,7 @@ PrefabInstance:
     - target: {fileID: 3406112386499356608, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}
       propertyPath: simulationSpeed
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3406112386499356608, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}
@@ -3359,7 +3366,7 @@ PrefabInstance:
     - target: {fileID: 6065469390167543241, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}
       propertyPath: m_Parameters.m_GravityCurve.scalar
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6316182854744098537, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}

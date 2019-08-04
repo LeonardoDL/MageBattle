@@ -48,8 +48,11 @@ public class EnemyPointerHandler : MonoBehaviour, IPointerExitHandler, IPointerE
 
     public void OnPointerUp(PointerEventData pointerEventData)
     {
-       Effect effect = BoardManager.GetBoardManager().GetEffect();
-       transform.localScale = Vector3.one;
-       effect.FishingRodSelection(GetComponent<SpriteHandler>().card);
+        if (!activate)
+            return;
+
+        Effect effect = BoardManager.GetBoardManager().GetEffect();
+        transform.localScale = Vector3.one;
+        effect.FishingRodSelection(GetComponent<SpriteHandler>().card);
     }
 }

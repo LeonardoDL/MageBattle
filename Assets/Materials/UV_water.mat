@@ -40,4 +40,4 @@ Material:
     - _InnerColor: {r: 0.49963447, g: 0.23880595, b: 1, a: 0}
     - _ReflColor: {r: 1, g: 1, b: 1, a: 0}
     - _RimColor: {r: 0.8121282, g: 0.32835823, b: 1, a: 1}
-    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.15686275}
+    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.3137255}

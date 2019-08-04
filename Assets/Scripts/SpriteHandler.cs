@@ -10,7 +10,7 @@ public class SpriteHandler : MonoBehaviour
 	private Sprite cardBack;
 	private Image image;
 	
-    public void Swap()
+	public void Swap()
 	{
 		if (image == null)
 			image = GetComponent<Image>();

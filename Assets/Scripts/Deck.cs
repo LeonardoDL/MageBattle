@@ -132,7 +132,8 @@ public class Deck : MonoBehaviour
 
     public void CreateCardForPlayer(CardType c)
     {
-        cardBuilder.BuildCard(c, true);
+        if (c != CardType.None)
+            cardBuilder.BuildCard(c, true);
     }
 
     public void CreateCardForEnemy(CardType c)

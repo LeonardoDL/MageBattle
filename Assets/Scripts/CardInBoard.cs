@@ -8,6 +8,8 @@ public class CardInBoard : MonoBehaviour
     public CardType type;
     public Execute execute;
 
+    private bool hidden = false;
+
     private AnimationManager am;
 
     public void Activate(SlotsOnBoard place)
@@ -56,6 +58,14 @@ public class CardInBoard : MonoBehaviour
         Debug.Log("Clicked");
         if (am == null)
             am = GameObject.Find("Manager").GetComponent<AnimationManager>();
+
+        if (hidden)
+            return;
         am.FocusAnimation();
+    }
+
+    public void HiddenFromAnimation()
+    {
+        hidden = !hidden;
     }
 }

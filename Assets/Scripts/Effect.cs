@@ -245,6 +245,7 @@ public class Effect : MonoBehaviour
         card = bm.GetEnemyCardRandom(c);
         bm.AddPlayerHand(card);
         bm.texts[0].text = "Player used Fishing Rod";
+        EnemyPointerHandler.activatePointer(false);
     }
 
     public void Selection(bool isPlayer)
@@ -367,7 +368,7 @@ public class Effect : MonoBehaviour
             if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw)
                 return false;
 
-            if (bm.GetEnemyHandSize() <= 0)
+            if (bm.GetEnemyHandSize() <= 0 && bm.GetPlayerHandSize() <= 1)
                 return false;
 
             return true;
@@ -379,7 +380,7 @@ public class Effect : MonoBehaviour
             if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw )
                 return false;
 
-            if (bm.GetPlayerHandSize() <= 0)
+            if (bm.GetPlayerHandSize() <= 0) //&& bm.GetEnemyHandSize() <= 0)
                 return false;
 
             return true;
@@ -413,11 +414,11 @@ public class Effect : MonoBehaviour
             if (bm.GetPlayerStandByCount() <= 0 && bm.GetEnemyStandByCount() <= 0)
                 return false;
 
-            if (bm.GetEnemyStandByCount() > 5 || bm.GetPlayerStandByCount() > 5) //Uma decisao mais inteligente
-                return true;
+            //if (bm.GetEnemyStandByCount() > 5 || bm.GetPlayerStandByCount() > 5) //Uma decisao mais inteligente
+                //return true;
 
-            if (bm.GetEnemyStandByCount() > bm.GetPlayerStandByCount()) //Uma decisao mais inteligente
-                return false;
+            //if (bm.GetEnemyStandByCount() > bm.GetPlayerStandByCount()) //Uma decisao mais inteligente
+                //return false;
 
             return true;
         }
