@@ -19,36 +19,36 @@ public class BoardManager : MonoBehaviour
 	[HideInInspector] public GameObject playerBoardCard;
 	[HideInInspector] public GameObject enemyBoardCard;
 
-	 public GameObject playerButton;
-	 public GameObject enemyButton;
-	 public GameObject passButton;
+    public GameObject playerButton;
+	public GameObject enemyButton;
+	public GameObject passButton;
 
 	[HideInInspector] public bool endGame;
 	[HideInInspector] public static bool isInTransition;
 
 	private EnemyManager enemy;
 	private GameObject playerHand;
-	public int playerHandSize;
+	//public int playerHandSize;
 
-	public int discardSize;
+	//public int discardSize;
 
 	private GameObject playerStandBy;
 
-	public GameState currentState = GameState.None;
+	//public GameState currentState = GameState.None;
 	public static GameState curState = GameState.None;
 
-	public WinCondition currentWinCondition = WinCondition.Draw;
+	//public WinCondition currentWinCondition = WinCondition.Draw;
 	public static WinCondition curWinCondition = WinCondition.Draw;
 
 	//public bool discardingHand = false;
 
-	public void Peek() {
-		currentState = curState;
-		currentWinCondition = curWinCondition;
-		playerHandSize = GetPlayerHandSize();
-		if (discard != null)
-			discardSize = discard.Size();
-	 }
+	//public void Peek() {
+	//	currentState = curState;
+	//	currentWinCondition = curWinCondition;
+	//	playerHandSize = GetPlayerHandSize();
+	//	if (discard != null)
+	//		discardSize = discard.Size();
+	// }
 
 	void Start()
 	{
@@ -685,7 +685,7 @@ public class BoardManager : MonoBehaviour
 
 	void Update()
 	{
-		Peek();
+		//Peek();
 	}
 
 }

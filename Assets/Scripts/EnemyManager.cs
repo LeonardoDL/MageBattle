@@ -6,14 +6,14 @@ using Random=UnityEngine.Random;
 
 public class EnemyManager : MonoBehaviour
 {
-	public List<CardType> hand;
-	public List<CardType> standBy;
+    [HideInInspector] public List<CardType> hand;
+    [HideInInspector] public List<CardType> standBy;
 
 	public Transform enemySlot;
 	public Vector3 offset;
 	//public bool isActive;
-	public CardType cardToPlay = CardType.None;
-	public bool isWaiting;
+	[HideInInspector] public CardType cardToPlay = CardType.None;
+    [HideInInspector] public bool isWaiting;
 
 	private Deck deck;
 	Dictionary<CardType, Power> powers;

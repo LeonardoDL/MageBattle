@@ -12,6 +12,7 @@ public class DevToolsEditor : Editor
 	private bool waitToPlay = false;
 	//private bool forPlayer = true;
 	private string rev = "Reveal";
+    private bool helpBox = false;
 
 	public override void OnInspectorGUI()
     {
@@ -149,10 +150,17 @@ public class DevToolsEditor : Editor
 
         if (!Application.isPlaying)
         {
+            if (waitToPlay == true || cardToPlay != CardType.None || card != CardType.None)
+                helpBox = true;
             waitToPlay = false;
             cardToPlay = CardType.None;
             card = CardType.None;
         }
+        else
+            helpBox = false;
+
+        if (helpBox)
+            EditorGUI.HelpBox(EditorGUILayout.GetControlRect(false, 40f), "Run the game first to change options", MessageType.Error);
 
         if (old_card != cardToPlay)
             if (Application.isPlaying)
