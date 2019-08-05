@@ -238,7 +238,6 @@ public class Effect : MonoBehaviour
 
     public void FishingRodSelection(CardType c)
     {
-        EnemyPointerHandler.activatePointer(false);
         BoardManager bm = BoardManager.GetBoardManager();
         bm.HidePassButton(false);
         CardType card;

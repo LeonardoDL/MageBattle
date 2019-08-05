@@ -162,9 +162,21 @@ public class DevToolsEditor : Editor
         if (helpBox)
             EditorGUI.HelpBox(EditorGUILayout.GetControlRect(false, 40f), "Run the game first to change options", MessageType.Error);
 
+        if (Application.isPlaying)
+        {
+            if (dtc.IfCardPlayed(cardToPlay))
+            {
+                old_card = CardType.None;
+                cardToPlay = CardType.None;
+                dtc.SetForcedCard(CardType.None);
+            }
+        }
+
         if (old_card != cardToPlay)
             if (Application.isPlaying)
+            {
                 dtc.SetForcedCard(cardToPlay);
+            }
 
         if (old_wait != waitToPlay)
             if (Application.isPlaying)

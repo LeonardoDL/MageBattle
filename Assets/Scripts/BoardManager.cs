@@ -16,7 +16,8 @@ public class BoardManager : MonoBehaviour
 
 	[HideInInspector] public CardType playerCard;
 	[HideInInspector] public CardType enemyCard;
-	[HideInInspector] public GameObject playerBoardCard;
+    [HideInInspector] public CardType enemyEffect;
+    [HideInInspector] public GameObject playerBoardCard;
 	[HideInInspector] public GameObject enemyBoardCard;
 
     public GameObject playerButton;
@@ -56,7 +57,8 @@ public class BoardManager : MonoBehaviour
 		curState = GameState.DrawPhase;
 		playerCard = CardType.None;
 		enemyCard = CardType.None;
-		enemy = GetComponent<EnemyManager>();
+		enemyEffect = CardType.None;
+        enemy = GetComponent<EnemyManager>();
 		playerHand = GameObject.FindWithTag("Hand/PlayerHand");
 		playerStandBy = GameObject.FindWithTag("StandBy");
 		deck = GameObject.FindWithTag("Deck").GetComponent<Deck>();
@@ -312,24 +314,24 @@ public class BoardManager : MonoBehaviour
 
 		isInTransition = false;
 
-		if ((cardType == CardType.Intelligence || cardType == CardType.SuperGenius) &&
-			(curState == GameState.PlayerPlayPhase || curState == GameState.EnemyPlayPhase))
-		{
-			card.GetComponentInChildren<CardInBoard>().execute?.Invoke();
+		//if ((cardType == CardType.Intelligence || cardType == CardType.SuperGenius) &&
+		//	(curState == GameState.PlayerPlayPhase || curState == GameState.EnemyPlayPhase))
+		//{
+		//	card.GetComponentInChildren<CardInBoard>().execute?.Invoke();
 
-			if (curState == GameState.PlayerPlayPhase)
-			{
-                while (enemy.isWaiting) yield return new WaitForSeconds(.1f);
-                enemy.PlayCardDraw();
-			}
-			else {
-				if (enemy.getJustPlayed()){
-					curState = GameState.PlayerPlayPhase;
-				 }
-			}
+		//	if (curState == GameState.PlayerPlayPhase)
+		//	{
+  //              while (enemy.isWaiting) yield return new WaitForSeconds(.1f);
+  //              enemy.PlayCardDraw();
+		//	}
+		//	else {
+		//		if (enemy.getJustPlayed()){
+		//			curState = GameState.PlayerPlayPhase;
+		//		 }
+		//	}
 			
-			yield break;
-		}
+		//	yield break;
+		//}
 		
 		switch (curState)
 		{
@@ -391,6 +393,7 @@ public class BoardManager : MonoBehaviour
 
 			case GameState.EnemyEffectPhase:
 
+                enemyEffect = cardType;
 				if (card.GetComponentInChildren<CardInBoard>().execute != null)
 				{
 					card.GetComponentInChildren<CardInBoard>().execute();
@@ -400,7 +403,10 @@ public class BoardManager : MonoBehaviour
 						curState = GameState.EnemyEffectPhase;
 
 						yield return new WaitForSeconds(1f); //Espera 1 seg antes de jogar em seguida
-						while (enemy.isWaiting) yield return new WaitForSeconds(.1f);
+
+                        while (enemy.isWaiting)
+                            yield return new WaitForSeconds(.1f);
+
 						enemy.PlayPowerOrEffect();
 					}
 					else

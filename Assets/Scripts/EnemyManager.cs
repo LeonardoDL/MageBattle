@@ -11,8 +11,8 @@ public class EnemyManager : MonoBehaviour
 
 	public Transform enemySlot;
 	public Vector3 offset;
-	//public bool isActive;
-	[HideInInspector] public CardType cardToPlay = CardType.None;
+    //public bool isActive;
+    [HideInInspector] public CardType cardToPlay = CardType.None;
     [HideInInspector] public bool isWaiting;
 
 	private Deck deck;
@@ -310,14 +310,14 @@ public class EnemyManager : MonoBehaviour
 		for (int i = 33; i < CardType.GetNames(typeof(CardType)).Length; i++) //Effect
 			if (hand.Contains((CardType)i))
 			{
-				Debug.Log("Playable " + (CardType)i);
+				Debug.Log("I have " + (CardType)i);
 
 				if(effects[(CardType)i].isPlayable())
 					PlayEffect((CardType)i);
-				//else
-				//    Debug.Log("I cannot use " + (CardType)i);
+                else
+                    Debug.Log("I can't use " + (CardType)i);
 
-				return;
+                return;
 			}
 
 		Debug.Log("No playable power or effect");

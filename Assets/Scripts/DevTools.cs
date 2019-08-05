@@ -8,8 +8,11 @@ public class DevTools : MonoBehaviour
     [Header("Class attributes")]
     public GameState gameState;
     public WinCondition winCondition;
+    public CardType player;
+    public CardType enemy;
+    public CardType enemyEffect;
 
-	private BoardManager board_m;
+    private BoardManager board_m;
 	private AnimationManager animation_m;
 	private EnemyManager enemy_m;
 
@@ -28,6 +31,12 @@ public class DevTools : MonoBehaviour
     {
         gameState = BoardManager.curState;
         winCondition = BoardManager.curWinCondition;
+        if (board_m != null)
+        {
+            player = board_m.playerCard;
+            enemy = board_m.enemyCard;
+            enemyEffect = board_m.enemyEffect;
+        }
     }
 
     public void AddCardToHand(bool forPlayer, CardType c)
@@ -90,9 +99,12 @@ public class DevTools : MonoBehaviour
         enemy_m.isWaiting = true;
     }
 
-    //To Do:
-    //- Force Enemy to play a card
-    //- Force Enemy to play multiple cards
+    public bool IfCardPlayed(CardType c)
+    {
+        if (enemy == c || enemyEffect == c)
+            return true;
+        return false;
+    }
 
     public bool CheckPointers()
 	{
