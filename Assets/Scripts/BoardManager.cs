@@ -314,24 +314,24 @@ public class BoardManager : MonoBehaviour
 
 		isInTransition = false;
 
-		//if ((cardType == CardType.Intelligence || cardType == CardType.SuperGenius) &&
-		//	(curState == GameState.PlayerPlayPhase || curState == GameState.EnemyPlayPhase))
-		//{
-		//	card.GetComponentInChildren<CardInBoard>().execute?.Invoke();
+		if ((cardType == CardType.Intelligence || cardType == CardType.SuperGenius) &&
+			(curState == GameState.PlayerPlayPhase || curState == GameState.EnemyPlayPhase))
+		{
+			card.GetComponentInChildren<CardInBoard>().execute?.Invoke();
 
-		//	if (curState == GameState.PlayerPlayPhase)
-		//	{
-  //              while (enemy.isWaiting) yield return new WaitForSeconds(.1f);
-  //              enemy.PlayCardDraw();
-		//	}
-		//	else {
-		//		if (enemy.getJustPlayed()){
-		//			curState = GameState.PlayerPlayPhase;
-		//		 }
-		//	}
+			if (curState == GameState.PlayerPlayPhase)
+			{
+               while (enemy.isWaiting) yield return new WaitForSeconds(.1f);
+               enemy.PlayCardDraw();
+			}
+			else {
+				if (enemy.getJustPlayed()){
+					curState = GameState.PlayerPlayPhase;
+				 }
+			}
 			
-		//	yield break;
-		//}
+			yield break;
+		}
 		
 		switch (curState)
 		{
