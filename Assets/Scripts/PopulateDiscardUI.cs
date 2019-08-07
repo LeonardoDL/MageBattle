@@ -9,9 +9,11 @@ public class PopulateDiscardUI : MonoBehaviour
 
 	public int numberToCreate; // number of objects to create. Exposed in inspector
 
+	public List<GameObject> cards;
 	void Start()
 	{
 		//Populate();
+		cards = new List<GameObject>();
 	}
 
 	void Update()
@@ -21,11 +23,19 @@ public class PopulateDiscardUI : MonoBehaviour
 
 	public void Populate()
 	{
+		if(cards.Count != 0){
+			foreach(GameObject gObj in cards){
+				Destroy(gObj);
+			}
+			cards = new List<GameObject>();
+		}
+
 		GameObject newObj; // Create GameObject instance
         BoardManager bm = BoardManager.GetBoardManager();
         foreach (CardType c in bm.discard.cards){
 			newObj = (GameObject)Instantiate(Image, transform);
             newObj.GetComponent<Image>().sprite = bm.deck.GetCardBuilder().GetSpriteGameObject(c).Item1;
+			cards.Add(newObj);
         }
 	}
 }
