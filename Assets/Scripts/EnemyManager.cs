@@ -193,8 +193,8 @@ public class EnemyManager : MonoBehaviour
 	{
 		CardType cardType = standBy[UnityEngine.Random.Range(0, standBy.Count)];
 
-		if (standBy.Contains(cardToPlay))
-			cardType = cardToPlay;
+        if (standBy.Contains(cardToPlay))
+            cardType = cardToPlay;
 
 		standBy.Remove(cardType);
 		Tuple<Sprite, GameObject> item = deck.cardBuilder.GetSpriteGameObject(cardType);
@@ -250,6 +250,8 @@ public class EnemyManager : MonoBehaviour
 				PlayEffect(cardToPlay);
 			else
 				PlayPower(cardToPlay);
+
+            return;
 		}
 
 		for (int i = 7; i < 33; i++) //Power
@@ -316,8 +318,6 @@ public class EnemyManager : MonoBehaviour
 					PlayEffect((CardType)i);
                 else
                     Debug.Log("I can't use " + (CardType)i);
-
-                return;
 			}
 
 		Debug.Log("No playable power or effect");

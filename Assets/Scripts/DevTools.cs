@@ -8,16 +8,13 @@ public class DevTools : MonoBehaviour
     [Header("Class attributes")]
     public GameState gameState;
     public WinCondition winCondition;
-    public CardType player;
-    public CardType enemy;
-    public CardType enemyEffect;
+    //public CardType player;
+    //public CardType enemy;
+    //public CardType enemyEffect;
 
     private BoardManager board_m;
 	private AnimationManager animation_m;
 	private EnemyManager enemy_m;
-
-	private GameObject playerHand;
-	private GameObject enemyHand;
 
 	void Start()
 	{
@@ -31,12 +28,12 @@ public class DevTools : MonoBehaviour
     {
         gameState = BoardManager.curState;
         winCondition = BoardManager.curWinCondition;
-        if (board_m != null)
-        {
-            player = board_m.playerCard;
-            enemy = board_m.enemyCard;
-            enemyEffect = board_m.enemyEffect;
-        }
+        //if (board_m != null)
+        //{
+        //    player = board_m.playerCard;
+        //    enemy = board_m.enemyCard;
+        //    enemyEffect = board_m.enemyEffect;
+        //}
     }
 
     public void AddCardToHand(bool forPlayer, CardType c)
@@ -99,11 +96,21 @@ public class DevTools : MonoBehaviour
         enemy_m.isWaiting = true;
     }
 
-    public bool IfCardPlayed(CardType c)
+    //public bool IfCardPlayed(CardType c)
+    //{
+    //    if (enemy == c || enemyEffect == c)
+    //        return true;
+    //    return false;
+    //}
+
+    public bool IsEnemyWaiting()
     {
-        if (enemy == c || enemyEffect == c)
-            return true;
-        return false;
+        return enemy_m.isWaiting;
+    }
+
+    public void RefreshEnemy()
+    {
+        enemy_m.PlayPowerOrEffect();
     }
 
     public bool CheckPointers()

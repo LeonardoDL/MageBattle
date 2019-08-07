@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.17412722, g: 0.21774599, b: 0.29994243, a: 1}
+  m_IndirectSpecularColor: {r: 0.17412764, g: 0.21774673, b: 0.29994333, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12574,7 +12574,6 @@ MonoBehaviour:
   victoryDeckEnemy: {fileID: 0}
   playerCard: 0
   enemyCard: 0
-  enemyEffect: 0
   playerBoardCard: {fileID: 0}
   enemyBoardCard: {fileID: 0}
   playerButton: {fileID: 506465464}
@@ -37819,9 +37818,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: 0
   winCondition: 0
-  player: 0
-  enemy: 0
-  enemyEffect: 0
 --- !u!1 &1515400465
 GameObject:
   m_ObjectHideFlags: 0

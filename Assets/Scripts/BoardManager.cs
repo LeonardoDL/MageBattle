@@ -16,7 +16,6 @@ public class BoardManager : MonoBehaviour
 
 	[HideInInspector] public CardType playerCard;
 	[HideInInspector] public CardType enemyCard;
-    [HideInInspector] public CardType enemyEffect;
     [HideInInspector] public GameObject playerBoardCard;
 	[HideInInspector] public GameObject enemyBoardCard;
 
@@ -57,7 +56,6 @@ public class BoardManager : MonoBehaviour
 		curState = GameState.DrawPhase;
 		playerCard = CardType.None;
 		enemyCard = CardType.None;
-		enemyEffect = CardType.None;
         enemy = GetComponent<EnemyManager>();
 		playerHand = GameObject.FindWithTag("Hand/PlayerHand");
 		playerStandBy = GameObject.FindWithTag("StandBy");
@@ -342,11 +340,11 @@ public class BoardManager : MonoBehaviour
 
 				playerCard = cardType;
 				playerBoardCard = card;
-				
-				while (enemy.isWaiting) yield return new WaitForSeconds(.1f);
-				enemy.PlayElement();
 
-				curState = GameState.EnemyPlayPhase;
+                curState = GameState.EnemyPlayPhase;
+                while (enemy.isWaiting) yield return new WaitForSeconds(.1f);
+                enemy.PlayElement();
+
 				break;
 
 			case GameState.EnemyPlayPhase:
@@ -393,7 +391,6 @@ public class BoardManager : MonoBehaviour
 
 			case GameState.EnemyEffectPhase:
 
-                enemyEffect = cardType;
 				if (card.GetComponentInChildren<CardInBoard>().execute != null)
 				{
 					card.GetComponentInChildren<CardInBoard>().execute();
