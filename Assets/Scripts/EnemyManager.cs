@@ -84,7 +84,9 @@ public class EnemyManager : MonoBehaviour
 			bm.discard.DiscardCard(card);
 		}
 		hand = new List<CardType>();
-	}
+        bm.texts[6].text = "" + bm.discard.Size();
+
+    }
 	
 	public void ClearStandBy()
 	{
@@ -314,8 +316,11 @@ public class EnemyManager : MonoBehaviour
 			{
 				Debug.Log("I have " + (CardType)i);
 
-				if(effects[(CardType)i].isPlayable())
-					PlayEffect((CardType)i);
+                if (effects[(CardType)i].isPlayable())
+                {
+                    PlayEffect((CardType)i);
+                    return;
+                }
                 else
                     Debug.Log("I can't use " + (CardType)i);
 			}

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Discard : MonoBehaviour
 {
+    //public List<CardType> cardsShow;
     public DeckList<CardType> cards;
 
     public CardBuilder cardBuilder;
@@ -12,7 +13,19 @@ public class Discard : MonoBehaviour
     void Start()
     {
         cards = new DeckList<CardType>();
+        //cardsShow = new List<CardType>();
     }
+
+    //void Update()
+    //{
+    //    for(int i = 0; i < cards.Count; i++)
+    //    {
+    //        if (cardsShow.Count == i)
+    //            cardsShow.Add(CardType.None);
+    //        if (cards[i] != cardsShow[i])
+    //            cardsShow[i] = cards[i];
+    //    }
+    //}
 
     public void DebugAllDeck()
     {

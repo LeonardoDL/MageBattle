@@ -104,7 +104,8 @@ public class BoardManager : MonoBehaviour
 			}
 			Destroy(t.gameObject);
 		}
-	}
+        texts[6].text = "" + discard.Size();
+    }
 
 	public void DiscardEnemyHand()
 	{

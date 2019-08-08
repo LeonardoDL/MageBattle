@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5921556d8964848b974c1ca8a35863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 20
   point: {fileID: 550643395}
 --- !u!1 &1063761273
 GameObject:
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5921556d8964848b974c1ca8a35863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 20
   point: {fileID: 1885653284}
 --- !u!1 &1885653283
 GameObject:

@@ -16,21 +16,16 @@ public class PopulateDiscardUI : MonoBehaviour
 		cards = new List<GameObject>();
 	}
 
-	void Update()
-	{
-
-	}
-
 	public void Populate()
 	{
-		if(cards.Count != 0){
-			foreach(GameObject gObj in cards){
-				Destroy(gObj);
-			}
-			cards = new List<GameObject>();
-		}
+        foreach (Transform t in transform.GetComponentsInChildren<Transform>())
+        {
+            if (t.gameObject != gameObject)
+                Destroy(t.gameObject);
+        }
 
-		GameObject newObj; // Create GameObject instance
+        cards = new List<GameObject>();
+        GameObject newObj; // Create GameObject instance
         BoardManager bm = BoardManager.GetBoardManager();
         foreach (CardType c in bm.discard.cards){
 			newObj = (GameObject)Instantiate(Image, transform);
