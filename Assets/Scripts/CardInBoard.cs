@@ -64,8 +64,8 @@ public class CardInBoard : MonoBehaviour
         am.FocusAnimation();
     }
 
-    public void HiddenFromAnimation()
+    public void HiddenFromAnimation(bool hide)
     {
-        hidden = !hidden;
+        hidden = hide;
     }
 }

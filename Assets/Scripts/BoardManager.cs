@@ -50,11 +50,12 @@ public class BoardManager : MonoBehaviour
 	//		discardSize = discard.Size();
 	// }
 
-	void Start()
+	void Awake()
 	{
 		bm = this;
 		curState = GameState.DrawPhase;
-		playerCard = CardType.None;
+		curWinCondition = WinCondition.Draw;
+        playerCard = CardType.None;
 		enemyCard = CardType.None;
         enemy = GetComponent<EnemyManager>();
 		playerHand = GameObject.FindWithTag("Hand/PlayerHand");
@@ -68,7 +69,7 @@ public class BoardManager : MonoBehaviour
 
 	private IEnumerator WaitStart()
 	{
-		yield return new WaitForSeconds(.1f);
+		yield return new WaitForSeconds(.2f);
 
 		discard = GameObject.FindWithTag("Discard").GetComponent<Discard>();
 		DrawCards();
@@ -105,12 +106,14 @@ public class BoardManager : MonoBehaviour
 			Destroy(t.gameObject);
 		}
         texts[6].text = "" + discard.Size();
+        HideElementsFromAnimation(false);
     }
 
 	public void DiscardEnemyHand()
 	{
 		enemy.DiscardHand();
-	}
+        HideElementsFromAnimation(false);
+    }
 
 	// Retorna as cartas de espera do player e as exclui do campo
 	public List<CardType> GetPlayerStandBy() {
@@ -664,7 +667,7 @@ public class BoardManager : MonoBehaviour
 		playerButton.SetActive (activate);
 		enemyButton.SetActive (activate);
 		GetComponent<AnimationManager>().Fade(activate);
-        HideElementsFromAnimation();
+        HideElementsFromAnimation(activate);
     }
 
 	public void setButtonEnemyPlayerPartial(bool playerB, bool enemyB, bool animF)
@@ -672,19 +675,19 @@ public class BoardManager : MonoBehaviour
 		playerButton.SetActive(playerB);
 		enemyButton.SetActive(enemyB);
 		GetComponent<AnimationManager>().Fade(animF);
-        HideElementsFromAnimation();
+        HideElementsFromAnimation(animF);
     }
 
 	public void HidePassButton(bool hide){
 		//passButton.SetActive (!hide);
 		GetComponent<AnimationManager>().FadePartial(hide, hide, false);
-        HideElementsFromAnimation();
+        HideElementsFromAnimation(hide);
     }
 
-    public void HideElementsFromAnimation()
+    public void HideElementsFromAnimation(bool hide)
     {
-        playerBoardCard.GetComponentInChildren<CardInBoard>().HiddenFromAnimation();
-        enemyBoardCard.GetComponentInChildren<CardInBoard>().HiddenFromAnimation();
+        playerBoardCard.GetComponentInChildren<CardInBoard>().HiddenFromAnimation(hide);
+        enemyBoardCard.GetComponentInChildren<CardInBoard>().HiddenFromAnimation(hide);
     }
 
 	void Update()

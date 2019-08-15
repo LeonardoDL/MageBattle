@@ -33,7 +33,7 @@ public class LightUpWhenWinning : MonoBehaviour
             which = 2;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         //PassUpColors();
 

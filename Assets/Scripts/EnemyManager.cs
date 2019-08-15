@@ -256,77 +256,77 @@ public class EnemyManager : MonoBehaviour
             return;
 		}
 
-		for (int i = 7; i < 33; i++) //Power
-		{
-			if (hand.Contains((CardType)i))
-			{
-				switch (BoardManager.GetBoardManager().enemyCard)
-				{
-					case CardType.WaterE:
-						if (powers[(CardType)i].water)
-						{
-							PlayPower((CardType)i);
-							return;
-						}
-						break;
+        if (Random.Range(0, 10) < 5)
+        {
+            if (!HasPlayablePower())
+                HasPlayableEffect();
+        }
+        else
+        {
+            if (!HasPlayableEffect())
+                HasPlayablePower();
+        }
+    }
 
-					case CardType.EarthE:
-						if (powers[(CardType)i].earth)
-						{
-							PlayPower((CardType)i);
-							return;
-						}
-						break;
-
-					case CardType.FireE:
-						if (powers[(CardType)i].fire)
-						{
-							PlayPower((CardType)i);
-							return;
-						}
-						break;
-
-					case CardType.AirE:
-						if (powers[(CardType)i].air)
-						{
-							PlayPower((CardType)i);
-							return;
-						}
-						break;
-
-					case CardType.LightningE:
-						if (powers[(CardType)i].lightning)
-						{
-							PlayPower((CardType)i);
-							return;
-						}
-						break;
-
-					case CardType.ArcanaE:
-						
-						PlayPower((CardType)i);
-						return;
-				}
-			}
-		}
-
-		Debug.Log("No playable power");
-		for (int i = 33; i < CardType.GetNames(typeof(CardType)).Length; i++) //Effect
-			if (hand.Contains((CardType)i))
-			{
-				Debug.Log("I have " + (CardType)i);
-
-                if (effects[(CardType)i].isPlayable())
+    public bool HasPlayablePower()
+    {
+        for (int i = 7; i < 33; i++) //Power
+        {
+            if (hand.Contains((CardType)i))
+            {
+                switch (BoardManager.GetBoardManager().enemyCard)
                 {
-                    PlayEffect((CardType)i);
-                    return;
-                }
-                else
-                    Debug.Log("I can't use " + (CardType)i);
-			}
+                    case CardType.WaterE:
+                        if (powers[(CardType)i].water)
+                        {
+                            PlayPower((CardType)i);
+                            return true;
+                        }
+                        break;
 
-		Debug.Log("No playable power or effect");
-	}
+                    case CardType.EarthE:
+                        if (powers[(CardType)i].earth)
+                        {
+                            PlayPower((CardType)i);
+                            return true;
+                        }
+                        break;
+
+                    case CardType.FireE:
+                        if (powers[(CardType)i].fire)
+                        {
+                            PlayPower((CardType)i);
+                            return true;
+                        }
+                        break;
+
+                    case CardType.AirE:
+                        if (powers[(CardType)i].air)
+                        {
+                            PlayPower((CardType)i);
+                            return true;
+                        }
+                        break;
+
+                    case CardType.LightningE:
+                        if (powers[(CardType)i].lightning)
+                        {
+                            PlayPower((CardType)i);
+                            return true;
+                        }
+                        break;
+
+                    case CardType.ArcanaE:
+
+                        PlayPower((CardType)i);
+                        return true;
+                }
+            }
+        }
+
+        Debug.Log("No playable power");
+        return false;
+    }
 
 	public void PlayPower(CardType cardType)
 	{
@@ -340,6 +340,24 @@ public class EnemyManager : MonoBehaviour
 
 		deck.cardBuilder.RemoveCardFromHand(cardType);
 	}
+
+    public bool HasPlayableEffect()
+    {
+        for (int i = 33; i < CardType.GetNames(typeof(CardType)).Length; i++) //Effect
+            if (hand.Contains((CardType)i))
+            {
+                Debug.Log("I have " + (CardType)i);
+
+                if (effects[(CardType)i].isPlayable())
+                {
+                    PlayEffect((CardType)i);
+                    return true;
+                }
+            }
+
+        Debug.Log("No playable Effect");
+        return false;
+    }
 
 	public void PlayEffect(CardType cardType)
 	{

@@ -325,6 +325,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8475168653145464910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608015391557419124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1055728827
 Animator:
   serializedVersion: 3
@@ -344,6 +356,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5267692768446342150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719533366334701176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &6246731669206465497
 Animator:
   serializedVersion: 3
@@ -363,6 +387,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1452703453890038733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719533366410348117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &559510585
 Animator:
   serializedVersion: 3
@@ -382,6 +418,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2034280842405476746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028058986652296010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &6363356107009110253
 Animator:
   serializedVersion: 3
@@ -401,6 +449,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4841740169203726177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028058987488541701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3386286910909695479
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +552,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6020846566558912210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4744013663933660610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &900007079362730871
 Animator:
   serializedVersion: 3
@@ -511,6 +583,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7701094191916733074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4744013664201446774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4966565991889434489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,6 +1308,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3065911298340889779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6926502683607389144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1002582064
 Animator:
   serializedVersion: 3
@@ -1243,6 +1339,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8214586400394186591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6926502683765214544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7874152605493455369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1430,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8964948836715322916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8439588164487788413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &2010580575
 Animator:
   serializedVersion: 3
@@ -1341,6 +1461,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2044887772864345399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8439588164952860319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &3391734939702061698
 Animator:
   serializedVersion: 3
@@ -1360,6 +1492,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8388640929202442446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8501300917595958272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648d0587949a6d4eba8bd8452fa86a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8827993149240675972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,14 +1726,29 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5647173731499562046, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7257540699053428543, guid: 7d244b27383e78642878759999a56b98,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7257540699053428543, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7257540698700248248, guid: 7d244b27383e78642878759999a56b98,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257540698639052981, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7257540698639052982, guid: 7d244b27383e78642878759999a56b98,
@@ -1604,15 +1763,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d244b27383e78642878759999a56b98, type: 3}
---- !u!4 &8501300917595958279 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5520520005370233662, guid: 7d244b27383e78642878759999a56b98,
-    type: 3}
-  m_PrefabInstance: {fileID: 4136102806593843001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8501300917595958272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5520520005370233657, guid: 7d244b27383e78642878759999a56b98,
+    type: 3}
+  m_PrefabInstance: {fileID: 4136102806593843001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8501300917595958279 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5520520005370233662, guid: 7d244b27383e78642878759999a56b98,
     type: 3}
   m_PrefabInstance: {fileID: 4136102806593843001}
   m_PrefabAsset: {fileID: 0}
@@ -1878,6 +2037,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3599424813972318998, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3599424815009644076, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: simulationSpeed
@@ -1893,6 +2057,21 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3599424815009644076, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424814684645874, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424814464566226, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3599424814446281282, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: m_IsActive
@@ -1903,9 +2082,19 @@ PrefabInstance:
       propertyPath: InitialModule.startRotation.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5428999062727927796, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5428999062916521344, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: InitialModule.startRotation.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428999062916521344, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5428999062789382125, guid: 253aa5442907643408a48bcb85753b11,
@@ -1913,9 +2102,19 @@ PrefabInstance:
       propertyPath: InitialModule.startRotation.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5428999062789382125, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5428999063030535870, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: InitialModule.startRotation.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428999063030535870, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5428999062549576803, guid: 253aa5442907643408a48bcb85753b11,
@@ -1923,9 +2122,19 @@ PrefabInstance:
       propertyPath: InitialModule.startRotation.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5428999062549576803, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5428999062162279689, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: InitialModule.startRotation.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428999062162279689, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5428999062118880975, guid: 253aa5442907643408a48bcb85753b11,
@@ -1933,9 +2142,19 @@ PrefabInstance:
       propertyPath: InitialModule.startRotation.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5428999062118880975, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5428999063939442500, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: InitialModule.startRotation.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428999063939442500, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5428999064018767534, guid: 253aa5442907643408a48bcb85753b11,
@@ -1943,9 +2162,19 @@ PrefabInstance:
       propertyPath: InitialModule.startRotation.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5428999064018767534, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5428999063431593768, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: InitialModule.startRotation.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428999063431593768, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5428999063236528993, guid: 253aa5442907643408a48bcb85753b11,
@@ -1953,9 +2182,19 @@ PrefabInstance:
       propertyPath: InitialModule.startRotation.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5428999063236528993, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5428999063294154701, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: InitialModule.startRotation.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428999063294154701, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5428999063075172256, guid: 253aa5442907643408a48bcb85753b11,
@@ -1963,9 +2202,19 @@ PrefabInstance:
       propertyPath: InitialModule.startRotation.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5428999063075172256, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5428999063591727001, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: InitialModule.startRotation.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428999063591727001, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5428999063511842096, guid: 253aa5442907643408a48bcb85753b11,
@@ -1973,9 +2222,24 @@ PrefabInstance:
       propertyPath: InitialModule.startRotation.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5428999063511842096, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886240119016295870, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3599424813597298907, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424813597298907, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3599424814464594494, guid: 253aa5442907643408a48bcb85753b11,
@@ -2032,6 +2296,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424814464594494, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3599424814439736324, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
@@ -2093,9 +2362,19 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3599424813849846784, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3599424813354115749, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424813354115749, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3599424813337579948, guid: 253aa5442907643408a48bcb85753b11,
@@ -2103,14 +2382,29 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3599424813337579948, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3599424814781938534, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3599424814781938534, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3599424814718335862, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424814718335862, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2274,6 +2568,11 @@ PrefabInstance:
       propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3406112386499356608, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6065469390167543241, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}
       propertyPath: m_Parameters.m_GravityCurve.scalar
@@ -2298,6 +2597,11 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[1].time
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316182854744098537, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5964436237172645067, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}
@@ -2334,17 +2638,22 @@ PrefabInstance:
       propertyPath: VelocityModule.speedModifier.scalar
       value: 0.06
       objectReference: {fileID: 0}
+    - target: {fileID: 5964436237172645067, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9100e4ebb7a7ba140a3febf680c6dd00, type: 3}
---- !u!1 &2028058987488541701 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6397879576647761200, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
-    type: 3}
-  m_PrefabInstance: {fileID: 4966565992174584117}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2028058987488541702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6397879576647761203, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
+    type: 3}
+  m_PrefabInstance: {fileID: 4966565992174584117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2028058987488541701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6397879576647761200, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
     type: 3}
   m_PrefabInstance: {fileID: 4966565992174584117}
   m_PrefabAsset: {fileID: 0}
@@ -2590,6 +2899,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3599424813972318998, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3599424815009644076, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: simulationSpeed
@@ -2603,6 +2917,16 @@ PrefabInstance:
     - target: {fileID: 3599424815009644076, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424815009644076, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424814464566226, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3599424814446281282, guid: 253aa5442907643408a48bcb85753b11,
@@ -2690,6 +3014,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3599424813597298907, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3599424814464594494, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: scalingMode
@@ -2744,6 +3073,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424814464594494, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3599424814439736324, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
@@ -2805,14 +3139,29 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3599424813849846784, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3599424813354115749, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424813354115749, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424813337579948, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3599424813337579948, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3599424814781938534, guid: 253aa5442907643408a48bcb85753b11,
@@ -2823,6 +3172,11 @@ PrefabInstance:
     - target: {fileID: 3599424814718335862, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599424814718335862, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2961,11 +3315,21 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2752620489822500757, guid: 5ba9f69aea3c5504996384ebcd010af6,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2662515831864507955, guid: 5ba9f69aea3c5504996384ebcd010af6,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2662515831864507955, guid: 5ba9f69aea3c5504996384ebcd010af6,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2752107809122533185, guid: 5ba9f69aea3c5504996384ebcd010af6,
         type: 3}
       propertyPath: scalingMode
@@ -2976,6 +3340,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2752107809122533185, guid: 5ba9f69aea3c5504996384ebcd010af6,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2752719961791199555, guid: 5ba9f69aea3c5504996384ebcd010af6,
         type: 3}
       propertyPath: scalingMode
@@ -2984,19 +3353,24 @@ PrefabInstance:
     - target: {fileID: 2752719961791199555, guid: 5ba9f69aea3c5504996384ebcd010af6,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752719961791199555, guid: 5ba9f69aea3c5504996384ebcd010af6,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ba9f69aea3c5504996384ebcd010af6, type: 3}
---- !u!4 &6926502683607389145 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2662515831747172146, guid: 5ba9f69aea3c5504996384ebcd010af6,
-    type: 3}
-  m_PrefabInstance: {fileID: 4966565992358577387}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6926502683607389144 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2662515831747172147, guid: 5ba9f69aea3c5504996384ebcd010af6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4966565992358577387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6926502683607389145 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2662515831747172146, guid: 5ba9f69aea3c5504996384ebcd010af6,
     type: 3}
   m_PrefabInstance: {fileID: 4966565992358577387}
   m_PrefabAsset: {fileID: 0}
@@ -3192,14 +3566,29 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5647173731499562046, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7257540699053428543, guid: 7d244b27383e78642878759999a56b98,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7257540699053428543, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7257540698700248248, guid: 7d244b27383e78642878759999a56b98,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257540698639052981, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7257540698639052982, guid: 7d244b27383e78642878759999a56b98,
@@ -3363,6 +3752,11 @@ PrefabInstance:
       propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3406112386499356608, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6065469390167543241, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}
       propertyPath: m_Parameters.m_GravityCurve.scalar
@@ -3387,6 +3781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[1].time
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316182854744098537, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5964436237172645067, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
         type: 3}
@@ -3423,17 +3822,22 @@ PrefabInstance:
       propertyPath: VelocityModule.speedModifier.scalar
       value: 0.06
       objectReference: {fileID: 0}
+    - target: {fileID: 5964436237172645067, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9100e4ebb7a7ba140a3febf680c6dd00, type: 3}
---- !u!1 &2028058986652296010 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6397879576647761200, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
-    type: 3}
-  m_PrefabInstance: {fileID: 4966565992946867834}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2028058986652296009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6397879576647761203, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
+    type: 3}
+  m_PrefabInstance: {fileID: 4966565992946867834}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2028058986652296010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6397879576647761200, guid: 9100e4ebb7a7ba140a3febf680c6dd00,
     type: 3}
   m_PrefabInstance: {fileID: 4966565992946867834}
   m_PrefabAsset: {fileID: 0}
@@ -3564,11 +3968,21 @@ PrefabInstance:
       propertyPath: LightsModule.intensityCurve.scalar
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 376849081054197119, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 481569231456217058, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 481569231456217058, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 376849082700990080, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
@@ -3587,6 +4001,11 @@ PrefabInstance:
     - target: {fileID: 376849082700990080, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[3].probability
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376849082700990080, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 376849082081568349, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -3609,6 +4028,11 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[3].probability
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 376849082081568349, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 376849081184805653, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
@@ -3629,6 +4053,11 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[3].probability
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 376849081184805653, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 575046801773800482, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
@@ -3647,6 +4076,11 @@ PrefabInstance:
     - target: {fileID: 575046801773800482, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[3].probability
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 575046801773800482, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 541952918576460094, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -3659,14 +4093,29 @@ PrefabInstance:
       propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 541952918576460094, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3169910662578373607, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169910662578373607, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593715952901616107, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593715952901616107, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 376849080619898734, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -3759,9 +4208,19 @@ PrefabInstance:
       propertyPath: RotationModule.y.minMaxState
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 376849080619898734, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3169517726095204141, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169517726095204141, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3169853773135529331, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -3769,9 +4228,19 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3169853773135529331, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3170069956560370073, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170069956560370073, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3135423132920338963, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -3779,9 +4248,19 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3135423132920338963, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6628433359071842389, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628433359071842389, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593757608561924609, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -3789,9 +4268,19 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6593757608561924609, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6593639118456744549, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593639118456744549, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593656726104438091, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -3799,17 +4288,22 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6593656726104438091, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1641346ea179f5040b7d1e3de93fce42, type: 3}
---- !u!4 &4744013663933660611 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 376849080722312849, guid: 1641346ea179f5040b7d1e3de93fce42,
-    type: 3}
-  m_PrefabInstance: {fileID: 4966565992999138130}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4744013663933660610 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 376849080722312848, guid: 1641346ea179f5040b7d1e3de93fce42,
+    type: 3}
+  m_PrefabInstance: {fileID: 4966565992999138130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4744013663933660611 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 376849080722312849, guid: 1641346ea179f5040b7d1e3de93fce42,
     type: 3}
   m_PrefabInstance: {fileID: 4966565992999138130}
   m_PrefabAsset: {fileID: 0}
@@ -3930,11 +4424,21 @@ PrefabInstance:
       propertyPath: LightsModule.intensityCurve.scalar
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 376849081054197119, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 481569231456217058, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 481569231456217058, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 376849082700990080, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
@@ -3953,6 +4457,11 @@ PrefabInstance:
     - target: {fileID: 376849082700990080, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[3].probability
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376849082700990080, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 376849082081568349, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -3975,6 +4484,11 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[3].probability
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 376849082081568349, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 376849081184805653, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
@@ -3995,6 +4509,11 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[3].probability
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 376849081184805653, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 575046801773800482, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
@@ -4013,6 +4532,11 @@ PrefabInstance:
     - target: {fileID: 575046801773800482, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[3].probability
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 575046801773800482, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 541952918576460094, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -4025,14 +4549,29 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 541952918576460094, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3169910662578373607, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169910662578373607, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593715952901616107, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593715952901616107, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 376849080619898734, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -4125,9 +4664,19 @@ PrefabInstance:
       propertyPath: RotationModule.y.minMaxState
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 376849080619898734, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3169517726095204141, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169517726095204141, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3169853773135529331, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -4135,9 +4684,19 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3169853773135529331, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3170069956560370073, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170069956560370073, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3135423132920338963, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -4145,9 +4704,19 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3135423132920338963, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6628433359071842389, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628433359071842389, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593757608561924609, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -4155,9 +4724,19 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6593757608561924609, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6593639118456744549, guid: 1641346ea179f5040b7d1e3de93fce42,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593639118456744549, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593656726104438091, guid: 1641346ea179f5040b7d1e3de93fce42,
@@ -4165,17 +4744,22 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6593656726104438091, guid: 1641346ea179f5040b7d1e3de93fce42,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1641346ea179f5040b7d1e3de93fce42, type: 3}
---- !u!1 &4744013664201446774 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 376849080722312848, guid: 1641346ea179f5040b7d1e3de93fce42,
-    type: 3}
-  m_PrefabInstance: {fileID: 4966565993266633702}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4744013664201446775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 376849080722312849, guid: 1641346ea179f5040b7d1e3de93fce42,
+    type: 3}
+  m_PrefabInstance: {fileID: 4966565993266633702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4744013664201446774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 376849080722312848, guid: 1641346ea179f5040b7d1e3de93fce42,
     type: 3}
   m_PrefabInstance: {fileID: 4966565993266633702}
   m_PrefabAsset: {fileID: 0}
@@ -4286,6 +4870,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5994795817258495728, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5994795817258495736, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
         type: 3}
       propertyPath: scalingMode
@@ -4294,6 +4883,11 @@ PrefabInstance:
     - target: {fileID: 5994795817258495736, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994795817258495736, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5994795817258495738, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
@@ -4306,6 +4900,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5994795817258495738, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5994795817258495740, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
         type: 3}
       propertyPath: scalingMode
@@ -4316,6 +4915,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5994795817258495740, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5994795817258495742, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
         type: 3}
       propertyPath: scalingMode
@@ -4324,6 +4928,11 @@ PrefabInstance:
     - target: {fileID: 5994795817258495742, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994795817258495742, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4462,11 +5071,21 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2752620489822500757, guid: 5ba9f69aea3c5504996384ebcd010af6,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2662515831864507955, guid: 5ba9f69aea3c5504996384ebcd010af6,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2662515831864507955, guid: 5ba9f69aea3c5504996384ebcd010af6,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2752107809122533185, guid: 5ba9f69aea3c5504996384ebcd010af6,
         type: 3}
       propertyPath: scalingMode
@@ -4477,6 +5096,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2752107809122533185, guid: 5ba9f69aea3c5504996384ebcd010af6,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2752719961791199555, guid: 5ba9f69aea3c5504996384ebcd010af6,
         type: 3}
       propertyPath: scalingMode
@@ -4485,19 +5109,24 @@ PrefabInstance:
     - target: {fileID: 2752719961791199555, guid: 5ba9f69aea3c5504996384ebcd010af6,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752719961791199555, guid: 5ba9f69aea3c5504996384ebcd010af6,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ba9f69aea3c5504996384ebcd010af6, type: 3}
---- !u!1 &6926502683765214544 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2662515831747172147, guid: 5ba9f69aea3c5504996384ebcd010af6,
-    type: 3}
-  m_PrefabInstance: {fileID: 4966565993325877859}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6926502683765214545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2662515831747172146, guid: 5ba9f69aea3c5504996384ebcd010af6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4966565993325877859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6926502683765214544 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2662515831747172147, guid: 5ba9f69aea3c5504996384ebcd010af6,
     type: 3}
   m_PrefabInstance: {fileID: 4966565993325877859}
   m_PrefabAsset: {fileID: 0}
@@ -4608,6 +5237,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5994795817258495728, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5994795817258495736, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
         type: 3}
       propertyPath: scalingMode
@@ -4616,6 +5250,11 @@ PrefabInstance:
     - target: {fileID: 5994795817258495736, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994795817258495736, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5994795817258495738, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
@@ -4628,6 +5267,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5994795817258495738, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5994795817258495740, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
         type: 3}
       propertyPath: scalingMode
@@ -4638,6 +5282,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5994795817258495740, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5994795817258495742, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
         type: 3}
       propertyPath: scalingMode
@@ -4646,19 +5295,24 @@ PrefabInstance:
     - target: {fileID: 5994795817258495742, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994795817258495742, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e006c29cce01c4fb3e8ceaa98b6109, type: 3}
---- !u!1 &1719533366334701176 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5994795816564945036, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
-    type: 3}
-  m_PrefabInstance: {fileID: 4966565993373912820}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1719533366334701179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5994795816564945039, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
+    type: 3}
+  m_PrefabInstance: {fileID: 4966565993373912820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1719533366334701176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5994795816564945036, guid: 13e006c29cce01c4fb3e8ceaa98b6109,
     type: 3}
   m_PrefabInstance: {fileID: 4966565993373912820}
   m_PrefabAsset: {fileID: 0}
