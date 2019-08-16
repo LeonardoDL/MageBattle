@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ChangeElementsOnMenu : MonoBehaviour
 {
     public float time = 4f;
     public Color[] colors;
+    public TextMeshProUGUI alsoChange;
+    public float interpolation = 0.7f;
+
     [HideInInspector] public Animator[] animPlayer; //Inicializado no Initialize Board
     private int element = -1;
     private Color initial;
@@ -61,10 +66,19 @@ public class ChangeElementsOnMenu : MonoBehaviour
         mr.material.color = Color.Lerp(mr.material.color,
                                         new Color(GetColor().r, GetColor().g, GetColor().b),
                                         .1f);
+
+        alsoChange.color = Color.Lerp(alsoChange.color,
+                                        new Color(GetColor(interpolation).r, GetColor(interpolation).g, GetColor(interpolation).b),
+                                        .1f);
     }
 
     private Color GetColor()
     {
         return colors[element];
+    }
+
+    private Color GetColor(float alpha)
+    {
+        return Color.Lerp(colors[element], Color.white, alpha);
     }
 }
