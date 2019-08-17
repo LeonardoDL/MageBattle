@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnimationManager : MonoBehaviour
 {
+    public static bool faded = false;
+
+    public bool _faded;
     public bool animate = true;
     public float changeSpeed = .15f;
 
@@ -21,6 +25,7 @@ public class AnimationManager : MonoBehaviour
 
     void Start()
     {
+        animate = Options.GetBool("animate");
         cam = Camera.main.GetComponent<Animator>();
         handPanel = GameObject.FindGameObjectWithTag("Hand/PlayerHand");
         handEnemyPanel = GameObject.FindGameObjectWithTag("Hand/EnemyHand");
@@ -30,6 +35,7 @@ public class AnimationManager : MonoBehaviour
 
     void Update()
     {
+        _faded = faded;
         if (animPlayer == null || animEnemy == null || animate == false)
             return;
 
@@ -60,10 +66,14 @@ public class AnimationManager : MonoBehaviour
 
     public void FocusAnimation()
     {
+        if (!animate)
+            return;
+
         if (cam.GetBool("Focus") || hand.GetBool("Focus"))
             UnfocusAnimation();
         else
         {
+            faded = true;
             cam.SetBool("Focus", true);
             Fade(true);
         }
@@ -72,27 +82,40 @@ public class AnimationManager : MonoBehaviour
     public void Fade(bool activate)
     {
         hand.SetBool("Focus", activate);
+        FadePlayerCards(activate);
+        FadeEnemyCards(activate);
+    }
 
+    public void FadePlayerCards(bool activate)
+    {
         foreach (Animator a in handPanel.GetComponentsInChildren<Animator>())
+        {
             a.SetBool("Focus", activate);
+            a.gameObject.GetComponent<Image>().enabled = true;
+        }
+    }
 
+    public void FadeEnemyCards(bool activate)
+    {
         foreach (Animator a in handEnemyPanel.GetComponentsInChildren<Animator>())
+        {
             a.SetBool("Focus", activate);
+            a.gameObject.GetComponent<Image>().enabled = true;
+        }
     }
 
     public void FadePartial(bool actNumbers, bool actCardsP, bool actCardsE)
     {
+        faded = actNumbers || actCardsP || actCardsE;
         hand.SetBool("Focus", actNumbers);
-
-        foreach (Animator a in handPanel.GetComponentsInChildren<Animator>())
-            a.SetBool("Focus", actCardsP);
-
-        foreach (Animator a in handEnemyPanel.GetComponentsInChildren<Animator>())
-            a.SetBool("Focus", actCardsE);
+        
+        FadePlayerCards(actCardsP);
+        FadeEnemyCards(actCardsE);
     }
 
     public void UnfocusAnimation()
     {
+        faded = false;
         cam.SetBool("Focus", false);
         Fade(false);
     }

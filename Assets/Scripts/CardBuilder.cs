@@ -81,7 +81,7 @@ public class CardBuilder : MonoBehaviour
 
 	public void BuildCard(CardType c, bool isPlayer)
 	{
-		if (isPlayer)
+        if (isPlayer)
 		{
 			try
 			{
@@ -149,7 +149,13 @@ public class CardBuilder : MonoBehaviour
 				}
 				
 				cih.GetComponent<Image>().sprite = cardBack;
-				cih.GetComponent<SpriteHandler>().cardFront = power.Item1;
+                if (AnimationManager.faded == true)
+                {
+                    cih.GetComponent<Image>().enabled = false;
+                    cih.GetComponent<Animator>().SetBool("Focus", true);
+                }
+                Debug.Log("This is inside card builder " + AnimationManager.faded);
+                cih.GetComponent<SpriteHandler>().cardFront = power.Item1;
 				cih.GetComponent<SpriteHandler>().card = c;
 				return;
 			}
@@ -169,7 +175,13 @@ public class CardBuilder : MonoBehaviour
 				}
 				
 				cih.GetComponent<Image>().sprite = cardBack;
-				cih.GetComponent<SpriteHandler>().cardFront = effect.Item1;
+                if (AnimationManager.faded == true)
+                {
+                    cih.GetComponent<Image>().enabled = false;
+                    cih.GetComponent<Animator>().SetBool("Focus", true);
+                }
+                
+                cih.GetComponent<SpriteHandler>().cardFront = effect.Item1;
 				cih.GetComponent<SpriteHandler>().card = c;
 				return;
 			}

@@ -47,7 +47,12 @@ public class EnemyManager : MonoBehaviour
 		}
 	}
 
-	public void DrawHandEnemy(int quantity)
+    void Start()
+    {
+        enemySlot = GameObject.FindWithTag("Slot/ElementEnemy").transform;
+    }
+
+    public void DrawHandEnemy(int quantity)
 	{
 		BoardManager.GetBoardManager().texts[2].text = "Enemy draws " + quantity + " cards";
 

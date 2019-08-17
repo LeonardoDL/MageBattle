@@ -42,25 +42,29 @@ public class LightUpWhenWinning : MonoBehaviour
                                         .05f);
     }
 
-    private Color GetColor()
+    public Color GetColor()
     {
+        if (BoardManager.GetBoardManager() == null)
+            return initial;
+
+        BoardManager bm = BoardManager.GetBoardManager();
         if (BoardManager.curWinCondition == WinCondition.Victory)
         {
-            animManager.MakeWeaker(BoardManager.GetBoardManager().enemyCard, false);
-            animManager.MakeStronger(BoardManager.GetBoardManager().playerCard, true);
-            return SelectColor(BoardManager.GetBoardManager().playerCard, which);
+            animManager.MakeWeaker(bm.enemyCard, false);
+            animManager.MakeStronger(bm.playerCard, true);
+            return SelectColor(bm.playerCard, which);
         }
 
         if (BoardManager.curWinCondition == WinCondition.Loss)
         {
-            animManager.MakeWeaker(BoardManager.GetBoardManager().playerCard, true);
-            animManager.MakeStronger(BoardManager.GetBoardManager().enemyCard, false);
-            return SelectColor(BoardManager.GetBoardManager().enemyCard, which + (SameElements() ? 3 : 0));
+            animManager.MakeWeaker(bm.playerCard, true);
+            animManager.MakeStronger(bm.enemyCard, false);
+            return SelectColor(bm.enemyCard, which + (SameElements() ? 3 : 0));
             //Operacao ternária que retorna 3 se os elementos sao iguais e 0 se nao  ↑↑↑↑
         }
 
-        animManager.MakeWeaker(BoardManager.GetBoardManager().playerCard, true);
-        animManager.MakeWeaker(BoardManager.GetBoardManager().enemyCard, false);
+        animManager.MakeWeaker(bm.playerCard, true);
+        animManager.MakeWeaker(bm.enemyCard, false);
         return initial;
     }
 

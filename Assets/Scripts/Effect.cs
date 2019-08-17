@@ -130,9 +130,12 @@ public class Effect : MonoBehaviour
 
         selection = CardType.Disintegration;
         BoardManager bm = BoardManager.GetBoardManager();
-        bm.setButtonEnemyPlayerPartial((bm.GetPlayerHandSize() > 0), (bm.GetEnemyHandSize() > 0), true);
+        //bm.setButtonEnemyPlayerPartial((bm.GetPlayerHandSize() > 0), (bm.GetEnemyHandSize() > 0), true);
         if (BoardManager.curState == GameState.PlayerEffectPhase)
+        {
+            bm.setButtonEnemyPlayerPartial((bm.GetPlayerHandSize() > 0), (bm.GetEnemyHandSize() > 0), true);
             bm.texts[0].text = "Player used Disintegration";
+        }
         if (BoardManager.curState == GameState.EnemyEffectPhase)
             bm.texts[0].text = "Enemy used Disintegration";
 
@@ -143,9 +146,11 @@ public class Effect : MonoBehaviour
     {
         BoardManager bm = BoardManager.GetBoardManager();
 
-        bm.setButtonEnemyPlayer(false);
+        if (BoardManager.curState == GameState.PlayerEffectPhase)
+            bm.setButtonEnemyPlayer(false);
 
-        if (isPlayer){
+        if (isPlayer)
+        {
             bm.DiscardPlayerHand();
         } else {
             bm.DiscardEnemyHand();
@@ -189,8 +194,11 @@ public class Effect : MonoBehaviour
             return true;
         }
         selection = CardType.Eclipse;
-        bm.setButtonEnemyPlayerPartial((bm.GetPlayerStandByCount() > 0), (bm.GetEnemyStandByCount() > 0), true);
-        bm.texts[0].text = "Player used Eclipse";
+        if (BoardManager.curState == GameState.PlayerEffectPhase)
+        {
+            bm.setButtonEnemyPlayerPartial((bm.GetPlayerStandByCount() > 0), (bm.GetEnemyStandByCount() > 0), true);
+            bm.texts[0].text = "Player used Eclipse";
+        }
 
         return true;
     }
@@ -200,7 +208,8 @@ public class Effect : MonoBehaviour
         BoardManager bm = BoardManager.GetBoardManager();
         List<CardType> standBy;
 
-        bm.setButtonEnemyPlayer(false);
+        if (BoardManager.curState == GameState.PlayerEffectPhase)
+            bm.setButtonEnemyPlayer(false);
 
         if (isPlayer)
             standBy = bm.GetPlayerStandBy();           

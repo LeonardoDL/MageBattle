@@ -11,13 +11,13 @@ public class BoardManager : MonoBehaviour
 	[HideInInspector] public Deck deck;
 	[HideInInspector] public Discard discard;
 
-	public VictoryDeck victoryDeckPlayer;
-	public VictoryDeck victoryDeckEnemy;
+    [HideInInspector] public VictoryDeck victoryDeckPlayer;
+    [HideInInspector] public VictoryDeck victoryDeckEnemy;
 
 	[HideInInspector] public CardType playerCard;
 	[HideInInspector] public CardType enemyCard;
-    [HideInInspector] public GameObject playerBoardCard;
-	[HideInInspector] public GameObject enemyBoardCard;
+    [HideInInspector] public GameObject playerBoardCard = null;
+	[HideInInspector] public GameObject enemyBoardCard = null;
 
     public GameObject playerButton;
 	public GameObject enemyButton;
@@ -50,7 +50,7 @@ public class BoardManager : MonoBehaviour
 	//		discardSize = discard.Size();
 	// }
 
-	void Awake()
+	void Start()
 	{
 		bm = this;
 		curState = GameState.DrawPhase;
@@ -686,8 +686,8 @@ public class BoardManager : MonoBehaviour
 
     public void HideElementsFromAnimation(bool hide)
     {
-        playerBoardCard.GetComponentInChildren<CardInBoard>().HiddenFromAnimation(hide);
-        enemyBoardCard.GetComponentInChildren<CardInBoard>().HiddenFromAnimation(hide);
+        playerBoardCard?.GetComponentInChildren<CardInBoard>().HiddenFromAnimation(hide);
+        enemyBoardCard?.GetComponentInChildren<CardInBoard>().HiddenFromAnimation(hide);
     }
 
 	void Update()
