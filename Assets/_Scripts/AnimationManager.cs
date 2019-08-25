@@ -14,6 +14,7 @@ public class AnimationManager : MonoBehaviour
     [HideInInspector] public Animator[] animPlayer; //Inicializado no Initialize Board
     [HideInInspector] public Animator[] animEnemy; //Inicializado no Initialize Board
 
+    private bool tutorial;
     private Animator cam;
     private Animator hand;
     private GameObject handPanel;
@@ -26,6 +27,7 @@ public class AnimationManager : MonoBehaviour
     void Start()
     {
         animate = Options.GetBool("animate");
+        tutorial = Options.GetBool("tutorial");
 
         cam = Camera.main.GetComponent<Animator>();
         handPanel = GameObject.FindGameObjectWithTag("Hand/PlayerHand");
@@ -67,7 +69,7 @@ public class AnimationManager : MonoBehaviour
 
     public void FocusAnimation()
     {
-        if (!animate)
+        if (!animate || tutorial)
             return;
 
         if (cam.GetBool("Focus") || hand.GetBool("Focus"))

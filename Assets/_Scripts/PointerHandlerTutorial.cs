@@ -87,7 +87,9 @@ public class PointerHandlerTutorial : MonoBehaviour, IPointerExitHandler, IPoint
             instantTooltip = Instantiate(tooltip, Input.mousePosition + offset, Quaternion.identity, transform.parent.parent.parent);
         else
             instantTooltip = Instantiate(tooltip, Input.mousePosition + offset, Quaternion.identity, transform.parent);
+
         instantTooltip.GetComponentInChildren<TextMeshProUGUI>().text = description;
+        Destroy(instantTooltip, 6f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -104,7 +106,20 @@ public class PointerHandlerTutorial : MonoBehaviour, IPointerExitHandler, IPoint
 
     public void OnPointerUp(PointerEventData pointerEventData)
     {
+        if (pointerEventData.pointerCurrentRaycast.gameObject != gameObject)
+            return;
 
+        DefineDescription();
+        if (description == "")
+            return;
+
+        if (transform.parent.parent != null)
+            instantTooltip = Instantiate(tooltip, Input.mousePosition + offset, Quaternion.identity, transform.parent.parent.parent);
+        else
+            instantTooltip = Instantiate(tooltip, Input.mousePosition + offset, Quaternion.identity, transform.parent);
+
+        instantTooltip.GetComponentInChildren<TextMeshProUGUI>().text = description;
+        Destroy(instantTooltip, 6f);
     }
 
     void Update()
