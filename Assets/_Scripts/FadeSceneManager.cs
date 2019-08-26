@@ -12,9 +12,10 @@ public class FadeSceneManager : MonoBehaviour
     {
         this.scene = scene;
         if (scene == 2) //Tutorial
-            Options.SetBool("Tutorial", true);
+            Options.SetBool("tutorial", true);
         else
-            Options.SetBool("Tutorial", false);
+            Options.SetBool("tutorial", false);
+
         anim.SetTrigger("Fade");
     }
 

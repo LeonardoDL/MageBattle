@@ -23,18 +23,20 @@ public class Options : MonoBehaviour
 
     void Update()
     {
-        _animate = GetBool("animate");
+        //_animate = GetBool("animate");
     }
 
     public static bool GetBool(string s)
     {
         int x = PlayerPrefs.GetInt(s, 1);
-        bool b = (x == 1) ? true : false;
+        bool b = (x == 1 ? true : false);
+        //Debug.Log(s + " got with " + b);
         return b;
     }
 
     public static void SetBool(string s, bool b)
     {
-        PlayerPrefs.SetInt(s, b ? 1 : 0);
+        PlayerPrefs.SetInt(s, (b ? 1 : 0));
+        //Debug.Log(s + " set with " + GetBool(s));
     }
 }

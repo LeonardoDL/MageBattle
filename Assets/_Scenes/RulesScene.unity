@@ -181,8 +181,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: '<b>Counterspell</b>: Negates the effect of a power or effect card.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1509,8 +1509,8 @@ MonoBehaviour:
 
     You can use any power cards on Arcana.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1536,7 +1536,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 37.9
+  m_fontSize: 45.75
   m_fontSizeBase: 43
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1582,7 +1582,7 @@ MonoBehaviour:
     spaceCount: 48
     wordCount: 48
     linkCount: 0
-    lineCount: 8
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1668,10 +1668,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 'n the start of every turn, each player draws cards until both have 7 cards
     in their hands. Each player must set all element cards from their hand onto the
-    field, face down. As soon as both players are '
+    field, face down. As soon as both players are ready, the turn begins:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1697,14 +1697,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 39.15
+  m_fontSize: 46.15
   m_fontSizeBase: 43
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 90
   m_fontStyle: 0
-  m_textAlignment: 272
+  m_textAlignment: 264
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 4
@@ -1735,13 +1735,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -22.223022}
   m_textInfo:
     textComponent: {fileID: 201594286}
-    characterCount: 201
+    characterCount: 224
     spriteCount: 0
-    spaceCount: 39
-    wordCount: 39
+    spaceCount: 42
+    wordCount: 43
     linkCount: 0
     lineCount: 4
     pageCount: 1
@@ -2626,8 +2626,8 @@ MonoBehaviour:
   m_text: "<b>Intelligence</b>: The player draws 2 cards. (This card may be used before
     the elements are selected, if the player wishes to do so).\r"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2699,7 +2699,7 @@ MonoBehaviour:
     spaceCount: 22
     wordCount: 23
     linkCount: 0
-    lineCount: 4
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2786,8 +2786,8 @@ MonoBehaviour:
   m_text: '<b>Eclipse</b>: Choose a player and take all elements from that player''s
     stand-by and shuffle them into your Victory Deck.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2859,7 +2859,7 @@ MonoBehaviour:
     spaceCount: 18
     wordCount: 19
     linkCount: 0
-    lineCount: 4
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2943,10 +2943,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "Water \tx6\nFire \t\tx6\nAir\t\tx6\nLightning\tx6\nEarth\t\tx6\nArcana\tx6\n\n"
+  m_text: "Water \t\tx6\nFire \t\t\tx6\nAir\t\t\tx6\nLightning\t\tx6\nEarth\t\t\tx6\nArcana\t\tx6\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2972,7 +2972,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
+  m_fontSize: 59.3
   m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3013,9 +3013,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 406591531}
-    characterCount: 62
+    characterCount: 68
     spriteCount: 0
-    spaceCount: 18
+    spaceCount: 24
     wordCount: 12
     linkCount: 0
     lineCount: 7
@@ -3179,8 +3179,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 5 Elements
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
+  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3223,7 +3223,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -3258,7 +3258,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 445377923}
@@ -3977,8 +3977,8 @@ MonoBehaviour:
     card may be used before the elements are selected, if the player wishes to do
     so).'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4021,7 +4021,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 109
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -4050,7 +4050,7 @@ MonoBehaviour:
     spaceCount: 27
     wordCount: 28
     linkCount: 0
-    lineCount: 4
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -4619,8 +4619,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: And 25 distinct powers.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4851,11 +4851,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\rIntelligence\tx4\nPortal\t\tx5\nEclipse\t\tx4\nFishing Rod\tx5\nCounterspell\tx6\nSuper
-    Genius\tx3\nBlack Hole\t\tx3\nDisintegration\tx4\nMega Power\tx5\n"
+  m_text: "\rIntelligence\t\t\tx4\nPortal\t\t\t\tx5\nEclipse\t\t\tx4\nFishing Rod\t\t\tx5\nCounterspell\t\t\tx6\nSuper
+    Genius\t\t\tx3\nBlack Hole\t\t\tx3\nDisintegration\t\tx4\nMega-Power\t\tx5\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4881,7 +4881,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 56.25
+  m_fontSize: 46.05
   m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4922,10 +4922,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 721901657}
-    characterCount: 134
+    characterCount: 148
     spriteCount: 0
-    spaceCount: 25
-    wordCount: 23
+    spaceCount: 38
+    wordCount: 22
     linkCount: 0
     lineCount: 9
     pageCount: 1
@@ -5014,8 +5014,8 @@ MonoBehaviour:
   m_text: '<b>Black Hole</b>: Take all elements from both players'' stand-bies and
     shuffle them back into the Deck.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5177,8 +5177,8 @@ MonoBehaviour:
     Mega-Power and wins. Alice also plays Mega-Power and comes back on top. The last
     card is always the winning one."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5250,7 +5250,7 @@ MonoBehaviour:
     spaceCount: 57
     wordCount: 58
     linkCount: 0
-    lineCount: 7
+    lineCount: 5
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -6128,7 +6128,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -94.875}
-  m_SizeDelta: {x: -100, y: 409.75}
+  m_SizeDelta: {x: -100, y: 408}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850275149
 MonoBehaviour:
@@ -6150,18 +6150,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'ready, the turn begins: each player chooses a card (an element) among their
-    face down cards to be used on this turn <b><color=#002A93><link=note1>[1]</link></color></b>
-    and puts it in front of their other cards. When both players have selected their
-    cards, they are flipped face up. Victory is resolved by the rules on the previous
-    page <b><color=#002A93><link=note2>[2]</link></color></b>, and the winner puts
-    the elements they earned in a stack (also known as the Victory Deck).
+  m_text: 'each player chooses a card (an element) among their face down cards to
+    be used on this turn <b><color=#002A93><link=note1>[1]</link></color></b> and
+    puts it in front of their other cards. When both players have selected their cards,
+    they are flipped face up. Victory is resolved by the rules on the previous page
+    <b><color=#002A93><link=note2>[2]</link></color></b>, and the winner puts the
+    elements they earned in a stack (also known as the Victory Deck).
 
 
     End of the Round.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6187,7 +6187,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 39.2
+  m_fontSize: 46.25
   m_fontSizeBase: 43
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6225,15 +6225,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 20.376556, z: 0, w: -12.96759}
   m_textInfo:
     textComponent: {fileID: 850275149}
-    characterCount: 401
+    characterCount: 377
     spriteCount: 0
-    spaceCount: 76
-    wordCount: 76
+    spaceCount: 72
+    wordCount: 72
     linkCount: 2
-    lineCount: 8
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -6599,8 +6599,8 @@ MonoBehaviour:
   m_text: '<b>Fishing rod</b>: Take one card from your opponents hand (without looking
     at them).'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6672,7 +6672,7 @@ MonoBehaviour:
     spaceCount: 12
     wordCount: 13
     linkCount: 0
-    lineCount: 3
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -6837,8 +6837,8 @@ MonoBehaviour:
     the players have to agree on the tiebreak method. The players can choose to reshuffle
     all the cards and play a sudden-death round or try to win with the remaining cards.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6864,7 +6864,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 49.8
+  m_fontSize: 51.85
   m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6910,7 +6910,7 @@ MonoBehaviour:
     spaceCount: 91
     wordCount: 92
     linkCount: 0
-    lineCount: 10
+    lineCount: 8
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -8480,8 +8480,8 @@ MonoBehaviour:
     to choose from, they must discard their entire hand and draw 7 cards. This process
     is repeated until they have elements to set down or the deck is empty.\r"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8553,7 +8553,7 @@ MonoBehaviour:
     spaceCount: 35
     wordCount: 36
     linkCount: 0
-    lineCount: 4
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -8758,8 +8758,8 @@ MonoBehaviour:
     (forming a stack) and resolve the effects taking the card from the top of the
     stack.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9165,8 +9165,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Lightning beats Earth and Water
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9192,7 +9192,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 59.35
+  m_fontSize: 62
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10030,8 +10030,8 @@ MonoBehaviour:
     normal. If no powers are played and there is still a draw, the next round becomes
     the tiebreaker.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10103,7 +10103,7 @@ MonoBehaviour:
     spaceCount: 43
     wordCount: 44
     linkCount: 0
-    lineCount: 5
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -10266,8 +10266,8 @@ MonoBehaviour:
     A response to a card is constituted by a single card, and a player can''t use
     a response on their own card.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10339,7 +10339,7 @@ MonoBehaviour:
     spaceCount: 46
     wordCount: 47
     linkCount: 0
-    lineCount: 4
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -10720,8 +10720,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: '<b>Disintegration</b>: A player discards their entire hand.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10764,7 +10764,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 40
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -11029,8 +11029,8 @@ MonoBehaviour:
   m_text: '<b>Mega-Power</b>: It has the power of every element. You can use this
     on any element and and that element becomes the winning one.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11056,7 +11056,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 38.15
+  m_fontSize: 43.85
   m_fontSizeBase: 43
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11263,8 +11263,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Card Quantities
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
+  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11307,7 +11307,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -11422,8 +11422,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Air beats Earth and Lightning
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11449,7 +11449,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 53.8
+  m_fontSize: 56.65
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -12725,8 +12725,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Ending the game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
+  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -12769,7 +12769,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -13793,8 +13793,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Water beats Fire and Air
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13820,7 +13820,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 54.6
+  m_fontSize: 57.45
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15211,8 +15211,8 @@ MonoBehaviour:
   m_text: '<b>Portal</b>: The players swap their elements (Also swaps the winning
     player, so the losing one becomes the winning one and vice-versa).'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61709ad25042c28448d9feb140566f58, type: 2}
-  m_sharedMaterial: {fileID: -7387455350241493223, guid: 61709ad25042c28448d9feb140566f58,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15284,7 +15284,7 @@ MonoBehaviour:
     spaceCount: 20
     wordCount: 21
     linkCount: 0
-    lineCount: 5
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -15372,8 +15372,8 @@ MonoBehaviour:
 
     Water and Fire'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15399,7 +15399,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 58.6
+  m_fontSize: 62
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15953,8 +15953,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Fire beats Air and Lightning
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15980,7 +15980,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 56.35
+  m_fontSize: 59.3
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -16192,8 +16192,8 @@ MonoBehaviour:
 
     2 - As a response to an opponents card. <b><color=#002A93>[3] [4] [5]</color></b>'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b84caa68ffb8a241bbb4d73842318d9, type: 2}
-  m_sharedMaterial: {fileID: 2067013563742210133, guid: 4b84caa68ffb8a241bbb4d73842318d9,
+  m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
+  m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -16236,7 +16236,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 163
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0

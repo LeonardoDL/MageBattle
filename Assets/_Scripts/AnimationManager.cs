@@ -7,7 +7,7 @@ public class AnimationManager : MonoBehaviour
 {
     public static bool faded = false;
 
-    //public Transform graph;
+    public int tut;
     public bool animate = true;
     public float changeSpeed = .15f;
 
@@ -38,7 +38,7 @@ public class AnimationManager : MonoBehaviour
 
     void Update()
     {
-        //_faded = faded;
+        tut = PlayerPrefs.GetInt("Tutorial");
         if (animPlayer == null || animEnemy == null || animate == false)
             return;
 
