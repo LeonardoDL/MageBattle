@@ -21,6 +21,13 @@ public class TurnOffWhenEmpty : MonoBehaviour
     public void StopParticles()
     {
         foreach (ParticleSystem p in ps)
+        {
+            if (p.gameObject.name == "MagicCircle")
+            {
+                //Debug.Log(p.gameObject.name + " x");
+                continue;
+            }
             p.Stop();
+        }
     }
 }

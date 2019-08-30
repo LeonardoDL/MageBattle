@@ -58,7 +58,7 @@ public class CardInHand : MonoBehaviour
         BoardManager.isInTransition = true;
         Vector3 v = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zValue));
         //Debug.Log(v);
-        AssignType();
+        //AssignType();
         GameObject g = Instantiate(cardPrefab, new Vector3(v.x,4f,v.z), Quaternion.identity);
 
         SetUpOfSummonedCard(g.transform.GetChild(1).gameObject);
@@ -70,7 +70,8 @@ public class CardInHand : MonoBehaviour
         //Debug.Log("Trigger Exit");
         if (other.tag == "Hand/PlayerHand")
         {
-            if (BoardManager.isInTransition || BoardManager.curState == GameState.EnemyEffectPhase || BoardManager.curState == GameState.EndGame)
+            if (BoardManager.isInTransition || BoardManager.curState == GameState.EnemyEffectPhase || BoardManager.curState == GameState.EnemyPlayPhase
+                || BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curState == GameState.EndGame)
             {
                 moveCard = false;
                 return;
@@ -166,6 +167,7 @@ public class CardInHand : MonoBehaviour
     public void SetUpOfSummonedCard(GameObject g)
     {
         g.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprite;
+        //Debug.Log("The type of CardInHand is " + type);
         g.GetComponent<CardInBoard>().type = type;
         Effect e = GetComponent<Effect>();
         if (e != null)
@@ -187,15 +189,6 @@ public class CardInHand : MonoBehaviour
             if (p.air)
             {
                 type = CardType.AirP;
-                //if (p.earth)
-                //{
-                //    type = CardType.AirEarthP;
-                //    if (p.fire)
-                //    {
-                //        type = CardType.AirEarthFireP;
-
-                //    }
-                //}
             }
             if (p.earth)
                 type = CardType.EarthP;

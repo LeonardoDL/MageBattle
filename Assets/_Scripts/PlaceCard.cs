@@ -11,7 +11,10 @@ public class PlaceCard : MonoBehaviour
     private Quaternion targetRot;
     private Queue<GameObject> queue;
 
-    void Start() { queue = new Queue<GameObject>(); }
+    void Start()
+    {
+        queue = new Queue<GameObject>();
+    }
 
     public void PlaceOnSlot(GameObject g)
     {
@@ -46,12 +49,12 @@ public class PlaceCard : MonoBehaviour
 
             if (tag.StartsWith("Slot/"))
             {
-                go.name = "AOSJOAIUHSI";
+                //go.name = "AOSJOAIUHSI";
                 foreach (Transform t in go.GetComponentsInChildren<Transform>(true))
                 {
                     if (t.gameObject.tag == "Particles")
                     {
-                        t.gameObject.name = "QWERTYUIOP";
+                        //t.gameObject.name = "QWERTYUIOP";
                         t.gameObject.SetActive(true);
                     }
                 }
@@ -67,6 +70,11 @@ public class PlaceCard : MonoBehaviour
             else
             {
                 go = queue.Dequeue();
+                if (go == null)
+                {
+                    return;
+                }
+
                 go.GetComponent<Rigidbody>().useGravity = false;
                 float f1 = Random.Range(-15f, 15f);
                 float f2 = Random.Range(-15f, 15f);

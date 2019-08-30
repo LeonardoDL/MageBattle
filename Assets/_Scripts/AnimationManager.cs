@@ -7,6 +7,8 @@ public class AnimationManager : MonoBehaviour
 {
     public static bool faded = false;
 
+    public GameObject blockHand;
+
     public int tut;
     public bool animate = true;
     public float changeSpeed = .15f;
@@ -30,6 +32,7 @@ public class AnimationManager : MonoBehaviour
         tutorial = Options.GetBool("tutorial");
 
         cam = Camera.main.GetComponent<Animator>();
+        blockHand.SetActive(false);
         handPanel = GameObject.FindGameObjectWithTag("Hand/PlayerHand");
         handEnemyPanel = GameObject.FindGameObjectWithTag("Hand/EnemyHand");
         hand = handPanel.transform.parent.GetComponent<Animator>();
@@ -67,6 +70,16 @@ public class AnimationManager : MonoBehaviour
 
     }
 
+    public void SetAllElements(bool activate)
+    {
+        foreach(Animator a in animPlayer)
+            a.SetBool("Show", activate);
+        foreach (Animator a in animEnemy)
+            a.SetBool("Show", activate);
+
+        animate = activate;
+    }
+
     public void FocusAnimation()
     {
         if (!animate || tutorial)
@@ -91,6 +104,7 @@ public class AnimationManager : MonoBehaviour
 
     public void FadePlayerCards(bool activate)
     {
+        blockHand.SetActive(activate);
         foreach (Animator a in handPanel.GetComponentsInChildren<Animator>())
         {
             a.SetBool("Focus", activate);

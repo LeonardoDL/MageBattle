@@ -110,6 +110,7 @@ public class DevTools : MonoBehaviour
 
     public void RefreshEnemy()
     {
+        BoardManager.curState = GameState.EnemyEffectPhase;
         enemy_m.PlayPowerOrEffect();
     }
 

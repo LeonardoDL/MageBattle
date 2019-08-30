@@ -8,7 +8,7 @@ using TMPro;
 public class PointerHandlerTutorial : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IPointerDownHandler, IPointerUpHandler
 {
     public GameObject tooltip;
-    public Vector3 offset;
+    public Vector3 percentOffset;
 
     public string description;
     private CardType card = CardType.None;
@@ -84,9 +84,9 @@ public class PointerHandlerTutorial : MonoBehaviour, IPointerExitHandler, IPoint
             return;
 
         if (transform.parent.parent != null)
-            instantTooltip = Instantiate(tooltip, Input.mousePosition + offset, Quaternion.identity, transform.parent.parent.parent);
+            instantTooltip = Instantiate(tooltip, Input.mousePosition + GetTheLongLine(), Quaternion.identity, transform.parent.parent.parent);
         else
-            instantTooltip = Instantiate(tooltip, Input.mousePosition + offset, Quaternion.identity, transform.parent);
+            instantTooltip = Instantiate(tooltip, Input.mousePosition + GetTheLongLine(), Quaternion.identity, transform.parent);
 
         instantTooltip.GetComponentInChildren<TextMeshProUGUI>().text = description;
         Destroy(instantTooltip, 6f);
@@ -114,9 +114,9 @@ public class PointerHandlerTutorial : MonoBehaviour, IPointerExitHandler, IPoint
             return;
 
         if (transform.parent.parent != null)
-            instantTooltip = Instantiate(tooltip, Input.mousePosition + offset, Quaternion.identity, transform.parent.parent.parent);
+            instantTooltip = Instantiate(tooltip, Input.mousePosition + GetTheLongLine(), Quaternion.identity, transform.parent.parent.parent);
         else
-            instantTooltip = Instantiate(tooltip, Input.mousePosition + offset, Quaternion.identity, transform.parent);
+            instantTooltip = Instantiate(tooltip, Input.mousePosition + GetTheLongLine(), Quaternion.identity, transform.parent);
 
         instantTooltip.GetComponentInChildren<TextMeshProUGUI>().text = description;
         Destroy(instantTooltip, 6f);
@@ -127,6 +127,11 @@ public class PointerHandlerTutorial : MonoBehaviour, IPointerExitHandler, IPoint
         if (instantTooltip == null)
             return;
 
-        instantTooltip.transform.position = Input.mousePosition + offset;
+        instantTooltip.transform.position = Input.mousePosition + GetTheLongLine();
+    }
+
+    private Vector3 GetTheLongLine()
+    {
+        return new Vector3(percentOffset.x * 0.01f * Screen.width, percentOffset.y * 0.01f * Screen.height, 0f);
     }
 }

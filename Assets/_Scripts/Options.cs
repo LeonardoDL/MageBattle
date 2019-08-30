@@ -7,18 +7,26 @@ public class Options : MonoBehaviour
 {
     public bool _animate = false;
 
-    public Toggle[] toggles;
-    public string[] variables;
+    public Toggle toggle;
+    public Dropdown dropdown;
 
     public void SetAnimate(bool b)
     {
         SetBool("animate", b);
     }
 
+    public void SetDifficulty(int i)
+    {
+        PlayerPrefs.SetInt("difficulty", i);
+        Debug.Log("difficulty = " + i);
+    }
+
     void Start()
     {
-        for (int i = 0; i < toggles.Length; i++)
-            toggles[i].isOn = GetBool(variables[i]);
+        //for (int i = 0; i < toggles.Length; i++)
+        //    toggles[i].isOn = GetBool(variables[i]);
+        toggle.isOn = GetBool("animate");
+        dropdown.value = PlayerPrefs.GetInt("difficulty");
     }
 
     void Update()

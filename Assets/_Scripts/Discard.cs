@@ -18,13 +18,16 @@ public class Discard : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < cards.Count; i++)
+        int i = 0;
+        for (; i < cards.Count; i++)
         {
             if (cardsShow.Count == i)
                 cardsShow.Add(CardType.None);
             if (cards[i] != cardsShow[i])
                 cardsShow[i] = cards[i];
         }
+        for (; i < cardsShow.Count; i++)
+            cardsShow.RemoveAt(i);
     }
 
     public void DebugAllDeck()

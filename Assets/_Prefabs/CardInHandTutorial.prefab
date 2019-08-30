@@ -167,4 +167,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 4864954163684325981, guid: 8d6dc7b4468345e4bbd99ee9fbd2caa6, type: 3}
-  offset: {x: 0, y: 60, z: 0}
+  percentOffset: {x: 0, y: 8, z: 0}
+  description: 

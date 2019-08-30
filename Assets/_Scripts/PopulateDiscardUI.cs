@@ -29,6 +29,7 @@ public class PopulateDiscardUI : MonoBehaviour
         BoardManager bm = BoardManager.GetBoardManager();
         foreach (CardType c in bm.discard.cards){
 			newObj = (GameObject)Instantiate(Image, transform);
+            //Debug.Log(" it's " + c);
             newObj.GetComponent<Image>().sprite = bm.deck.GetCardBuilder().GetSpriteGameObject(c).Item1;
 			cards.Add(newObj);
         }

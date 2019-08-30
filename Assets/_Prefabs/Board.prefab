@@ -2065,7 +2065,7 @@ PrefabInstance:
     - target: {fileID: 3599424814464566226, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3599424814446281282, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
@@ -2150,7 +2150,7 @@ PrefabInstance:
     - target: {fileID: 3599424813597298907, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3599424813597298907, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
@@ -2160,7 +2160,7 @@ PrefabInstance:
     - target: {fileID: 3599424814464594494, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3599424814464594494, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
@@ -2262,6 +2262,16 @@ PrefabInstance:
       propertyPath: fallOffCurve.m_Curve.Array.data[1].value
       value: 0.31529328
       objectReference: {fileID: 0}
+    - target: {fileID: 8592621638865809815, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 308133537608695529, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3599424813849846784, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: playOnAwake
@@ -2295,7 +2305,7 @@ PrefabInstance:
     - target: {fileID: 3599424814781938534, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3599424814781938534, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
@@ -2817,7 +2827,7 @@ PrefabInstance:
     - target: {fileID: 3599424814464566226, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3599424814446281282, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
@@ -2902,7 +2912,7 @@ PrefabInstance:
     - target: {fileID: 3599424813597298907, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3599424813597298907, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
@@ -2912,7 +2922,7 @@ PrefabInstance:
     - target: {fileID: 3599424814464594494, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3599424814464594494, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}
@@ -3013,6 +3023,16 @@ PrefabInstance:
         type: 3}
       propertyPath: fallOffCurve.m_Curve.Array.data[1].value
       value: 0.31529328
+      objectReference: {fileID: 0}
+    - target: {fileID: 8592621638865809815, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 308133537608695529, guid: 253aa5442907643408a48bcb85753b11,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3599424813849846784, guid: 253aa5442907643408a48bcb85753b11,
         type: 3}

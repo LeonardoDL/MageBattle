@@ -14,8 +14,9 @@ public class EnemyManager : MonoBehaviour
     //public bool isActive;
     [HideInInspector] public CardType cardToPlay = CardType.None;
     [HideInInspector] public bool isWaiting;
+    [HideInInspector] public int difficulty;
 
-	private Deck deck;
+    private Deck deck;
 	Dictionary<CardType, Power> powers;
 	Dictionary<CardType, Effect> effects;
 
@@ -29,32 +30,35 @@ public class EnemyManager : MonoBehaviour
 		standBy = new List<CardType>();
 		deck = GameObject.FindWithTag("Deck").GetComponent<Deck>();
 
-		powers = new Dictionary<CardType, Power>();
-		effects = new Dictionary<CardType, Effect>();
+        powers = new Dictionary<CardType, Power>();
+        effects = new Dictionary<CardType, Effect>();
 
-		for (int i = 7; i < 33; i++)
-		{
-			Power p = gameObject.AddComponent<Power>();
-			p.Init((CardType)i);
-			powers.Add((CardType)i, p);
-		}
+        for (int i = 7; i < 33; i++)
+        {
+            Power p = gameObject.AddComponent<Power>();
+            p.Init((CardType)i);
+            powers.Add((CardType)i, p);
+        }
 
-		for (int i = 33; i < CardType.GetNames(typeof(CardType)).Length; i++)
-		{
-			Effect e = gameObject.AddComponent<Effect>();
-			e.Init((CardType)i);
-			effects.Add((CardType)i, e);
-		}
-	}
+        for (int i = 33; i < CardType.GetNames(typeof(CardType)).Length; i++)
+        {
+            Effect e = gameObject.AddComponent<Effect>();
+            e.Init((CardType)i);
+            effects.Add((CardType)i, e);
+        }
+    }
 
     void Start()
     {
         enemySlot = GameObject.FindWithTag("Slot/ElementEnemy").transform;
+        difficulty = PlayerPrefs.GetInt("difficulty", 0);
     }
 
     public void DrawHandEnemy(int quantity)
 	{
-		BoardManager.GetBoardManager().texts[2].text = "Enemy draws " + quantity + " cards";
+        if (quantity < 0) quantity = 0;
+
+        BoardManager.GetBoardManager().texts[2].text = "Enemy draws " + quantity + " cards";
 
 		for (int i = 0; i < quantity; i++)
 		{
@@ -222,34 +226,43 @@ public class EnemyManager : MonoBehaviour
 
 	public void PlayCardDraw()
 	{
+        if (HasPlayableCardDraw())
+        {
+            CardType c = CardType.None;
 
-		CardType c = CardType.None;
+            if (hand.Contains(CardType.SuperGenius))
+                c = CardType.SuperGenius;
 
-	//    int cardInt = hand.FindAll(name => name.Equals(CardType.SuperGenius)).Count;
-	//    int cardGenius = hand.FindAll(name => name.Equals(CardType.Intelligence)).Count;
-	//    int cardCount = cardInt + cardGenius;
+            if (hand.Contains(CardType.Intelligence))
+                c = CardType.Intelligence;
 
-		if (hand.Contains(CardType.SuperGenius))
-			c = CardType.SuperGenius;
-
-		 if (hand.Contains(CardType.Intelligence))
-			c = CardType.Intelligence;
-		
-		if (c != CardType.None)
-		{
-			BoardManager.curState = GameState.EnemyPlayPhase;
-			if(effects[c].isPlayable()){
-				justPlayed = true;
-				PlayEffect(c);
-			}
-			//else
-			//    Debug.Log("I cannot use " + c);
-		}
+            if (effects[c].isPlayable())
+            {
+                justPlayed = true;
+                PlayEffect(c);
+            }
+        }
 	}
 
-	public void PlayPowerOrEffect()
+    public bool HasPlayableCardDraw()
+    {
+        CardType c = CardType.None;
+
+        if (hand.Contains(CardType.SuperGenius) && effects[CardType.SuperGenius].isPlayable())
+            c = CardType.SuperGenius;
+
+        if (hand.Contains(CardType.Intelligence) && effects[CardType.Intelligence].isPlayable())
+            c = CardType.Intelligence;
+
+        if (c != CardType.None)
+            return true;
+
+        return false;
+    }
+
+    public void PlayPowerOrEffect()
 	{
-		Debug.Log("PlayPowerOrEffect");
+		//Debug.Log("PlayPowerOrEffect");
 
 		if (hand.Contains(cardToPlay))
 		{
@@ -260,17 +273,25 @@ public class EnemyManager : MonoBehaviour
 
             return;
 		}
-
-        if (Random.Range(0, 10) < 5)
-        {
-            if (!HasPlayablePower())
-                HasPlayableEffect();
-        }
-        else
-        {
-            if (!HasPlayableEffect())
-                HasPlayablePower();
-        }
+		
+		if (difficulty == 0)
+		{
+			if (!HasPlayablePower() && !HasPlayableEffectEasy())
+				BoardManager.curState = GameState.PlayerEffectPhase;
+		}
+		else
+		{
+			if (Random.Range(0, 10) < 5)
+			{
+				if (!HasPlayablePower() && !HasPlayableEffectMedium())
+					BoardManager.curState = GameState.PlayerEffectPhase;
+			}
+			else
+			{
+				if (!HasPlayableEffectMedium() && !HasPlayablePower())
+					BoardManager.curState = GameState.PlayerEffectPhase;
+			}
+		}
     }
 
     public bool HasPlayablePower()
@@ -329,7 +350,7 @@ public class EnemyManager : MonoBehaviour
             }
         }
 
-        Debug.Log("No playable power");
+        //Debug.Log("No playable power");
         return false;
     }
 
@@ -346,25 +367,52 @@ public class EnemyManager : MonoBehaviour
 		deck.cardBuilder.RemoveCardFromHand(cardType);
 	}
 
-    public bool HasPlayableEffect()
+    public bool HasPlayableEffectEasy()
     {
-        for (int i = 33; i < CardType.GetNames(typeof(CardType)).Length; i++) //Effect
-            if (hand.Contains((CardType)i))
-            {
-                Debug.Log("I have " + (CardType)i);
+		Debug.Log("Easy");
+		DeckList<CardType> dc = new DeckList<CardType>();
 
-                if (effects[(CardType)i].isPlayable())
-                {
-                    PlayEffect((CardType)i);
-                    return true;
-                }
-            }
+		foreach (CardType c in hand)
+			dc.Push(c);
 
-        Debug.Log("No playable Effect");
-        return false;
+		dc.Shuffle();
+
+		foreach (CardType c in dc) //Effect
+			if (hand.Contains((CardType)c) && (int)c >= 33)
+			{
+				Debug.Log("I have " + (CardType)c);
+
+				if (effects[(CardType)c].isPlayable())
+				{
+					PlayEffect((CardType)c);
+					return true;
+				}
+			}
+
+		Debug.Log("No playable Effect");
+		return false;
     }
+	
+	public bool HasPlayableEffectMedium()
+	{
+		Debug.Log("Medium");
+		for (int i = 33; i < CardType.GetNames(typeof(CardType)).Length; i++) //Effect
+			if (hand.Contains((CardType)i))
+			{
+				//Debug.Log("I have " + (CardType)i);
 
-	public void PlayEffect(CardType cardType)
+				if (effects[(CardType)i].isPlayable())
+				{
+					PlayEffect((CardType)i);
+					return true;
+				}
+			}
+
+		//Debug.Log("No playable Effect");
+		return false;
+	}
+
+    public void PlayEffect(CardType cardType)
 	{
 		hand.Remove(cardType);
 		Tuple<Sprite, GameObject> item = deck.cardBuilder.GetSpriteGameObject(cardType);

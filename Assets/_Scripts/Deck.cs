@@ -14,6 +14,7 @@ public class Deck : MonoBehaviour
 {
     public int deckSize = 20;
     public DeckList<CardType> cards;
+    public List<CardType> cardsShow;
     public CardBuilder cardBuilder;
     public DeckLoadMethod method = DeckLoadMethod.PreDetermined;
 
@@ -41,6 +42,20 @@ public class Deck : MonoBehaviour
         //DebugAllDeck();
     }
 
+    void Update()
+    {
+        int i = 0;
+        for (; i < cards.Count; i++)
+        {
+            if (cardsShow.Count == i)
+                cardsShow.Add(CardType.None);
+            if (cards[i] != cardsShow[i])
+                cardsShow[i] = cards[i];
+        }
+        for(; i < cardsShow.Count; i++)
+            cardsShow.RemoveAt(i);
+    }
+
     public void PopulateRandom()
     {
         for (int i = 0; i < deckSize; i++)
@@ -57,6 +72,7 @@ public class Deck : MonoBehaviour
 
     public void PopulatePreDetermined()
     {
+        // Cartas de elementos
         cards.Push(CardType.AirE, 6);
         cards.Push(CardType.EarthE, 6);
         cards.Push(CardType.FireE, 6);
@@ -97,6 +113,7 @@ public class Deck : MonoBehaviour
 
         cards.Push(CardType.MegaPowerP, 5);
 
+        // Cartas de Efeito
         cards.Push(CardType.Intelligence, 4);
         cards.Push(CardType.Portal, 5);
         cards.Push(CardType.SuperGenius, 3);
@@ -104,8 +121,6 @@ public class Deck : MonoBehaviour
         cards.Push(CardType.BlackHole, 3);
         cards.Push(CardType.Eclipse, 4);
         cards.Push(CardType.FishingRod, 5);
-
-
 
         cards.Shuffle();
     }
@@ -170,6 +185,8 @@ public class Deck : MonoBehaviour
     
     public void DrawHandPlayer(int quantity)
     {
+        if (quantity < 0) quantity = 0;
+
         BoardManager.GetBoardManager().texts[1].text = "Player draws " + quantity + " cards";
         for (int i = 0; i < quantity; i++)
             DrawCardPlayer();

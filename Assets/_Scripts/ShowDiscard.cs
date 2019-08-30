@@ -28,20 +28,29 @@ public class ShowDiscard : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
-        if (isShowing){
+        HideShow();
+    }
+
+    public void HideShow()
+    {
+        if (isShowing)
+        {
             scrollView.SetActive(false);
             isShowing = false;
             am.Fade(false);
             stPlayer.enabled = true;
             stEnemy.enabled = true;
-        } else {
+            BoardManager.GetBoardManager().HideElementsFromAnimation(false);
+        }
+        else
+        {
             UI.Populate();
             scrollView.SetActive(true);
             isShowing = true;
             am.Fade(true);
             stPlayer.enabled = false;
             stEnemy.enabled = false;
+            BoardManager.GetBoardManager().HideElementsFromAnimation(true);
         }
     }
 }

@@ -56,6 +56,11 @@ public class CardInBoard : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Clicked");
+        if (BoardManager.curState == GameState.ClearPhase || BoardManager.curState == GameState.PlayerPlayPhase
+            || BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EndGame
+            || BoardManager.isInTransition)
+            return;
+
         if (am == null)
             am = GameObject.Find("Manager").GetComponent<AnimationManager>();
 

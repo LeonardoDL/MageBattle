@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 0
+  m_padding: 4.85
   m_canvasRenderer: {fileID: 311457721}
   m_TextComponent: {fileID: 2037257253}
   m_materialReferenceIndex: 1
@@ -3548,7 +3548,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -15, y: 240}
+  m_AnchoredPosition: {x: -15, y: 300}
   m_SizeDelta: {x: -30, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1036796799
@@ -4125,10 +4125,10 @@ RectTransform:
   m_Father: {fileID: 1635778176}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 354}
+  m_SizeDelta: {x: 950, y: 708}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1140812339
 MonoBehaviour:
@@ -4142,7 +4142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ff25317f1ad5f419a0f2b1bd6df716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 3
+  time: 5
   next: {fileID: 0}
 --- !u!1 &1231484935
 GameObject:
@@ -5540,14 +5540,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660730556}
-  m_LocalRotation: {x: 0, y: 0.12186928, z: 0, w: 0.9925462}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 0.465, z: 0}
   m_LocalScale: {x: 21, y: 0.1, z: 21}
   m_Children:
   - {fileID: 1625367430}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 14, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &1660730558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6562,8 +6562,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -15, y: 105}
-  m_SizeDelta: {x: -30, y: 180}
+  m_AnchoredPosition: {x: -15, y: 135}
+  m_SizeDelta: {x: -30, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2037257253
 MonoBehaviour:
@@ -6589,7 +6589,9 @@ MonoBehaviour:
 
     Andre Bariani
 
-    Douglas Chen'
+    Douglas Chen
+
+    Agata Rangel Drigo'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54afa515506a9f409e14f5cdbe3562b, type: 2}
   m_sharedMaterial: {fileID: -6051724619048615852, guid: d54afa515506a9f409e14f5cdbe3562b,
@@ -6659,12 +6661,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2037257253}
-    characterCount: 47
+    characterCount: 66
     spriteCount: 0
-    spaceCount: 6
-    wordCount: 7
+    spaceCount: 9
+    wordCount: 10
     linkCount: 0
-    lineCount: 3
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -8547,6 +8549,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 5520520006541515214, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520520006541515208, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5647173731499562046, guid: 7d244b27383e78642878759999a56b98,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
@@ -8577,6 +8589,11 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5520520006551980020, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: speedX
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7257540699053428543, guid: 7d244b27383e78642878759999a56b98,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -8606,21 +8623,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5520520006541515208, guid: 7d244b27383e78642878759999a56b98,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5520520006541515214, guid: 7d244b27383e78642878759999a56b98,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5520520006551980020, guid: 7d244b27383e78642878759999a56b98,
-        type: 3}
-      propertyPath: speedX
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d244b27383e78642878759999a56b98, type: 3}
