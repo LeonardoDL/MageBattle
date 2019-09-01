@@ -29,8 +29,17 @@ public class TutorialTriggerAdvanced : MonoBehaviour
 
         if (lookForFuckUp)
         {
-            if (bm.playerCard == CardType.ArcanaE && bm.playerEffect == CardType.Disintegration && !bm.PlayerHasWinnableCard())
-                InvokeAndDie();
+            if (bm.playerCard == CardType.ArcanaE && bm.playerEffect == CardType.Disintegration)
+            {
+                if (!bm.PlayerHasWinnableCard())
+                    InvokeAndDie();
+                else
+                {
+                    foreach (TutorialTriggerAdvanced tta in activateThese)
+                        Destroy(tta);
+                    Die();
+                }
+            }
         }
 
         if (watchTheseObjects != null)

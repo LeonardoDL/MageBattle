@@ -51,7 +51,11 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         enemySlot = GameObject.FindWithTag("Slot/ElementEnemy").transform;
-        difficulty = PlayerPrefs.GetInt("difficulty", 0);
+        bool tutorial = Options.GetBool("tutorial");
+        if (tutorial)
+            difficulty = PlayerPrefs.GetInt("difficulty", 0);
+        else
+            difficulty = 0;
     }
 
     public void DrawHandEnemy(int quantity)
