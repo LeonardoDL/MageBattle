@@ -19,7 +19,8 @@ public class BoardManager : MonoBehaviour
     [HideInInspector] public CardType playerEffect;
     [HideInInspector] public CardType enemyEffect;
     [HideInInspector] public GameObject playerBoardCard = null;
-	[HideInInspector] public GameObject enemyBoardCard = null;
+    [HideInInspector] public GameObject enemyBoardCard = null;
+    [HideInInspector] public LastPlayed last = LastPlayed.None;
 
     public GameObject playerButton;
 	public GameObject enemyButton;
@@ -67,6 +68,7 @@ public class BoardManager : MonoBehaviour
 		deck = GameObject.FindWithTag("Deck").GetComponent<Deck>();
         victoryDeckPlayer = GameObject.FindWithTag("VictoryDeck/Player").GetComponent<VictoryDeck>();
 		victoryDeckEnemy  = GameObject.FindWithTag("VictoryDeck/Enemy").GetComponent<VictoryDeck>();
+        last = LastPlayed.None;
 
 
 		StartCoroutine(WaitStart());
@@ -355,6 +357,7 @@ public class BoardManager : MonoBehaviour
 
             if (curState == GameState.PlayerPlayPhase)
             {
+                last = LastPlayed.Player;
                 while (enemy.isWaiting) yield return new WaitForSeconds(.1f);
 
                 if (enemy.HasPlayableCardDraw())
@@ -366,7 +369,10 @@ public class BoardManager : MonoBehaviour
             else
             {
                 if (enemy.getJustPlayed())
+                {
                     curState = GameState.PlayerPlayPhase;
+                    last = LastPlayed.Enemy;
+                }
             }
             
             yield break;
@@ -381,6 +387,7 @@ public class BoardManager : MonoBehaviour
 
 				playerCard = cardType;
 				playerBoardCard = card;
+                last = LastPlayed.Player;
 
                 curState = GameState.EnemyPlayPhase;
                 while (enemy.isWaiting) yield return new WaitForSeconds(.1f);
@@ -393,7 +400,8 @@ public class BoardManager : MonoBehaviour
 				texts[1].text = "";
 				texts[2].text = "";
 				enemyCard = cardType;
-				enemyBoardCard = card;
+                last = LastPlayed.Enemy;
+                enemyBoardCard = card;
 				curState = GameState.BattlePhase;
 				StartCoroutine(Battle());
 				break;
@@ -401,7 +409,8 @@ public class BoardManager : MonoBehaviour
 			case GameState.PlayerEffectPhase:
 
                 playerEffect = cardType;
-				if (card.GetComponentInChildren<CardInBoard>().execute != null)
+                last = LastPlayed.Player;
+                if (card.GetComponentInChildren<CardInBoard>().execute != null)
 				{
 					card.GetComponentInChildren<CardInBoard>().execute();
 
@@ -443,6 +452,7 @@ public class BoardManager : MonoBehaviour
 			case GameState.EnemyEffectPhase:
 
                 enemyEffect = cardType;
+                last = LastPlayed.Enemy;
                 if (card.GetComponentInChildren<CardInBoard>().execute != null)
 				{
 					card.GetComponentInChildren<CardInBoard>().execute();
@@ -654,6 +664,7 @@ public class BoardManager : MonoBehaviour
 
     public IEnumerator EndRoundRoutine()
     {
+        last = LastPlayed.None;
         curState = GameState.ClearPhase;
 
         yield return new WaitForSeconds(.5f);

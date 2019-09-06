@@ -83,3 +83,9 @@ public enum WinCondition
     Loss,
     Draw
 }
+public enum LastPlayed
+{
+    None,
+    Player,
+    Enemy
+}

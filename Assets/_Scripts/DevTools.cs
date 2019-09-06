@@ -8,6 +8,9 @@ public class DevTools : MonoBehaviour
     [Header("Class attributes")]
     public GameState gameState;
     public WinCondition winCondition;
+    public LastPlayed lastPlayed;
+    public bool enemyPassed;
+
     //public CardType player;
     //public CardType enemy;
     //public CardType enemyEffect;
@@ -28,6 +31,9 @@ public class DevTools : MonoBehaviour
     {
         gameState = BoardManager.curState;
         winCondition = BoardManager.curWinCondition;
+        lastPlayed = board_m.last;
+        enemyPassed = enemy_m.Ipass;
+
         //if (board_m != null)
         //{
         //    player = board_m.playerCard;

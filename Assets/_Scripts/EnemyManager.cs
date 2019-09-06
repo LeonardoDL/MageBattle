@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
 {
     [HideInInspector] public List<CardType> hand;
     [HideInInspector] public List<CardType> standBy;
+    [HideInInspector] public bool Ipass;
 
 	public Transform enemySlot;
 	public Vector3 offset;
@@ -266,6 +267,7 @@ public class EnemyManager : MonoBehaviour
 
     public void PlayPowerOrEffect()
 	{
+        Ipass = false;
 		//Debug.Log("PlayPowerOrEffect");
 
 		if (hand.Contains(cardToPlay))
@@ -280,21 +282,30 @@ public class EnemyManager : MonoBehaviour
 		
 		if (difficulty == 0)
 		{
-			if (!HasPlayablePower() && !HasPlayableEffectEasy())
-				BoardManager.curState = GameState.PlayerEffectPhase;
+            if (!HasPlayablePower() && !HasPlayableEffectEasy())
+            {
+                BoardManager.curState = GameState.PlayerEffectPhase;
+                Ipass = true;
+            }
 		}
 		else
 		{
 			if (Random.Range(0, 10) < 5)
 			{
 				if (!HasPlayablePower() && !HasPlayableEffectMedium())
-					BoardManager.curState = GameState.PlayerEffectPhase;
-			}
+                {
+                    BoardManager.curState = GameState.PlayerEffectPhase;
+                    Ipass = true;
+                }
+            }
 			else
 			{
 				if (!HasPlayableEffectMedium() && !HasPlayablePower())
-					BoardManager.curState = GameState.PlayerEffectPhase;
-			}
+                {
+                    BoardManager.curState = GameState.PlayerEffectPhase;
+                    Ipass = true;
+                }
+            }
 		}
     }
 
