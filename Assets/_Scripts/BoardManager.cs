@@ -232,10 +232,10 @@ public class BoardManager : MonoBehaviour
 	public void RemoveCardFromEnemy(CardType c)
 	{
 		CardType x = enemy.RemoveCard(c);
-		if (x != CardType.None)
-		{
-			discard.DiscardCard(x);
-		}
+		//if (x != CardType.None)
+		//{
+		//	discard.DiscardCard(x);
+		//}
 	}
 
 	public void AddEnemyHand(CardType card)

@@ -9,7 +9,10 @@ public class DevTools : MonoBehaviour
     public GameState gameState;
     public WinCondition winCondition;
     public LastPlayed lastPlayed;
-    public bool enemyPassed;
+    [Header("PlayerPrefs")]
+    public bool animate;
+    public bool tutorial;
+    public Difficulty difficulty;
 
     //public CardType player;
     //public CardType enemy;
@@ -25,14 +28,16 @@ public class DevTools : MonoBehaviour
 		board_m = manager.GetComponent<BoardManager>();
 		animation_m = manager.GetComponent<AnimationManager>();
 		enemy_m = manager.GetComponent<EnemyManager>();
-	}
+        animate = Options.GetBool("animate");
+        tutorial = Options.GetBool("tutorial");
+        difficulty = (Difficulty) PlayerPrefs.GetInt("difficulty", 0);
+    }
 
     void Update()
     {
         gameState = BoardManager.curState;
         winCondition = BoardManager.curWinCondition;
         lastPlayed = board_m.last;
-        enemyPassed = enemy_m.Ipass;
 
         //if (board_m != null)
         //{
@@ -134,5 +139,33 @@ public class DevTools : MonoBehaviour
     {
         if (CheckPointers()) return;
         board_m.deck.CreateCardForPlayer(CardType.MegaPowerP);
+    }
+
+    public void ClearDiscard()
+    {
+        board_m.discard.cards = new DeckList<CardType>();
+        board_m.texts[6].text = "" + board_m.discard.Size();
+    }
+
+    public void AddCardToDiscard(CardType c)
+    {
+        if (c == CardType.None)
+            return;
+        board_m.discard.DiscardCard(c);
+        board_m.texts[6].text = "" + board_m.discard.Size();
+    }
+
+    public void ClearDeck()
+    {
+        board_m.deck.cards = new DeckList<CardType>();
+        board_m.texts[5].text = "" + board_m.deck.Size();
+    }
+
+    public void AddCardToDeck(CardType c)
+    {
+        if (c == CardType.None)
+            return;
+        board_m.deck.AddCard(c);
+        board_m.texts[5].text = "" + board_m.deck.Size();
     }
 }

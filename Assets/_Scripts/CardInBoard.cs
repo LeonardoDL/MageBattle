@@ -76,6 +76,7 @@ public class CardInBoard : MonoBehaviour
             ps.Stop();
             return;
         }
+        Debug.Log("here");
         am.FocusAnimation();
         ps.Stop();
     }
@@ -96,12 +97,15 @@ public class CardInBoard : MonoBehaviour
             ps = GetComponentInChildren<ParticleSystem>();
         if (sprite == null)
             sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        if (type == CardType.Intelligence || type == CardType.SuperGenius)
+            if (BoardManager.curState == GameState.PlayerPlayPhase || BoardManager.curState == GameState.EnemyPlayPhase)
+                return;
 
         if (ps != null)//As vezes não tem ps no objeto
             ps.Play();
 
         if (sprite != null)
-            sprite.color = new Color(1f, 1f, 1f, .85f);
+            sprite.color = new Color(1f, 1f, 1f, .88f);
     }
 
     void OnMouseExit()

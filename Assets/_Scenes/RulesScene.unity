@@ -16138,6 +16138,7 @@ GameObject:
   - component: {fileID: 2144144361}
   - component: {fileID: 2144144364}
   - component: {fileID: 2144144362}
+  - component: {fileID: 2144144363}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -16190,7 +16191,7 @@ MonoBehaviour:
 
     1 - If they are losing.
 
-    2 - As a response to an opponents card. <b><color=#002A93>[3] [4] [5]</color></b>'
+    2 - As a response to an opponents card. <b><color=#002A93>[3] [4] <link=note>[5]</link></color></b>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 457e100c2a81e5748bdd948ae199178a, type: 2}
   m_sharedMaterial: {fileID: -4759320219410421954, guid: 457e100c2a81e5748bdd948ae199178a,
@@ -16283,6 +16284,46 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2144144363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144144360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87b78fb30f6fa348b7f87a28d1bf058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmp: {fileID: 2144144362}
+  events:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 142817805}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 994853850}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!222 &2144144364
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17853,6 +17894,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 5520520006541515214, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520520006541515208, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5647173731499562046, guid: 7d244b27383e78642878759999a56b98,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
@@ -17883,6 +17934,11 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5520520006551980020, guid: 7d244b27383e78642878759999a56b98,
+        type: 3}
+      propertyPath: speedX
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7257540699053428543, guid: 7d244b27383e78642878759999a56b98,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -17912,21 +17968,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5520520006541515208, guid: 7d244b27383e78642878759999a56b98,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5520520006541515214, guid: 7d244b27383e78642878759999a56b98,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5520520006551980020, guid: 7d244b27383e78642878759999a56b98,
-        type: 3}
-      propertyPath: speedX
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d244b27383e78642878759999a56b98, type: 3}

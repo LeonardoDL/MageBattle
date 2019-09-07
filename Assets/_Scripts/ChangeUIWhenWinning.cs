@@ -49,7 +49,7 @@ public class ChangeUIWhenWinning : MonoBehaviour
             tmp.text = "You are winning!";
             if (em.Ipass && bm.last == LastPlayed.Enemy)
             {
-                targetN = Color.white;
+                targetN = new Color(targetN.r+.5f, targetN.g + .5f, targetN.b + .5f);
                 targetSize = 1.3f;
             }
         }

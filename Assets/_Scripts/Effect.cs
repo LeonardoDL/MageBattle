@@ -331,7 +331,7 @@ public class Effect : MonoBehaviour
         BoardManager bm = BoardManager.GetBoardManager();
          // Verificação do Player
         if (BoardManager.curState == GameState.PlayerPlayPhase){
-                if(bm.discard.Size() < 3 )
+                if(bm.discard.Size() < 1 )
                     return false;
                 return true;
         } 
@@ -340,7 +340,7 @@ public class Effect : MonoBehaviour
             if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw)
                 return false;
 
-            if(bm.discard.Size() < 3 )
+            if(bm.discard.Size() < 1 )
                 return false;
         
         return true;
@@ -348,7 +348,7 @@ public class Effect : MonoBehaviour
         // Verificação do Enemy  
         
         if (BoardManager.curState == GameState.EnemyPlayPhase){
-                if(bm.discard.Size() < 3 )
+                if(bm.discard.Size() < 1 )
                     return false;
                 return true;
         }
@@ -357,7 +357,7 @@ public class Effect : MonoBehaviour
             if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw)
                 return false;
 
-            if(bm.discard.Size() < 3 )
+            if(bm.discard.Size() < 1 )
                 return false;
         
             return true;

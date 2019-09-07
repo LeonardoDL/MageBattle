@@ -82,30 +82,46 @@ public class DevToolsEditor : Editor
 
 		GUILayout.BeginHorizontal();
 		GUI.backgroundColor = new Color(.4f, 1f, .4f);
-		if (GUILayout.Button("Create card for Player", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+		if (GUILayout.Button("Create card for Player", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
 		{
 			if (Application.isPlaying)
 				dtc.AddCardToHand(true, card);
 		}
 
 		GUI.backgroundColor = new Color(255f / 255f, 100f / 255f, 100f / 255f);
-		if (GUILayout.Button("Create card for Enemy", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+		if (GUILayout.Button("Create card for Enemy", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
 		{
 			if (Application.isPlaying)
 				dtc.AddCardToHand(false, card);
-		}
-		GUILayout.EndHorizontal();
+        }
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        GUI.backgroundColor = new Color(0f, 1f, 1f);
+        if (GUILayout.Button("Add card to Deck", GUILayout.Height(22f), GUILayout.MinWidth(120f)))
+        {
+            if (Application.isPlaying)
+                dtc.AddCardToDeck(card);
+        }
+
+        GUI.backgroundColor = new Color(1f, .7f, .3f);
+        if (GUILayout.Button("Add card to Discard", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
+        {
+            if (Application.isPlaying)
+                dtc.AddCardToDiscard(card);
+        }
+        GUILayout.EndHorizontal();
 
 		GUILayout.BeginHorizontal();
         GUI.backgroundColor = new Color(.4f, 1f, .4f);
-        if (GUILayout.Button("Remove card for Player", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+        if (GUILayout.Button("Remove card for Player", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
 		{
 			if (Application.isPlaying)
 				dtc.RemoveCard(true, card);
 		}
 
 		GUI.backgroundColor = new Color(255f / 255f, 100f / 255f, 100f / 255f);
-		if (GUILayout.Button("Remove card for Enemy", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+		if (GUILayout.Button("Remove card for Enemy", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
 		{
 			if (Application.isPlaying)
 				dtc.RemoveCard(false, card);
@@ -116,41 +132,58 @@ public class DevToolsEditor : Editor
 
 		GUILayout.BeginHorizontal();
         GUI.backgroundColor = new Color(.4f, 1f, .4f);
-        if (GUILayout.Button("Discard Player hand", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+        if (GUILayout.Button("Discard Player hand", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
 		{
 			if (Application.isPlaying)
 				dtc.DiscardHand(true);
 		}
 
 		GUI.backgroundColor = new Color(255f / 255f, 100f / 255f, 100f / 255f);
-		if (GUILayout.Button("Discard Enemy hand", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+		if (GUILayout.Button("Discard Enemy hand", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
 		{
 			if (Application.isPlaying)
 				dtc.DiscardHand(false);
 		}
 		GUILayout.EndHorizontal();
 		
-		
 		GUILayout.BeginHorizontal();
         GUI.backgroundColor = new Color(.4f, 1f, .4f);
-        if (GUILayout.Button("Clear Player Standby", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+        if (GUILayout.Button("Clear Player Standby", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
 		{
 			if (Application.isPlaying)
 				dtc.ClearStandBy(true);
 		}
 
 		GUI.backgroundColor = new Color(255f / 255f, 100f / 255f, 100f / 255f);
-		if (GUILayout.Button("Clear Enemy Standby", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+		if (GUILayout.Button("Clear Enemy Standby", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
 		{
 			if (Application.isPlaying)
 				dtc.ClearStandBy(false);
 		}
 		GUILayout.EndHorizontal();
-		
-		EditorGUILayout.Space();
+
+        GUILayout.BeginHorizontal();
+        GUI.backgroundColor = new Color(0f, 1f, 1f);
+        if (GUILayout.Button("Clear Deck", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
+        {
+            if (Application.isPlaying)
+                dtc.ClearDeck();
+        }
+
+        GUI.backgroundColor = new Color(1f, .7f, .3f);
+        if (GUILayout.Button("Clear Discard", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
+        {
+            if (Application.isPlaying)
+                dtc.ClearDiscard();
+        }
+        GUILayout.EndHorizontal();
+
+
+
+        EditorGUILayout.Space();
 
 		GUI.backgroundColor = (rev=="Reveal")? new Color(100f / 255f, 180f / 255f, 255f / 255f) : new Color(200f / 255f, 100f / 255f, 255f / 255f);
-		if (GUILayout.Button(rev + " Enemy Cards", GUILayout.Height(25f), GUILayout.MinWidth(80f)))
+		if (GUILayout.Button(rev + " Enemy Cards", GUILayout.Height(22f), GUILayout.MinWidth(80f)))
 		{
 			if (Application.isPlaying)
 			{
@@ -158,8 +191,6 @@ public class DevToolsEditor : Editor
 				dtc.RevealEnemy();
 			}
 		}
-
-		EditorGUILayout.Space();
 
 		//EditorGUI.DrawRect(EditorGUILayout.GetControlRect(false, 1f), new Color(0f, 0f, 0f));
 		GUI.backgroundColor = new Color(.8f, .8f, .8f);
