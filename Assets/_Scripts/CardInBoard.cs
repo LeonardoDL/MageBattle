@@ -9,8 +9,15 @@ public class CardInBoard : MonoBehaviour
     public Execute execute;
 
     private bool hidden = false;
+    private ParticleSystem ps;
+    private SpriteRenderer sprite;
 
     private AnimationManager am;
+
+    void Start()
+    {
+        enabled = false;
+    }
 
     public void Activate(SlotsOnBoard place)
     {
@@ -65,12 +72,45 @@ public class CardInBoard : MonoBehaviour
             am = GameObject.Find("Manager").GetComponent<AnimationManager>();
 
         if (hidden)
+        {
+            ps.Stop();
             return;
+        }
         am.FocusAnimation();
+        ps.Stop();
     }
 
     public void HiddenFromAnimation(bool hide)
     {
         hidden = hide;
+    }
+
+    void OnMouseEnter()
+    {
+        if (!enabled)
+            return;
+        if (hidden)
+            return;
+
+        if (ps == null)
+            ps = GetComponentInChildren<ParticleSystem>();
+        if (sprite == null)
+            sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+        if (ps != null)//As vezes não tem ps no objeto
+            ps.Play();
+
+        if (sprite != null)
+            sprite.color = new Color(1f, 1f, 1f, .85f);
+    }
+
+    void OnMouseExit()
+    {
+        if (!enabled)
+            return;
+        if (hidden)
+            return;
+        if (sprite != null)
+            sprite.color = new Color(1f, 1f, 1f, 1f);
     }
 }

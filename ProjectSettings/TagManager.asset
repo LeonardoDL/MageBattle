@@ -35,18 +35,18 @@ TagManager:
   - PostProcessing
   - Main Card
   - vlight
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Elements/Player/Water
+  - Elements/Player/Earth
+  - Elements/Player/Fire
+  - Elements/Player/Air
+  - Elements/Player/Lightning
+  - Elements/Player/Arcana
+  - Elements/Enemy/Water
+  - Elements/Enemy/Earth
+  - Elements/Enemy/Fire
+  - Elements/Enemy/Air
+  - Elements/Enemy/Lightning
+  - Elements/Enemy/Arcana
   - 
   - 
   - 

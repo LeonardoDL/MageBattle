@@ -60,7 +60,13 @@ public class PlaceCard : MonoBehaviour
                 }
 
                 if (!tag.StartsWith("Slot/Portal"))
+                {
                     StartCoroutine(BoardManager.GetBoardManager().CardPlayed(go));
+                    go.GetComponent<CardInBoard>().enabled = true;
+                    ParticleSystem ps = go.GetComponentInChildren<ParticleSystem>(true);
+                    if (ps != null)
+                        ps.gameObject.SetActive(true);
+                }
             }
             else
                 Destroy(go);

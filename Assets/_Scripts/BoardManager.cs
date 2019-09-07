@@ -775,10 +775,15 @@ public class BoardManager : MonoBehaviour
 
     public void HideElementsFromAnimation(bool hide)
     {
-        if (playerBoardCard != null)
-            playerBoardCard.GetComponentInChildren<CardInBoard>().HiddenFromAnimation(hide);
-        if (enemyBoardCard != null)
-            enemyBoardCard.GetComponentInChildren<CardInBoard>().HiddenFromAnimation(hide);
+        foreach (CardInBoard cib in FindObjectsOfType<CardInBoard>())
+        {
+            cib.HiddenFromAnimation(hide);
+        }
+
+        //if (playerBoardCard != null)
+        //    playerBoardCard.GetComponentInChildren<CardInBoard>().HiddenFromAnimation(hide);
+        //if (enemyBoardCard != null)
+        //    enemyBoardCard.GetComponentInChildren<CardInBoard>().HiddenFromAnimation(hide);
     }
 
 	void Update()
