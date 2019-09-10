@@ -23,6 +23,8 @@ public class FadeSceneManager : MonoBehaviour
     {
         if (scene == -1)
             Application.Quit();
+        else if (scene == 3)
+            LoadingScreen.Instance.Show(SceneManager.LoadSceneAsync("SampleScene"));
         else
             SceneManager.LoadScene(scene);
     }
