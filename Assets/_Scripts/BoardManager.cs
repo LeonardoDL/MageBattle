@@ -727,32 +727,36 @@ public class BoardManager : MonoBehaviour
 		int eScore = ve.GetScore();
 
         GetComponent<AnimationManager>().SetAllElements(false);
-        texts[0].fontSize = 48;
-        texts[0].rectTransform.localPosition = new Vector3(0f, 80f, 0f);
+
+        texts[0].text = "";
         texts[1].text = "";
 		texts[2].text = "";
 
 		if (pScore > eScore)
 		{
-			texts[0].text = "End of Game\nPlayer won: " + pScore + " x " + eScore;
-			texts[0].color = new Color(0f, 1f, 0f);
+			texts[7].text = "End of Game\nPlayer won: " + pScore + " x " + eScore;
+			texts[7].color = new Color(0f, 1f, 0f);
 		}
 
 		if (pScore < eScore)
 		{
-			texts[0].text = "End of Game\nEnemy won: " + eScore + " x " + pScore;
-			texts[0].color = new Color(1f, 0f, 0f);
-			// Ativa EasterEgg gamedev, só usar em build pro grupo, não publicar!!!
+			texts[7].text = "End of Game\nEnemy won: " + eScore + " x " + pScore;
+			texts[7].color = new Color(1f, 0f, 0f);
+            // Ativa EasterEgg gamedev, só usar em build pro grupo, não publicar!!!
 
-			if (EasterEgg)
-				GameObject.FindWithTag("Board").AddComponent<LoseAnimation>();
-
+            if (EasterEgg)
+            {
+                GetComponent<AnimationManager>().Fade(true);
+                GameObject.FindWithTag("Board").AddComponent<LoseAnimation>();
+                Destroy(deck.cardBuilder.panelStandBy);
+                Destroy(deck.cardBuilder.panelStandByEnemy);
+            }
 		}
 
 		if (pScore == eScore)
 		{
-			texts[0].text = "End of Game\nDraw: " + pScore + " x " + eScore;
-			texts[0].color = new Color(1f, 1f, 1f);
+			texts[7].text = "End of Game\nDraw: " + pScore + " x " + eScore;
+			texts[7].color = new Color(1f, 1f, 1f);
 		}
 
         curWinCondition = WinCondition.Draw;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.17412722, g: 0.21774599, b: 0.29994243, a: 1}
+  m_IndirectSpecularColor: {r: 0.17412764, g: 0.21774673, b: 0.29994333, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10102,6 +10102,7 @@ GameObject:
   - component: {fileID: 437618454}
   - component: {fileID: 437618455}
   - component: {fileID: 437618456}
+  - component: {fileID: 437618457}
   m_Layer: 0
   m_Name: VictoryDeckEnemy
   m_TagString: VictoryDeck/Enemy
@@ -10152,6 +10153,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
+--- !u!65 &437618457
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437618453}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.66, y: 1, z: 1.15}
+  m_Center: {x: 0, y: 0, z: -0.54}
 --- !u!1 &442749656
 GameObject:
   m_ObjectHideFlags: 0
@@ -11058,6 +11072,7 @@ GameObject:
   - component: {fileID: 496356794}
   - component: {fileID: 496356793}
   - component: {fileID: 496356795}
+  - component: {fileID: 496356796}
   m_Layer: 0
   m_Name: Deck
   m_TagString: Deck
@@ -11258,6 +11273,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d8a5a9f18963c912da5587e278d1b7fe, type: 3}
   - {fileID: 21300000, guid: 611d53fabc681d336b6a388c3faefb30, type: 3}
   reveal: 0
+--- !u!65 &496356796
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496356792}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.66, y: 1, z: 1.15}
+  m_Center: {x: 0, y: 0, z: -0.54}
 --- !u!1 &496430256
 GameObject:
   m_ObjectHideFlags: 0
@@ -12868,6 +12896,7 @@ MonoBehaviour:
   - {fileID: 866610990}
   - {fileID: 690332095}
   - {fileID: 488970887}
+  - {fileID: 1354596964}
   deck: {fileID: 0}
   discard: {fileID: 0}
   victoryDeckPlayer: {fileID: 0}
@@ -12883,7 +12912,7 @@ MonoBehaviour:
   enemyButton: {fileID: 1041420626}
   passButton: {fileID: 823732533}
   endGame: 0
-  EasterEgg: 0
+  EasterEgg: 1
 --- !u!114 &540246897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18220,6 +18249,7 @@ RectTransform:
   - {fileID: 1262766068}
   - {fileID: 2130015830}
   - {fileID: 1749585562}
+  - {fileID: 1354596961}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22903,8 +22933,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -224, y: 130}
-  m_SizeDelta: {x: 460, y: 316}
+  m_AnchoredPosition: {x: -230, y: 130}
+  m_SizeDelta: {x: 250, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886170189
 MonoBehaviour:
@@ -35732,6 +35762,117 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353851239}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1354596960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1354596961}
+  - component: {fileID: 1354596965}
+  - component: {fileID: 1354596964}
+  - component: {fileID: 1354596963}
+  - component: {fileID: 1354596962}
+  m_Layer: 5
+  m_Name: FinalScores
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1354596961
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354596960}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 716039810}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 80}
+  m_SizeDelta: {x: 460, y: 316}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1354596962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354596960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1.5, y: 1.5}
+  m_UseGraphicAlpha: 1
+--- !u!114 &1354596963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354596960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1.5, y: 1.5}
+  m_UseGraphicAlpha: 1
+--- !u!114 &1354596964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354596960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.8352941, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 48
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 60
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1354596965
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354596960}
+  m_CullTransparentMesh: 0
 --- !u!1 &1355465394
 GameObject:
   m_ObjectHideFlags: 0
@@ -43083,6 +43224,7 @@ GameObject:
   - component: {fileID: 1697685990}
   - component: {fileID: 1697685991}
   - component: {fileID: 1697685992}
+  - component: {fileID: 1697685993}
   m_Layer: 0
   m_Name: Discard
   m_TagString: Discard
@@ -43134,6 +43276,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardsShow: 
   cardBuilder: {fileID: 496356795}
+--- !u!65 &1697685993
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697685989}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.66, y: 1, z: 1.15}
+  m_Center: {x: 0, y: 0, z: -0.54}
 --- !u!1 &1698454877
 GameObject:
   m_ObjectHideFlags: 0
@@ -69350,6 +69505,7 @@ GameObject:
   - component: {fileID: 4098618724552557679}
   - component: {fileID: 7527528790512472099}
   - component: {fileID: 7527528790512472100}
+  - component: {fileID: 7527528790512472101}
   m_Layer: 0
   m_Name: VictoryDeckPlayer
   m_TagString: VictoryDeck/Player
@@ -69384,6 +69540,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
+--- !u!65 &7527528790512472101
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527528790512472098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.66, y: 1, z: 1.15}
+  m_Center: {x: 0, y: 0, z: -0.54}
 --- !u!4 &7595114488625267374
 Transform:
   m_ObjectHideFlags: 0
