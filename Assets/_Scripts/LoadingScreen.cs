@@ -14,6 +14,8 @@ public class LoadingScreen : MonoBehaviour
     // A flag to tell whether a scene is being loaded or not:
     private bool isLoading;
 
+    public static bool continueButton = false;
+
     // The rect transform of the bar fill game object:
     [SerializeField]
     private RectTransform barFillRectTransform;
@@ -31,6 +33,8 @@ public class LoadingScreen : MonoBehaviour
     public Sprite[] sprites;
 
     public GameObject Image;
+
+    public GameObject continueObject;
 
     private void Awake()
     {
@@ -66,13 +70,17 @@ public class LoadingScreen : MonoBehaviour
             if (currentLoadingOperation.isDone)
             {
                 Hide();
+                continueObject.SetActive(false);
             }
 
             else
             {
                 timeElapsed += Time.deltaTime;
 
-                if (timeElapsed >= MIN_TIME_TO_SHOW)
+                if(timeElapsed >= MIN_TIME_TO_SHOW)
+                    continueObject.SetActive(true);
+
+                if (continueButton)
                 {
                     // The loading screen has been showing for the minimum time required.
                     // Allow the loading operation to formally finish:
@@ -128,5 +136,13 @@ public class LoadingScreen : MonoBehaviour
         currentLoadingOperation = null;
 
         isLoading = false;
+
+        continueButton = false;
+
+    }
+
+
+    public void setContinue(){
+        continueButton = true;
     }
 }
