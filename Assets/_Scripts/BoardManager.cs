@@ -53,6 +53,8 @@ public class BoardManager : MonoBehaviour
 	//		discardSize = discard.Size();
 	// }
 
+	public bool EasterEgg; 
+
 	void Start()
 	{
 		bm = this;
@@ -740,6 +742,11 @@ public class BoardManager : MonoBehaviour
 		{
 			texts[0].text = "End of Game\nEnemy won: " + eScore + " x " + pScore;
 			texts[0].color = new Color(1f, 0f, 0f);
+			// Ativa EasterEgg gamedev, só usar em build pro grupo, não publicar!!!
+
+			if (EasterEgg)
+				GameObject.FindWithTag("Board").AddComponent<LoseAnimation>();
+
 		}
 
 		if (pScore == eScore)
@@ -750,6 +757,7 @@ public class BoardManager : MonoBehaviour
 
         curWinCondition = WinCondition.Draw;
         passButton.SetActive(false);
+
     }
 
 	public void setButtonEnemyPlayer(bool activate){
