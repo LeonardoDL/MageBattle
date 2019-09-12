@@ -731,8 +731,10 @@ public class BoardManager : MonoBehaviour
         texts[0].text = "";
         texts[1].text = "";
 		texts[2].text = "";
+        texts[7].gameObject.SetActive(true);
 
-		if (pScore > eScore)
+
+        if (pScore > eScore)
 		{
 			texts[7].text = "End of Game\nPlayer won: " + pScore + " x " + eScore;
 			texts[7].color = new Color(0f, 1f, 0f);

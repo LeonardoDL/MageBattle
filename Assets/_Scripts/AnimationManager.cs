@@ -36,6 +36,9 @@ public class AnimationManager : MonoBehaviour
         handPanel = GameObject.FindGameObjectWithTag("Hand/PlayerHand");
         handEnemyPanel = GameObject.FindGameObjectWithTag("Hand/EnemyHand");
         hand = handPanel.transform.parent.GetComponent<Animator>();
+
+        if (tutorial)
+            BoardManager.GetBoardManager().EasterEgg = false;
         //animators = handPanel.GetComponentsInChildren<Animator>();
     }
 

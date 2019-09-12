@@ -13,10 +13,12 @@ public class CardInBoard : MonoBehaviour
     private SpriteRenderer sprite;
 
     private AnimationManager am;
+    private bool tutorial;
 
     void Start()
     {
         enabled = false;
+        tutorial = Options.GetBool("tutorial");
     }
 
     public void Activate(SlotsOnBoard place)
@@ -65,7 +67,7 @@ public class CardInBoard : MonoBehaviour
         Debug.Log("Clicked");
         if (BoardManager.curState == GameState.ClearPhase || BoardManager.curState == GameState.PlayerPlayPhase
             || BoardManager.curState == GameState.EnemyPlayPhase || BoardManager.curState == GameState.EndGame
-            || BoardManager.isInTransition)
+            || BoardManager.isInTransition || tutorial)
             return;
 
         if (am == null)
@@ -88,9 +90,7 @@ public class CardInBoard : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (!enabled)
-            return;
-        if (hidden)
+        if (!enabled || hidden || tutorial)
             return;
 
         if (ps == null)
@@ -110,9 +110,7 @@ public class CardInBoard : MonoBehaviour
 
     void OnMouseExit()
     {
-        if (!enabled)
-            return;
-        if (hidden)
+        if (!enabled || hidden || tutorial)
             return;
         if (sprite != null)
             sprite.color = new Color(1f, 1f, 1f, 1f);

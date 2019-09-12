@@ -23,9 +23,34 @@ public class FadeSceneManager : MonoBehaviour
     {
         if (scene == -1)
             Application.Quit();
-        else if (scene == 3)
-            LoadingScreen.Instance.Show(SceneManager.LoadSceneAsync("SampleScene"));
+        //else if (scene == 3)
+        //    LoadingScreen.Instance.Show(SceneManager.LoadSceneAsync("SampleScene"));
         else
             SceneManager.LoadScene(scene);
+    }
+
+    private IEnumerator LoadSceneAsync(int scene)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
+        operation.allowSceneActivation = false;
+
+        while (operation.progress < 0.9f)
+        {
+            yield return null;
+        }
+
+        GameObject.Find("LoadingScreen").GetComponent<LoadSceneHelper>().ChangeLoadingToClick();
+
+        while (!Input.GetMouseButtonDown(0))
+        {
+            yield return null;
+        }
+
+        operation.allowSceneActivation = true;
+    }
+
+    public void LoadSceneAsyncStart(int scene)
+    {
+        StartCoroutine(LoadSceneAsync(scene));
     }
 }
