@@ -54,6 +54,12 @@ public class CardInStandBy : MonoBehaviour
         offset = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 15f)) - transform.position;
     }
 
+    public void Bind(bool value)
+    {
+        moveCard = value;
+        offset = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 15f)) - transform.position;
+    }
+
     public void Summon()
     {
         BoardManager.isInTransition = true;

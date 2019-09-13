@@ -124,10 +124,16 @@ public class PointerHandlerTutorial : MonoBehaviour, IPointerExitHandler, IPoint
 
     void Update()
     {
-        if (instantTooltip == null)
-            return;
-
-        instantTooltip.transform.position = Input.mousePosition + GetTheLongLine();
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            if (instantTooltip != null)
+                instantTooltip.transform.position = Input.mousePosition + GetTheLongLine();
+        }
+        else
+        {
+            if (instantTooltip != null)
+                Destroy(instantTooltip);
+        }
     }
 
     private Vector3 GetTheLongLine()

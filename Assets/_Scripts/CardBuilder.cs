@@ -63,8 +63,7 @@ public class CardBuilder : MonoBehaviour
 		for (int i = 33, j = 0; i < CardType.GetNames(typeof(CardType)).Length; i++, j++)
 			effectsDictionary.Add((CardType) i, new Tuple<Sprite, GameObject>(efSprites[j], effectPrefab));
 
-
-
+        
 		elementsDictionaryEnemy = new Dictionary<CardType, Tuple<Sprite, GameObject>>();
 		powersDictionaryEnemy = new Dictionary<CardType, Tuple<Sprite, GameObject>>();
 		effectsDictionaryEnemy = new Dictionary<CardType, Tuple<Sprite, GameObject>>();

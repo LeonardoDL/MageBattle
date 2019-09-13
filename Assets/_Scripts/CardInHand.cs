@@ -53,6 +53,12 @@ public class CardInHand : MonoBehaviour
         //Debug.Log(transform.localPosition);
     }
 
+    public void Bind(bool value)
+    {
+        moveCard = value;
+        offset = Input.mousePosition - transform.position;
+    }
+
     public void Summon()
     {
         BoardManager.isInTransition = true;

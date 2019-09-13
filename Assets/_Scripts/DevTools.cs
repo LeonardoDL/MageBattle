@@ -9,6 +9,8 @@ public class DevTools : MonoBehaviour
     public GameState gameState;
     public WinCondition winCondition;
     public LastPlayed lastPlayed;
+    public bool inTransition;
+
     [Header("PlayerPrefs")]
     public bool animate;
     public bool tutorial;
@@ -37,6 +39,7 @@ public class DevTools : MonoBehaviour
     {
         gameState = BoardManager.curState;
         winCondition = BoardManager.curWinCondition;
+        inTransition = BoardManager.isInTransition;
         lastPlayed = board_m.last;
 
         //if (board_m != null)

@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PointerHandler : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IPointerDownHandler, IPointerUpHandler
+public class PointerHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
+    IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     private bool canvasComp = false;
     private CardInHand cardH;
     private CardInStandBy cardS;
+
+    private bool drag;
 
     void Start()
     {
@@ -43,8 +46,18 @@ public class PointerHandler : MonoBehaviour, IPointerExitHandler, IPointerEnterH
             GetComponent<Image>().sprite = cardS.cardBack;
     }
 
+    public void OnDrag(PointerEventData eventData)
+    {
+        //Debug.Log("Drag");
+        drag = true;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
+        //Debug.Log("Down");
+
+        drag = false;
+
         if (cardH != null)
             cardH.Bind();
         if (cardS != null)
@@ -53,10 +66,14 @@ public class PointerHandler : MonoBehaviour, IPointerExitHandler, IPointerEnterH
 
     public void OnPointerUp(PointerEventData pointerEventData)
     {
-        if (cardH != null)
-            cardH.moveCard = false;
-        if (cardS != null)
-            cardS.moveCard = false;
+        //Debug.Log("Up");
+        if (drag)
+        {
+            if (cardH != null)
+                cardH.moveCard = false;
+            if (cardS != null)
+                cardS.moveCard = false;
+        }
     }
 
     public void PutCanvasOnParent()

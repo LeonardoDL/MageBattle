@@ -9,6 +9,13 @@ public class DragObj : MonoBehaviour
     private bool moveCard = true;
     public GameObject reference;
 
+    private BoardManager bm;
+
+    void Start()
+    {
+        bm = BoardManager.GetBoardManager();
+    }
+
     //void OnMouseDrag()
     //{
         //moveCard = true;
@@ -30,15 +37,21 @@ public class DragObj : MonoBehaviour
 
             transform.position = objectPos;
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && moveCard)
         {
-            //Debug.Log("7");
             moveCard = false;
             if (reference.tag == "Card/Element")
                 reference.GetComponent<CardInBoard>().Activate(SlotsOnBoard.ElementPlayer);
             if (reference.tag == "Card/Effect" || reference.tag == "Card/Power")
                 reference.GetComponent<CardInBoard>().Activate(SlotsOnBoard.EffectPlayer);
             Destroy(gameObject);
+        }
+        if (Input.GetMouseButtonUp(1) && moveCard)
+        {
+            moveCard = false;
+            bm.deck.CreateCardForPlayer(reference.GetComponent<CardInBoard>().type);
+            BoardManager.isInTransition = false;
+            Destroy(transform.parent.gameObject);
         }
     }
 
