@@ -733,6 +733,10 @@ public class BoardManager : MonoBehaviour
 		texts[2].text = "";
         texts[7].gameObject.SetActive(true);
 
+        GetComponent<AnimationManager>().Fade(true);
+        Destroy(deck.cardBuilder.panelStandBy);
+        Destroy(deck.cardBuilder.panelStandByEnemy);
+        HideElementsFromAnimation(true);
 
         if (pScore > eScore)
 		{
@@ -748,10 +752,7 @@ public class BoardManager : MonoBehaviour
 
             if (EasterEgg)
             {
-                GetComponent<AnimationManager>().Fade(true);
                 GameObject.FindWithTag("Board").AddComponent<LoseAnimation>();
-                Destroy(deck.cardBuilder.panelStandBy);
-                Destroy(deck.cardBuilder.panelStandByEnemy);
             }
 		}
 

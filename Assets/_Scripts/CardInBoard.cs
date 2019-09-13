@@ -75,7 +75,7 @@ public class CardInBoard : MonoBehaviour
 
         if (hidden)
         {
-            ps.Stop();
+            ps?.Stop();
             return;
         }
         Debug.Log("here");

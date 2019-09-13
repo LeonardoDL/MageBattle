@@ -28,6 +28,9 @@ public class ShowDiscard : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (BoardManager.curState == GameState.EndGame)
+            return;
+
         HideShow();
     }
 

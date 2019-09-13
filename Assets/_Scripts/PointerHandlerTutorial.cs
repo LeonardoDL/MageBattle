@@ -119,7 +119,7 @@ public class PointerHandlerTutorial : MonoBehaviour, IPointerExitHandler, IPoint
             instantTooltip = Instantiate(tooltip, Input.mousePosition + GetTheLongLine(), Quaternion.identity, transform.parent);
 
         instantTooltip.GetComponentInChildren<TextMeshProUGUI>().text = description;
-        Destroy(instantTooltip, 6f);
+        //Destroy(instantTooltip, 6f);
     }
 
     void Update()
@@ -134,6 +134,11 @@ public class PointerHandlerTutorial : MonoBehaviour, IPointerExitHandler, IPoint
             if (instantTooltip != null)
                 Destroy(instantTooltip);
         }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Destroy(instantTooltip);
     }
 
     private Vector3 GetTheLongLine()
