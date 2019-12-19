@@ -24,14 +24,14 @@ public class TutorialTriggerAdvanced : MonoBehaviour
     {
         if (bm == null) bm = BoardManager.GetBoardManager();
 
-        if (bm.GetPlayerHandSize() == cardsPlayerHand)
+        if (bm.bmh.GetPlayerHandSize() == cardsPlayerHand)
             InvokeAndDie();
 
         if (lookForFuckUp)
         {
             if (bm.playerCard == CardType.ArcanaE && bm.playerEffect == CardType.Disintegration)
             {
-                if (!bm.PlayerHasWinnableCard())
+                if (!bm.bmh.PlayerHasWinnableCard())
                     InvokeAndDie();
                 else
                 {

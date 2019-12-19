@@ -58,8 +58,12 @@ public class Deck : MonoBehaviour
 
     public void PopulateRandom()
     {
-        for (int i = 0; i < deckSize; i++)
-            cards.Push((CardType)Random.Range(1, CardType.GetNames(typeof(CardType)).Length));
+        for (int i = 0; i < (int)(deckSize * 0.4f); i++)
+            cards.Push((CardType)Random.Range(1, 7));
+        //Debug.Log((deckSize - cards.Count));
+        for (int i = 0; i < (deckSize-cards.Count); i++)
+            cards.Push((CardType)Random.Range(7, CardType.GetNames(typeof(CardType)).Length));
+        cards.Shuffle();
     }
 
     public void PopulateOneOfEach()

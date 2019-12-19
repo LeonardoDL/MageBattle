@@ -21,14 +21,15 @@ public class DevTools : MonoBehaviour
     //public CardType enemyEffect;
 
     private BoardManager board_m;
-	private AnimationManager animation_m;
+    private BoardManagerHelper board_mh;
+    private AnimationManager animation_m;
 	private EnemyManager enemy_m;
 
 	void Start()
 	{
 		Transform manager = transform.parent;
 		board_m = manager.GetComponent<BoardManager>();
-		animation_m = manager.GetComponent<AnimationManager>();
+        animation_m = manager.GetComponent<AnimationManager>();
 		enemy_m = manager.GetComponent<EnemyManager>();
         animate = Options.GetBool("animate");
         tutorial = Options.GetBool("tutorial");
@@ -65,23 +66,23 @@ public class DevTools : MonoBehaviour
 	{
 		//Debug.Log(c.ToString() + " removed from the " + (forPlayer ? "Player" : "Enemy"));
 		if (forPlayer)
-			board_m.RemoveCardFromPlayer(c);
+			board_m.bmh.RemoveCardFromPlayer(c);
 		else
-			board_m.RemoveCardFromEnemy(c);
+			board_m.bmh.RemoveCardFromEnemy(c);
 	}
 
 	public void DiscardHand(bool forPlayer)
 	{
 		if (forPlayer)
-			board_m.DiscardPlayerHand();
+            board_m.bmh.DiscardPlayerHand();
 		else
-			board_m.DiscardEnemyHand();
+			board_m.bmh.DiscardEnemyHand();
 	}
 
 	public void ClearStandBy(bool forPlayer)
 	{
 		if (forPlayer)
-			board_m.ClearPlayerStandBy();
+			board_m.bmh.ClearPlayerStandBy();
 		else
 			enemy_m.ClearStandBy();
 	}
