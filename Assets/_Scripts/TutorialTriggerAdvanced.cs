@@ -13,16 +13,28 @@ public class TutorialTriggerAdvanced : MonoBehaviour
 
     private BoardManager bm;
     private bool turnedOn = false;
+    private bool wait = true;
+
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(DelayedStart());
+    }
+
+    private IEnumerator DelayedStart()
+    {
+        yield return new WaitForSeconds(.2f);
+
         bm = BoardManager.GetBoardManager();
+        wait = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (bm == null) bm = BoardManager.GetBoardManager();
+        if (wait) return;
+
+        if (bm == null || bm.bmh == null) { bm = BoardManager.GetBoardManager(); return; }
 
         if (bm.bmh.GetPlayerHandSize() == cardsPlayerHand)
             InvokeAndDie();

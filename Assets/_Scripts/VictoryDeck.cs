@@ -5,6 +5,8 @@ using UnityEngine;
 public class VictoryDeck : MonoBehaviour
 {
     public bool isPlayer;
+    public DeckThicknessAnimation dta;
+
     private int score = 0;
     public int GetScore() { return score; }
 
@@ -36,5 +38,7 @@ public class VictoryDeck : MonoBehaviour
             BoardManager.GetBoardManager().texts[3].text = "" + score;
         else
             BoardManager.GetBoardManager().texts[4].text = "" + score;
+
+        dta.ComputeCard(DeckThicknessAnimation.ComputeMode.Added);
     }
 }

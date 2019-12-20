@@ -14,15 +14,26 @@ public class TutorialTrigger : MonoBehaviour
     public UnityEvent whatToDo;
 
     private BoardManager bm;
+    private bool wait;
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(DelayedStart());
+    }
+
+    private IEnumerator DelayedStart()
+    {
+        yield return new WaitForSeconds(.2f);
+
         bm = BoardManager.GetBoardManager();
+        wait = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (wait) return;
+
         if (bm == null) bm = BoardManager.GetBoardManager();
 
         bool flag = true;

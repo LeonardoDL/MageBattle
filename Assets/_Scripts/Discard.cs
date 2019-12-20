@@ -6,8 +6,10 @@ public class Discard : MonoBehaviour
 {
     public List<CardType> cardsShow;
     public DeckList<CardType> cards;
+    public bool showList;
 
     public CardBuilder cardBuilder;
+    public DeckThicknessAnimation dta;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,8 @@ public class Discard : MonoBehaviour
 
     void Update()
     {
+        if (!showList) return;
+
         int i = 0;
         for (; i < cards.Count; i++)
         {
@@ -38,6 +42,7 @@ public class Discard : MonoBehaviour
     
     public void DiscardCard(CardType c)
     {
+        dta.ComputeCard(DeckThicknessAnimation.ComputeMode.Added);
         cards.Add(c);
     }
 
@@ -56,6 +61,7 @@ public class Discard : MonoBehaviour
         try
         {
             c = cards.DrawRandom();
+            dta.ComputeCard(DeckThicknessAnimation.ComputeMode.Drawn);
             cardBuilder.BuildCard(c, true);
         }
         catch (System.InvalidOperationException e)
@@ -70,6 +76,7 @@ public class Discard : MonoBehaviour
         try
         {
             c = cards.DrawRandom();
+            dta.ComputeCard(DeckThicknessAnimation.ComputeMode.Drawn);
             cardBuilder.BuildCard(c, false);
         }
         catch (System.InvalidOperationException e)

@@ -17,6 +17,7 @@ public class Deck : MonoBehaviour
     public List<CardType> cardsShow;
     public CardBuilder cardBuilder;
     public DeckLoadMethod method = DeckLoadMethod.PreDetermined;
+    public DeckThicknessAnimation dta;
 
     // Start is called before the first frame update
     void Start()
@@ -202,6 +203,7 @@ public class Deck : MonoBehaviour
         try
         {
             c = cards.Draw();
+            dta.ComputeCard(DeckThicknessAnimation.ComputeMode.Drawn);
             cardBuilder.BuildCard(c, true);
         }
         catch (System.InvalidOperationException e)
@@ -217,6 +219,7 @@ public class Deck : MonoBehaviour
         try
         {
             c = cards.Draw();
+            dta.ComputeCard(DeckThicknessAnimation.ComputeMode.Drawn);
             cardBuilder.BuildCard(c, false);
         }
         catch (System.InvalidOperationException e)

@@ -252,4 +252,31 @@ public class CardBuilder : MonoBehaviour
 		foreach (SpriteHandler s in panelStandByEnemy.GetComponentsInChildren<SpriteHandler>())
 			s.Swap();
 	}
+
+    public Sprite GetSprite(CardType c)
+    {
+        try
+        {
+            Tuple<Sprite, GameObject> element = elementsDictionary[c];
+            return element.Item1;
+        }
+        catch { }
+
+        try
+        {
+            Tuple<Sprite, GameObject> power = powersDictionary[c];
+            return power.Item1;
+        }
+        catch { }
+
+        try
+        {
+            Tuple<Sprite, GameObject> effect = effectsDictionary[c];
+            return effect.Item1;
+        }
+        catch { Debug.Log("Ai fudeu " + c + " GetSprite()"); }
+
+        return null;
+    }
+
 }
