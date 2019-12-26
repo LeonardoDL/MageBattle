@@ -69,7 +69,12 @@ public class PlaceCard : MonoBehaviour
                 }
             }
             else
-                Destroy(go);
+            {
+                if (go.transform.parent != null)
+                    Destroy(go.transform.parent.gameObject);
+                else
+                    Destroy(go);
+            }
 
             if (queue.Count == 0)
                 go = null;

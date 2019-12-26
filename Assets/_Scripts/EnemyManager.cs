@@ -57,7 +57,7 @@ public class EnemyManager : MonoBehaviour
             difficulty = (Difficulty) PlayerPrefs.GetInt("difficulty", 0);
         else
             difficulty = Difficulty.Medium;
-        Debug.Log("tutorial is " + tutorial + " and diff is " + difficulty);
+        //Debug.Log("tutorial is " + tutorial + " and diff is " + difficulty);
     }
 
     public void DrawHandEnemy(int quantity)
