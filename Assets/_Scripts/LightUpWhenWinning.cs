@@ -39,7 +39,7 @@ public class LightUpWhenWinning : MonoBehaviour
 
         mr.material.color = Color.Lerp( mr.material.color,
                                         new Color(GetColor().r, GetColor().g, GetColor().b),
-                                        .05f);
+                                        .05f * Time.deltaTime);
     }
 
     public Color GetColor()

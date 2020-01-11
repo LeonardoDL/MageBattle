@@ -43,7 +43,7 @@ public class DragObj : MonoBehaviour
             if (reference.tag == "Card/Element")
                 reference.GetComponent<CardInBoard>().Activate(SlotsOnBoard.ElementPlayer);
             if (reference.tag == "Card/Effect" || reference.tag == "Card/Power")
-                reference.GetComponent<CardInBoard>().Activate(SlotsOnBoard.EffectPlayer);
+                reference.GetComponent<CardInBoard>().Activate(SlotsOnBoard.Stack);
             Destroy(gameObject);
         }
         if (Input.GetMouseButtonUp(1) && moveCard)
@@ -52,6 +52,9 @@ public class DragObj : MonoBehaviour
             bm.deck.CreateCardForPlayer(reference.GetComponent<CardInBoard>().type);
             BoardManager.isInTransition = false;
             Destroy(transform.parent.gameObject);
+
+            if (BoardManager.curState == GameState.PlayerResponsePhase)
+                bm.bmh.StopTime();
         }
     }
 

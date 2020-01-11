@@ -23,6 +23,7 @@ TagManager:
   - TAZOFX
   - Hand/PlayerHand
   - Hand/EnemyHand
+  - Slot/Stack
   layers:
   - Default
   - TransparentFX

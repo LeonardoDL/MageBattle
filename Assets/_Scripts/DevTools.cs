@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DevTools : MonoBehaviour
 {
-    [Header("Class attributes")]
+    //[Header("Class attributes")]
     public GameState gameState;
     public WinCondition winCondition;
     public LastPlayed lastPlayed;
@@ -15,6 +15,9 @@ public class DevTools : MonoBehaviour
     public bool animate;
     public bool tutorial;
     public Difficulty difficulty;
+
+    public CardType[] responses;
+    private GameObject[] resp;
 
     //public CardType player;
     //public CardType enemy;
@@ -34,6 +37,8 @@ public class DevTools : MonoBehaviour
         animate = Options.GetBool("animate");
         tutorial = Options.GetBool("tutorial");
         difficulty = (Difficulty) PlayerPrefs.GetInt("difficulty", 0);
+
+        responses = new CardType[0];
     }
 
     void Update()
@@ -49,6 +54,16 @@ public class DevTools : MonoBehaviour
         //    enemy = board_m.enemyCard;
         //    enemyEffect = board_m.enemyEffect;
         //}
+
+        if (responses.Length != board_m.responseStack.Count)
+        {
+            resp = new GameObject[board_m.responseStack.Count];
+            responses = new CardType[board_m.responseStack.Count];
+            board_m.responseStack.CopyTo(resp, 0);
+
+            for(int i = 0; i < responses.Length; i++)
+                responses[i] = resp[i].GetComponent<CardInBoard>().type;
+        }
     }
 
     public void AddCardToHand(bool forPlayer, CardType c)
@@ -125,7 +140,7 @@ public class DevTools : MonoBehaviour
 
     public void RefreshEnemy()
     {
-        BoardManager.curState = GameState.EnemyEffectPhase;
+        //BoardManager.curState = GameState.EnemyEffectPhase;
         enemy_m.PlayPowerOrEffect();
     }
 

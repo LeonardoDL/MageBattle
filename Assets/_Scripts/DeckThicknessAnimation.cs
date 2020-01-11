@@ -31,7 +31,7 @@ public class DeckThicknessAnimation : MonoBehaviour
 
     private IEnumerator DelayedStart()
     {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.1f);
 
         Transform child = transform.Find("Cards");
         cards = new Transform[child.childCount];

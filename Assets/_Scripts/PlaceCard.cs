@@ -59,7 +59,8 @@ public class PlaceCard : MonoBehaviour
                     }
                 }
 
-                if (!tag.StartsWith("Slot/Portal"))
+                //if (!tag.StartsWith("Slot/Portal"))
+                if (tag == "Slot/Stack" || tag.StartsWith("Slot/Element"))
                 {
                     StartCoroutine(BoardManager.GetBoardManager().CardPlayed(go));
                     go.GetComponent<CardInBoard>().enabled = true;

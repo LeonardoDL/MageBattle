@@ -7,7 +7,8 @@ public enum DeckLoadMethod
     Random,
     OneOfEach,
     PreDetermined,
-    Tutorial
+    Tutorial,
+    Test
 }
 
 public class Deck : MonoBehaviour
@@ -36,6 +37,9 @@ public class Deck : MonoBehaviour
                 break;
             case DeckLoadMethod.Tutorial:
                 PopulateTutorial();
+                break;
+            case DeckLoadMethod.Test:
+                PopulateTest();
                 break;
         }
 
@@ -182,7 +186,12 @@ public class Deck : MonoBehaviour
         cards.Push(CardType.WaterFireP, 1);
     }
 
-    public void DebugAllDeck()
+    public void PopulateTest()
+    {
+        cards.Push(CardType.Intelligence, 50);
+    }
+
+        public void DebugAllDeck()
     {
         foreach (CardType c in cards)
             Debug.Log(c.ToString());

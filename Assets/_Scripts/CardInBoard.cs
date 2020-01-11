@@ -7,6 +7,8 @@ public class CardInBoard : MonoBehaviour
     private GameObject slot;
     public CardType type;
     public Execute execute;
+    public Execute UI;
+    public Target target;
 
     private bool hidden = false;
     private ParticleSystem ps;
@@ -56,6 +58,10 @@ public class CardInBoard : MonoBehaviour
                 break;
             case SlotsOnBoard.ElementEnemyPortal:
                 slot = GameObject.FindWithTag("Slot/PortalEnemy");
+                break;
+            case SlotsOnBoard.Stack:
+                slot = GameObject.FindWithTag("Slot/Stack");
+                Destroy(gameObject.GetComponent<DragObj>());
                 break;
         }
         

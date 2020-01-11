@@ -10,6 +10,8 @@ public class BoardManagerHelper : MonoBehaviour
     private GameObject playerHand;
     private GameObject playerStandBy;
     private EnemyManager enemy;
+    private float timeTarget = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -213,5 +215,21 @@ public class BoardManagerHelper : MonoBehaviour
         return enemy.GetStandbyCount();
     }
 
+    public void StopTime()
+    {
+        timeTarget = .1f;
+    }
 
+    public void ResumeTime()
+    {
+        timeTarget = 1f;
+    }
+
+    void Update()
+    {
+        if (Mathf.Abs(Time.timeScale - timeTarget) > .05f)
+            Time.timeScale = Mathf.Lerp(Time.timeScale, timeTarget, .05f);
+        else
+            timeTarget = Time.timeScale;
+    }
 }

@@ -59,6 +59,7 @@ public enum SlotsOnBoard
     ElementEnemyPortal,
     EffectPlayer,
     EffectEnemy,
+    Stack,
     Discard,
     VictoryDeckPlayer,
     VictoryDeckEnemy
@@ -73,6 +74,10 @@ public enum GameState
     BattlePhase,
     PlayerEffectPhase,
     EnemyEffectPhase,
+    PlayerResponsePhase,
+    EnemyResponsePhase,
+    PlayerResolutionPhase,
+    EnemyResolutionPhase,
     ClearPhase,
     EndGame
 }
@@ -85,6 +90,13 @@ public enum WinCondition
 }
 
 public enum LastPlayed
+{
+    None,
+    Player,
+    Enemy
+}
+
+public enum Target
 {
     None,
     Player,
