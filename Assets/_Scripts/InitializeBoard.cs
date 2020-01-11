@@ -20,16 +20,16 @@ public class InitializeBoard : MonoBehaviour
         GetComponent<AnimationManager>().animEnemy = aniEnemy;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (Time.time == 0)
-                Time.timeScale = 1f;
-            else
-                Time.timeScale = 0f;
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        if (Time.time == 0)
+    //            Time.timeScale = 1f;
+    //        else
+    //            Time.timeScale = 0f;
+    //    }
+    //}
 
     public Transform FindAllChild(GameObject g, string name)
     {

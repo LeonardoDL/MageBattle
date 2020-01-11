@@ -283,7 +283,13 @@ public class BoardManager : MonoBehaviour
                 responseStack.Push(card);
                 curState = GameState.PlayerResponsePhase;
 
-                bmh.StopTime();
+                if (bmh.GetPlayerHandSize() > 0)
+                    bmh.StopTime();
+                else
+                {
+                    curState = GameState.EnemyResolutionPhase;
+                    Resolve();
+                }
 
                 break;
 
@@ -330,7 +336,13 @@ public class BoardManager : MonoBehaviour
                 responseStack.Push(card);
                 curState = GameState.PlayerResponsePhase;
 
-                bmh.StopTime();
+                if (bmh.GetPlayerHandSize() > 0)
+                    bmh.StopTime();
+                else
+                {
+                    curState = GameState.EnemyResolutionPhase;
+                    Resolve();
+                }
 
                 break;
 
@@ -342,8 +354,9 @@ public class BoardManager : MonoBehaviour
                     Effect.target = cardIB.target;
                     card.GetComponentInChildren<CardInBoard>().execute(); //Execução do efeito
 
-                    while (Effect.waitUI)
+                    do
                         yield return new WaitForEndOfFrame();
+                    while (Effect.waitUI);
 
                     if (endGame)
                     {
@@ -617,12 +630,12 @@ public class BoardManager : MonoBehaviour
 
     public IEnumerator ResolveParallel()
     {
+        yield return new WaitForSeconds(.5f);
+
         if (curState == GameState.PlayerResolutionPhase)
             responseStack.Peek().GetComponent<CardInBoard>().Activate(SlotsOnBoard.EffectPlayer);
         if (curState == GameState.EnemyResolutionPhase)
             responseStack.Peek().GetComponent<CardInBoard>().Activate(SlotsOnBoard.EffectEnemy);
-
-        yield return new WaitForSeconds(5f);
 
         Debug.Log("Resolving: " + responseStack.Count);
         if (responseStack.Count == 0)
@@ -631,7 +644,7 @@ public class BoardManager : MonoBehaviour
         StartCoroutine(CardPlayed(responseStack.Pop()));
     }
 
-    public void EndRound()
+    public void OnPassButtonClicked()
     {
         if (isInTransition)
             return;
@@ -639,7 +652,33 @@ public class BoardManager : MonoBehaviour
         if (curState == GameState.EndGame)
             return;
 
-        if (curState == GameState.EnemyPlayPhase || curState == GameState.EnemyEffectPhase)
+        if (curState == GameState.PlayerResponsePhase)
+        {
+            if (responseStack.Count <= 0)
+                EndRound();
+            else
+                Cancel();
+        }
+
+        if (curState == GameState.PlayerEffectPhase)
+            EndRound();
+    }
+
+    public void Cancel()
+    {
+        if (isInTransition || curState != GameState.PlayerResponsePhase)
+            return;
+
+        Debug.Log("Starting Resolve()");
+        curState = GameState.EnemyResolutionPhase;
+
+        bmh.ResumeTime();
+        Resolve();
+    }
+
+    public void EndRound()
+    {
+        if (curState.ToString().StartsWith("Enemy"))
             return;
 
         isInTransition = true;
@@ -790,5 +829,8 @@ public class BoardManager : MonoBehaviour
     void Update()
     {
         //Peek();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            Cancel();
     }
 }

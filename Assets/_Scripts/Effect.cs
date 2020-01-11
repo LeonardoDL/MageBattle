@@ -11,8 +11,7 @@ public class Effect : MonoBehaviour
     public Execute UI;
     public IsPlayable isPlayable;
     public CardType cardType;
-
-    private static CardType selection = CardType.None;
+    
     public static Target target;
     public static bool waitUI;
 
@@ -250,22 +249,24 @@ public class Effect : MonoBehaviour
         CardType card;
         card = bm.bmh.GetEnemyCardRandom(c);
         bm.bmh.AddPlayerHand(card);
-        bm.texts[0].text = "Player used Fishing Rod";
         EnemyPointerHandler.activatePointer(false);
         waitUI = false;
     }
 
     public bool FishingRod()
     {
-        waitUI = true;
         BoardManager bm = BoardManager.GetBoardManager();
         CardType card;
 
         //Player
         if (BoardManager.curState == GameState.PlayerResolutionPhase)
         {
+            bm.texts[0].text = "Player used Fishing Rod";
+            if (bm.bmh.GetEnemyHandSize() <= 0)
+                return false;
+
+            waitUI = true;
             EnemyPointerHandler.activatePointer(true);
-            selection = CardType.FishingRod;
             bm.HidePassButton(true);
         }
 
@@ -273,6 +274,9 @@ public class Effect : MonoBehaviour
         if (BoardManager.curState == GameState.EnemyResolutionPhase)
         {
             bm.texts[0].text = "Enemy used Fishing Rod";
+            if (bm.bmh.GetPlayerHandSize() <= 0)
+                return false;
+
             card = bm.bmh.GetPlayerCardRandom();
             bm.bmh.AddEnemyHand(card);
 
@@ -360,17 +364,21 @@ public class Effect : MonoBehaviour
     public bool SuperGeniusI()
     {
         BoardManager bm = BoardManager.GetBoardManager();
-         // Verificação do Player
-        if (BoardManager.curState == GameState.PlayerPlayPhase){
-                if(bm.discard.Size() < 1 )
-                    return false;
-                return true;
+
+        //Verificação de ambos
+        if (BoardManager.curState == GameState.PlayerPlayPhase || BoardManager.curState == GameState.EnemyPlayPhase)
+        {
+            if (bm.discard.Size() < 1)
+                return false;
+            return true;
         }
 
-        if (BoardManager.curState == GameState.PlayerResponsePhase)
+        if (BoardManager.curState == GameState.PlayerResponsePhase || BoardManager.curState == GameState.EnemyResponsePhase)
             return true;
 
-        if (BoardManager.curState == GameState.PlayerEffectPhase){
+        // Verificação do Player
+        if (BoardManager.curState == GameState.PlayerEffectPhase)
+        {
             if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw)
                 return false;
 
@@ -379,18 +387,10 @@ public class Effect : MonoBehaviour
         
         return true;
         }
-        
+
         // Verificação do Enemy
-        if (BoardManager.curState == GameState.EnemyPlayPhase){
-                if(bm.discard.Size() < 1 )
-                    return false;
-                return true;
-        }
-
-        if (BoardManager.curState == GameState.EnemyResponsePhase)
-            return true;
-
-        if (BoardManager.curState == GameState.EnemyEffectPhase){
+        if (BoardManager.curState == GameState.EnemyEffectPhase)
+        {
             if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw)
                 return false;
 
@@ -410,8 +410,6 @@ public class Effect : MonoBehaviour
         // Verificação do Player
         if (BoardManager.curState == GameState.PlayerResponsePhase)
         {
-            if (bm.bmh.GetEnemyHandSize() <= 0 && bm.bmh.GetPlayerHandSize() <= 1)
-                return false;
             return true;
         }
 
@@ -429,8 +427,6 @@ public class Effect : MonoBehaviour
         // Verificação do Enemy
         if (BoardManager.curState == GameState.EnemyResponsePhase)
         {
-            if (bm.bmh.GetEnemyHandSize() <= 0 && bm.bmh.GetPlayerHandSize() <= 1)
-                return false;
             return true;
         }
 
@@ -446,26 +442,22 @@ public class Effect : MonoBehaviour
         }
 
         return false;
-            
     }
 
     public bool BlackHoleI()
     {
         BoardManager bm = BoardManager.GetBoardManager();
-        // Verificação do Player
-        if (BoardManager.curState == GameState.PlayerResponsePhase)
-        {
-            if (bm.bmh.GetPlayerStandByCount() <= 0 && bm.bmh.GetEnemyStandByCount() <= 0)
-                return false;
-            return true;
-        }
 
+        // Verificação de ambos
+        if (BoardManager.curState == GameState.PlayerResponsePhase || BoardManager.curState == GameState.EnemyResponsePhase)
+            return true;
+
+        // Verificação do Player
         if (BoardManager.curState == GameState.PlayerEffectPhase)
         {
 
-            if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw){
+            if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw)
                 return false;
-            }
 
             if (bm.bmh.GetPlayerStandByCount() <= 0 && bm.bmh.GetEnemyStandByCount() <= 0)
                 return false;
@@ -474,13 +466,6 @@ public class Effect : MonoBehaviour
         }
 
         // Verificação do Enemy
-        if (BoardManager.curState == GameState.EnemyResponsePhase)
-        {
-            if (bm.bmh.GetPlayerStandByCount() <= 0 && bm.bmh.GetEnemyStandByCount() <= 0)
-                return false;
-            return true;
-        }
-
         if (BoardManager.curState == GameState.EnemyEffectPhase){
           
             if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw){
@@ -505,16 +490,12 @@ public class Effect : MonoBehaviour
     public bool EclipseI()
     {
         BoardManager bm = BoardManager.GetBoardManager();
-         // Verificação do Player
-        
-        if (BoardManager.curState == GameState.PlayerResponsePhase)
-        {
-            if (bm.bmh.GetPlayerStandByCount() <= 0 && bm.bmh.GetEnemyStandByCount() <= 0)
-                return false;
 
+        // Verificação de ambos
+        if (BoardManager.curState == GameState.PlayerResponsePhase || BoardManager.curState == GameState.EnemyResponsePhase)
             return true;
-        }
 
+        // Verificação do Player
         if (BoardManager.curState == GameState.PlayerEffectPhase)
         {
 
@@ -529,14 +510,6 @@ public class Effect : MonoBehaviour
         }
 
         // Verificação do Enemy
-        if (BoardManager.curState == GameState.EnemyResponsePhase)
-        {
-            if (bm.bmh.GetPlayerStandByCount() <= 0 && bm.bmh.GetEnemyStandByCount() <= 0)
-                return false;
-
-            return true;
-        }
-
         if (BoardManager.curState == GameState.EnemyEffectPhase){
           
             if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw){
@@ -555,15 +528,11 @@ public class Effect : MonoBehaviour
     public bool FishingRodI()
     {
         BoardManager bm = BoardManager.GetBoardManager();
+        // Verificação de ambos
+        if (BoardManager.curState == GameState.PlayerResponsePhase || BoardManager.curState == GameState.EnemyResponsePhase)
+            return true;
 
         // Verificação do Player
-        if (BoardManager.curState == GameState.PlayerResponsePhase)
-        {
-            if (bm.bmh.GetEnemyHandSize() <= 0)
-                return false;
-            return true;
-        }
-
         if (BoardManager.curState == GameState.PlayerEffectPhase)
         {
             if (BoardManager.curWinCondition == WinCondition.Victory || BoardManager.curWinCondition == WinCondition.Draw)
@@ -576,13 +545,6 @@ public class Effect : MonoBehaviour
         }
 
         // Verificação do Enemy
-        if (BoardManager.curState == GameState.EnemyResponsePhase)
-        {
-            if (bm.bmh.GetPlayerHandSize() <= 0)
-                return false;
-            return true;
-        }
-
         if (BoardManager.curState == GameState.EnemyEffectPhase){
           
             if (BoardManager.curWinCondition == WinCondition.Loss || BoardManager.curWinCondition == WinCondition.Draw){

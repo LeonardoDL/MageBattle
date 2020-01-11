@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random=UnityEngine.Random;
 
+public delegate void DifficultyDecision();
+
 public class EnemyManager : MonoBehaviour
 {
 	[HideInInspector] public List<CardType> hand;
@@ -17,6 +19,8 @@ public class EnemyManager : MonoBehaviour
 	[HideInInspector] public bool isWaiting;
 	[HideInInspector] public Difficulty difficulty;
 
+	private BoardManager bm;
+	private DifficultyDecision PowerOrEffect;
 	private Deck deck;
 	Dictionary<CardType, Power> powers;
 	Dictionary<CardType, Effect> effects;
@@ -57,6 +61,23 @@ public class EnemyManager : MonoBehaviour
 			difficulty = (Difficulty) PlayerPrefs.GetInt("difficulty", 0);
 		else
 			difficulty = Difficulty.Medium;
+
+		switch (difficulty)
+		{
+			case Difficulty.Easy:
+				PowerOrEffect = PowerOrEffectEasy;
+				break;
+
+			case Difficulty.Medium:
+				PowerOrEffect = PowerOrEffectMedium;
+				break;
+
+			default:
+				PowerOrEffect = PowerOrEffectMedium;
+				break;
+		}
+
+		bm = BoardManager.GetBoardManager();
 		//Debug.Log("tutorial is " + tutorial + " and diff is " + difficulty);
 	}
 
@@ -131,18 +152,6 @@ public class EnemyManager : MonoBehaviour
 		CardBuilder cardBuilder = deck.GetCardBuilder();
 		cardBuilder.BuildCard(card, false);
 	}
-
-	// public CardType GetCardRandom()
-	// {  
-		// CardType randomCard;
-
-		// int index = Random.Range(0, hand.Count);
-		// randomCard = hand[index];
-		// hand.RemoveAt(index);
-		// deck.cardBuilder.RemoveCardFromHand(randomCard);
-
-		// return randomCard;
-	// }
 	
 	public CardType GetCardFromHand(CardType c)
 	{  
@@ -224,7 +233,8 @@ public class EnemyManager : MonoBehaviour
 		deck.cardBuilder.RemoveCardFromStandBy(cardType);
 	}
 
-	public bool getJustPlayed() {
+	public bool getJustPlayed()
+    {
 		bool temp = justPlayed;
 		justPlayed = false;
 		return temp;
@@ -280,37 +290,40 @@ public class EnemyManager : MonoBehaviour
 
 			return;
 		}
-		
-		if (difficulty == Difficulty.Easy)
+
+		PowerOrEffect();
+	}
+
+	public void PowerOrEffectEasy()
+	{
+		if (!HasPlayablePowerEasy() && !HasPlayableEffectEasy())
 		{
-			if (!HasPlayablePower() && !HasPlayableEffectEasy())
+			BoardManager.curState = GameState.PlayerEffectPhase;
+			Ipass = true;
+		}
+	}
+
+	public void PowerOrEffectMedium()
+	{
+		if (Random.Range(0, 10) < 5)
+		{
+			if (!HasPlayablePowerMedium() && !HasPlayableEffectMedium())
 			{
-				BoardManager.curState = GameState.PlayerEffectPhase;
+				BoardManager.curState = GameState.PlayerResponsePhase;
 				Ipass = true;
 			}
 		}
 		else
 		{
-			if (Random.Range(0, 10) < 5)
+			if (!HasPlayableEffectMedium() && !HasPlayablePowerMedium())
 			{
-				if (!HasPlayablePower() && !HasPlayableEffectMedium())
-				{
-					BoardManager.curState = GameState.PlayerResponsePhase;
-					Ipass = true;
-				}
-			}
-			else
-			{
-				if (!HasPlayableEffectMedium() && !HasPlayablePower())
-				{
-					BoardManager.curState = GameState.PlayerResponsePhase;
-					Ipass = true;
-				}
+				BoardManager.curState = GameState.PlayerResponsePhase;
+				Ipass = true;
 			}
 		}
 	}
 
-	public bool HasPlayablePower()
+	public bool HasPlayablePowerEasy()
 	{
 		for (int i = 7; i < 33; i++) //Power
 		{
@@ -370,6 +383,13 @@ public class EnemyManager : MonoBehaviour
 		return false;
 	}
 
+	public bool HasPlayablePowerMedium()
+	{
+		if (IsCardOnResponseStack("Power") || IsCardOnResponseStack(CardType.Portal))
+			return false;
+		return HasPlayablePowerEasy();
+	}
+
 	public void PlayPower(CardType cardType)
 	{
 		hand.Remove(cardType);
@@ -419,6 +439,9 @@ public class EnemyManager : MonoBehaviour
 
 				if (effects[(CardType)i].isPlayable())
 				{
+					if (IsCardOnResponseStack((CardType)i, true))
+						return false;
+
 					PlayEffect((CardType)i);
 					return true;
 				}
@@ -445,11 +468,56 @@ public class EnemyManager : MonoBehaviour
 
 	public void PlayResponse()
 	{
+		if (bm == null) bm = BoardManager.GetBoardManager();
+
 		PlayPowerOrEffect();
 		if (Ipass)
 		{
 			BoardManager.curState = GameState.PlayerResolutionPhase;
-			BoardManager.GetBoardManager().Resolve();
+			bm.Resolve();
 		}
+	}
+
+	public bool IsCardOnResponseStack(CardType c)
+	{
+		GameObject[] cards = bm.responseStack.ToArray();
+		for (int i = 0; i < cards.Length; i++)
+			if (cards[i].GetComponent<CardInBoard>().type == c)
+				return true;
+		return false;
+	}
+
+    public bool IsCardOnResponseStack(CardType c, bool own)
+    {
+        GameObject[] cards = bm.responseStack.ToArray();
+        int i;
+
+        if (own) i = (cards.Length % 2 == 0) ? 0 : 1; //If I have to look for my (enemy) card
+        else     i = (cards.Length % 2 == 0) ? 1 : 0; //If I have to look for the player card
+
+        for (; i < cards.Length; i += 2)
+            if (cards[i].GetComponent<CardInBoard>().type == c)
+                return true;
+        return false;
+    }
+
+    public bool IsCardOnResponseStack(string s)
+	{
+		GameObject[] cards = bm.responseStack.ToArray();
+		if (s == "Power")
+		{
+			for (int i = 0; i < cards.Length; i++)
+				if (cards[i].GetComponent<CardInBoard>().execute == null)
+					return true;
+		}
+
+		if (s == "Effect")
+		{
+			for (int i = 0; i < cards.Length; i++)
+				if (cards[i].GetComponent<CardInBoard>().execute != null)
+					return true;
+		}
+
+		return false;
 	}
 }
