@@ -348,11 +348,11 @@ public class BoardManager : MonoBehaviour
 
             case GameState.PlayerResolutionPhase:
 
-                if (card.GetComponentInChildren<CardInBoard>().execute != null)
+                if (cardIB.execute != null)
                 {
                     Debug.Log("Player: Entered Resolution Phase as Effect + " + cardIB.target);
                     Effect.target = cardIB.target;
-                    card.GetComponentInChildren<CardInBoard>().execute(); //Execução do efeito
+                    cardIB.execute(); //Execução do efeito
 
                     do
                         yield return new WaitForEndOfFrame();
@@ -368,7 +368,8 @@ public class BoardManager : MonoBehaviour
 
                     if (responseStack.Count > 0)
                     {
-                        curState = GameState.EnemyResolutionPhase;
+                        //talvez essa op ternária seja gambiarra, not sure
+                        curState = (cardIB.type == CardType.Counterspell) ? GameState.PlayerResolutionPhase : GameState.EnemyResolutionPhase;
                         Resolve();
                         yield break;
                     }
@@ -427,8 +428,7 @@ public class BoardManager : MonoBehaviour
 
                     if (responseStack.Count > 0)
                     {
-                        curState = GameState.PlayerResolutionPhase;
-
+                        curState = (cardIB.type == CardType.Counterspell) ? GameState.EnemyResolutionPhase : GameState.PlayerResolutionPhase;
                         Resolve();
                         yield break;
                     }
@@ -630,7 +630,7 @@ public class BoardManager : MonoBehaviour
 
     public IEnumerator ResolveParallel()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
 
         if (curState == GameState.PlayerResolutionPhase)
             responseStack.Peek().GetComponent<CardInBoard>().Activate(SlotsOnBoard.EffectPlayer);
@@ -666,7 +666,7 @@ public class BoardManager : MonoBehaviour
 
     public void Cancel()
     {
-        if (isInTransition || curState != GameState.PlayerResponsePhase)
+        if (isInTransition || curState != GameState.PlayerResponsePhase || responseStack.Count <= 0)
             return;
 
         Debug.Log("Starting Resolve()");

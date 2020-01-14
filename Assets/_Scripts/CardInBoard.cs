@@ -65,7 +65,17 @@ public class CardInBoard : MonoBehaviour
                 break;
         }
         
-        slot.GetComponent<PlaceCard>().PlaceOnSlot(gameObject);
+        if (transform.parent != null)
+        {
+            GameObject parent = transform.parent.gameObject;
+            transform.SetParent(null);
+            Destroy(parent);
+        }
+
+        if (place == SlotsOnBoard.Stack)
+            slot.GetComponent<PlaceCard>().PlaceOnSlot(gameObject, BoardManager.GetBoardManager().responseStack.Count);
+        else
+            slot.GetComponent<PlaceCard>().PlaceOnSlot(gameObject);
     }
 
     void OnMouseDown()

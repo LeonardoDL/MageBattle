@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnEffect : MonoBehaviour {
 
     public float spawnEffectTime = 2;
-    public float pause = 1;
+    //public float pause = 1;
     public AnimationCurve fadeIn;
 
     ParticleSystem ps;
@@ -29,14 +29,13 @@ public class SpawnEffect : MonoBehaviour {
 	
 	void Update ()
     {
-        if (timer < spawnEffectTime + pause)
+        if (timer < spawnEffectTime + 2f)
         {
             timer += Time.deltaTime;
         }
         else
         {
-            ps.Play();
-            timer = 0;
+            Destroy(gameObject);
         }
 
 

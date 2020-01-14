@@ -13,6 +13,8 @@ public class AnimationManager : MonoBehaviour
     public bool animate = true;
     public float changeSpeed = .15f;
 
+    public GameObject dissolve;
+
     [HideInInspector] public Animator[] animPlayer; //Inicializado no Initialize Board
     [HideInInspector] public Animator[] animEnemy; //Inicializado no Initialize Board
 
@@ -205,5 +207,17 @@ public class AnimationManager : MonoBehaviour
             a.SetLayerWeight(1, Mathf.Lerp(a.GetLayerWeight(1), 1f, changeSpeed * Time.deltaTime));
             a.SetLayerWeight(2, Mathf.Lerp(a.GetLayerWeight(2), 1f, changeSpeed * Time.deltaTime));
         }
+    }
+
+    public void DissolveCard(Vector3 position, CardType c)
+    {
+        GameObject dis = Instantiate(dissolve, position, Quaternion.identity);
+        CardBuilder cb = GameObject.FindWithTag("Deck").GetComponent<CardBuilder>();
+        dis.GetComponent<Renderer>().sharedMaterial.SetTexture("_Detail", cb.GetSprite(c).texture);
+    }
+
+    public void CallDissolve()
+    {
+        DissolveCard(new Vector3(0f, 3f, 2f), CardType.MegaPowerP);
     }
 }

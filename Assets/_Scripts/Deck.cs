@@ -130,6 +130,7 @@ public class Deck : MonoBehaviour
         cards.Push(CardType.BlackHole, 3);
         cards.Push(CardType.Eclipse, 4);
         cards.Push(CardType.FishingRod, 5);
+        cards.Push(CardType.Counterspell, 6);
 
         cards.Shuffle();
     }

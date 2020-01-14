@@ -48,7 +48,8 @@ public enum CardType
     Disintegration,
     BlackHole,
     Eclipse,
-    FishingRod
+    FishingRod,
+    Counterspell
 }
 
 public enum SlotsOnBoard

@@ -502,6 +502,7 @@ public class DevToolsEditor : Editor
         Disintegration,
         BlackHole,
         Eclipse,
-        FishingRod
+        FishingRod,
+        Counterspell
     }
 }

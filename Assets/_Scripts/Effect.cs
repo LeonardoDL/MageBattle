@@ -52,6 +52,10 @@ public class Effect : MonoBehaviour
                 execute = FishingRod;
                 isPlayable = FishingRodI;
             break;
+            case CardType.Counterspell:
+                execute = Counterspell;
+                isPlayable = CounterspellI;
+                break;
         }
     }
 
@@ -286,6 +290,30 @@ public class Effect : MonoBehaviour
         return true;
     }
 
+    public bool Counterspell()
+    {
+        BoardManager bm = BoardManager.GetBoardManager();
+        //Player
+        if (BoardManager.curState == GameState.PlayerResolutionPhase)
+        {
+            GameObject g = BoardManager.GetBoardManager().responseStack.Pop();
+            bm.bmh.DissolveCard(g);
+            return true;
+        }
+
+        //Enemy
+        if (BoardManager.curState == GameState.EnemyResolutionPhase)
+        {
+            GameObject g = BoardManager.GetBoardManager().responseStack.Pop();
+            bm.bmh.DissolveCard(g);
+            return true;
+        }
+
+
+
+        return true;
+    }
+
     public void Selection(bool isPlayer)
     {
         if (isPlayer)
@@ -301,7 +329,7 @@ public class Effect : MonoBehaviour
         BoardManager bm = BoardManager.GetBoardManager();
          // Verificação do Player
         if (BoardManager.curState == GameState.PlayerPlayPhase)
-            return true;
+            return false; //it's false by now
 
         if (BoardManager.curState == GameState.PlayerResponsePhase)
             return true;
@@ -315,7 +343,7 @@ public class Effect : MonoBehaviour
 
         // Verificação do Enemy  
         if (BoardManager.curState == GameState.EnemyPlayPhase)
-            return true;
+            return false; //it's false by now
 
         if (BoardManager.curState == GameState.EnemyResponsePhase)
             return true;
@@ -370,7 +398,7 @@ public class Effect : MonoBehaviour
         {
             if (bm.discard.Size() < 1)
                 return false;
-            return true;
+            return false; //it's false by now
         }
 
         if (BoardManager.curState == GameState.PlayerResponsePhase || BoardManager.curState == GameState.EnemyResponsePhase)
@@ -556,6 +584,15 @@ public class Effect : MonoBehaviour
 
             return true;
         }
+
+        return false;
+    }
+
+    public bool CounterspellI()
+    {
+        // Verificação de ambos
+        if (BoardManager.curState == GameState.PlayerResponsePhase || BoardManager.curState == GameState.EnemyResponsePhase)
+            return true;
 
         return false;
     }

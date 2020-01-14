@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoardManagerHelper : MonoBehaviour
 {
-    private BoardManager bg;
+    private BoardManager bm;
     private Deck deck;
     private Discard discard;
     private GameObject playerHand;
@@ -15,17 +15,17 @@ public class BoardManagerHelper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bg = GetComponent<BoardManager>();
-        bg.SetBoardManagerHelper(this);
+        bm = GetComponent<BoardManager>();
+        bm.SetBoardManagerHelper(this);
     }
 
     public void WaitStart()
     {
-        deck = bg.deck;
-        discard = bg.discard;
-        playerHand = bg.playerHand;
-        playerStandBy = bg.playerStandBy;
-        enemy = bg.enemy;
+        deck = bm.deck;
+        discard = bm.discard;
+        playerHand = bm.playerHand;
+        playerStandBy = bm.playerStandBy;
+        enemy = bm.enemy;
     }
 
     public bool PlayerHasWinnableCard() //This only works for arcana
@@ -73,14 +73,14 @@ public class BoardManagerHelper : MonoBehaviour
             }
             Destroy(t.gameObject);
         }
-        bg.texts[6].text = "" + discard.Size();
-        bg.HideElementsFromAnimation(false);
+        bm.texts[6].text = "" + discard.Size();
+        bm.HideElementsFromAnimation(false);
     }
 
     public void DiscardEnemyHand()
     {
         enemy.DiscardHand();
-        bg.HideElementsFromAnimation(false);
+        bm.HideElementsFromAnimation(false);
     }
 
     // Retorna as cartas de espera do player e as exclui do campo
@@ -223,6 +223,16 @@ public class BoardManagerHelper : MonoBehaviour
     public void ResumeTime()
     {
         timeTarget = 1f;
+    }
+
+    public void DissolveCard(GameObject g)
+    {
+        CardType c = g.GetComponent<CardInBoard>().type;
+        Vector3 pos = g.transform.position;
+        Destroy(g);
+        GetComponent<AnimationManager>().DissolveCard(pos, c);
+        discard.DiscardCard(c);
+        bm.texts[6].text = "" + discard.Size();
     }
 
     void Update()

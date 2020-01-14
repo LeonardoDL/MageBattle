@@ -16,18 +16,6 @@ public class DragObj : MonoBehaviour
         bm = BoardManager.GetBoardManager();
     }
 
-    //void OnMouseDrag()
-    //{
-        //moveCard = true;
-        //if (!enabled)
-        //    return;
-
-        //Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
-        //Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
-
-        //transform.position = objectPos;
-    //}
-
     void Update()
     {
         if (moveCard)
